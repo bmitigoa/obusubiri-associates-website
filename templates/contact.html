@@ -1,0 +1,329 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contact Us | Obusubiri MM & Associates
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5 text-white"
+         style="background:linear-gradient(135deg,#1A2348,#A63EC5);">
+
+<div class="container text-center">
+
+    <h1 class="display-4 fw-bold">
+        Contact Us
+    </h1>
+
+    <p class="lead">
+        Professional Audit, Tax, Advisory and Capacity Building Services
+        for Organisations Across Africa and Beyond.
+    </p>
+
+</div>
+
+</section>
+
+<section class="container py-5">
+
+<div class="row g-4">
+
+    <div class="col-lg-4">
+
+        <div class="card contact-info-card shadow h-100">
+
+            <div class="card-body p-4">
+
+                <h3 class="purple-text mb-4">
+                    Contact Information
+                </h3>
+
+                <div class="d-flex align-items-start mb-4">
+
+                    <div class="contact-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+
+                    <div class="ms-3">
+
+                        <h5>Head Office</h5>
+
+                        <p class="mb-0">
+                            Milele Centre, 2nd Floor<br>
+                            Namanga Road, Kitengela<br>
+                            Kajiado County, Kenya
+                        </p>
+
+                        <small class="text-muted">
+                            Nairobi Metropolitan Area
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex align-items-start mb-4">
+
+                    <div class="contact-icon">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+
+                    <div class="ms-3">
+
+                        <h5>Phone</h5>
+
+                        <p class="mb-0">
+                            +254 712 238 764<br>
+                            +254 733 901 589
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex align-items-start mb-4">
+
+                    <div class="contact-icon">
+                        <i class="bi bi-envelope-fill"></i>
+                    </div>
+
+                    <div class="ms-3">
+
+                        <h5>Email</h5>
+
+                        <p class="mb-0">
+                            info@obusubiriassociates.co.ke
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex align-items-start">
+
+                    <div class="contact-icon">
+                        <i class="bi bi-globe2"></i>
+                    </div>
+
+                    <div class="ms-3">
+
+                        <h5>Global Reach</h5>
+
+                        <p class="mb-0">
+                            Supporting clients across Africa and beyond through professional audit, tax, advisory, tax objections, tax appeals and capacity building services.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-8">
+
+        <div class="card shadow-lg border-0 form-modern">
+
+            <div class="card-body p-5">
+
+                <h3 class="purple-text mb-2">
+                    Send an Inquiry
+                </h3>
+
+                <p class="text-muted mb-4">
+                    Tell us about your needs and our team will respond promptly.
+                </p>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    {% if success %}
+
+                    <div class="alert alert-success">
+
+                        Thank you for contacting Obusubiri MM & Associates.
+                        Your inquiry has been received and our team will contact you shortly.
+
+                    </div>
+
+                    {% endif %}
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">Full Name</label>
+                            {{ form.full_name }}
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">Email Address</label>
+                            {{ form.email }}
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">Phone Number</label>
+                            {{ form.phone_number }}
+
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">Organisation</label>
+                            {{ form.organisation }}
+
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3">
+
+                        <label class="form-label">Service Required</label>
+                        {{ form.service }}
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label class="form-label">Message</label>
+                        {{ form.message }}
+
+                    </div>
+
+                    <button type="submit"
+                            class="btn btn-primary-custom btn-lg">
+
+                        Send Inquiry
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<section class="bg-light py-5">
+
+<div class="container">
+
+    <div class="text-center mb-5">
+
+        <h2 class="purple-text">
+            Why Work With Us?
+        </h2>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card service-card shadow h-100">
+
+                <div class="card-body text-center">
+
+                    <h4>Professional Excellence</h4>
+
+                    <p>
+                        High-quality audit, tax and advisory solutions.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card service-card shadow h-100">
+
+                <div class="card-body text-center">
+
+                    <h4>Responsive Team</h4>
+
+                    <p>
+                        Timely communication and practical support.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card service-card shadow h-100">
+
+                <div class="card-body text-center">
+
+                    <h4>Global Perspective</h4>
+
+                    <p>
+                        Local expertise combined with international standards.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<section class="container py-5">
+
+<div class="card shadow border-0">
+
+    <div class="card-body text-center p-5">
+
+        <h2 class="purple-text">
+            Our Location
+        </h2>
+
+        <p class="lead">
+
+            Milele Centre, 2nd Floor<br>
+            Namanga Road, Kitengela<br>
+            Kajiado County, Kenya
+
+        </p>
+
+        <p>
+
+            Located within the Nairobi Metropolitan Area,
+            serving clients locally, regionally and globally.
+
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+{% endblock %}
