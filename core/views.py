@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.core.mail import send_mail
+
 from .forms import InquiryForm
 
 
@@ -26,7 +28,26 @@ def contact(request):
 
         if form.is_valid():
 
-            form.save()
+            inquiry = form.save()
+
+            send_mail(
+                subject=f"New Website Inquiry - {inquiry.service}",
+                message=f"""
+New inquiry received from the website.
+
+Name: {inquiry.full_name}
+Email: {inquiry.email}
+Phone: {inquiry.phone_number}
+Organisation: {inquiry.organisation}
+Service Required: {inquiry.service}
+
+Message:
+{inquiry.message}
+                """,
+                from_email='info@obusubiriassociates.co.ke',
+                recipient_list=['info@obusubiriassociates.co.ke'],
+                fail_silently=False,
+            )
 
             return render(
                 request,
