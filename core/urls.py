@@ -55,12 +55,36 @@ urlpatterns = [
         name='financial_advisory'
     ),
 
+    path(
+    'services/project-audit/',
+    views.project_audit,
+    name='project_audit'
+    ),
+
+    path(
+    'services/capacity-building/',
+    views.capacity_building,
+    name='capacity_building'
+    ),
+
     # Blog
     path(
         'blog/kra-tax-objection-guide/',
         views.blog_kra_tax_objection,
         name='blog_kra_tax_objection'
     ),
+
+    path(
+    'blog/tax-appeals-tribunal-guide/',
+    views.blog_tax_appeals,
+    name='blog_tax_appeals'
+   ),
+
+   path(
+    'blog/applying-for-tax-exemptions/',
+    views.blog_tax_exemption,
+    name='blog_tax_exemption'
+  ),
 
     path('training/', views.training, name='training'),
     path('contact/', views.contact, name='contact'),

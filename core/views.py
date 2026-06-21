@@ -92,6 +92,35 @@ def internal_audit(request):
         "content": content
     })
 
+def project_audit(request):
+
+    content = """
+    <p>
+    We provide independent project audit services for donor-funded,
+    development and institutional projects to ensure accountability,
+    transparency and compliance with funding requirements.
+    </p>
+
+    <h3>Our Services Include:</h3>
+
+    <ul>
+        <li>Donor-funded project audits</li>
+        <li>Grant compliance reviews</li>
+        <li>Project financial audits</li>
+        <li>Expenditure verification</li>
+        <li>Risk and control assessments</li>
+    </ul>
+    """
+
+    return render(
+        request,
+        "service_detail.html",
+        {
+            "title": "Project Audit Services",
+            "content": content
+        }
+    )
+
 
 def tax_return_filing(request):
     content = """
@@ -147,6 +176,7 @@ def accounting_bookkeeping(request):
     })
 
 
+
 def financial_advisory(request):
     content = """
     <p>We offer financial advisory services designed to improve financial performance and long-term sustainability.</p>
@@ -163,6 +193,35 @@ def financial_advisory(request):
         "title": "Financial Advisory Services",
         "content": content
     })
+
+def capacity_building(request):
+
+    content = """
+    <p>
+    We help organisations strengthen institutional capacity through
+    practical training programmes tailored to governance, finance,
+    taxation and compliance requirements.
+    </p>
+
+    <h3>Our Training Areas Include:</h3>
+
+    <ul>
+        <li>Board governance training</li>
+        <li>Finance for non-finance managers</li>
+        <li>Tax compliance workshops</li>
+        <li>Internal control training</li>
+        <li>Risk management training</li>
+    </ul>
+    """
+
+    return render(
+        request,
+        "service_detail.html",
+        {
+            "title": "Training & Capacity Building",
+            "content": content
+        }
+    )
 
 
 def blog_kra_tax_objection(request):
@@ -185,32 +244,226 @@ def blog_kra_tax_objection(request):
 # =========================
 
 def blog_kra_tax_objection(request):
+
     return render(
         request,
         "service_detail.html",
         {
-            "title": "How to File a Tax Objection with KRA in Kenya",
-            "subtitle": "A practical guide for businesses and organisations.",
+            "title": "Understanding Tax Objections in Kenya",
             "content": """
-            <p>
-            If you disagree with a tax assessment issued by KRA,
-            you have a legal right to lodge a tax objection.
-            </p>
 
-            <p>
-            The objection must be submitted within the timelines
-            provided by tax legislation and supported with relevant
-            documentation.
-            </p>
 
-            <p>
-            Professional guidance can significantly improve the quality
-            of your objection and increase the chances of a successful outcome.
-            </p>
-            """
+<h2>What is a Tax Objection?</h2>
+
+<p>
+A tax objection is a formal process that allows taxpayers to challenge
+a tax assessment issued by the Kenya Revenue Authority (KRA) when they
+believe the assessment is incorrect.
+</p>
+
+<p>
+Businesses, NGOs, institutions and individuals have a legal right
+to dispute assessments that do not accurately reflect their tax position.
+</p>
+
+<h2>Common Reasons for Filing a Tax Objection</h2>
+
+<ul>
+<li>Incorrect tax computations</li>
+<li>Disallowed business expenses</li>
+<li>VAT disputes</li>
+<li>PAYE assessments</li>
+<li>Withholding tax disputes</li>
+<li>Penalty and interest disputes</li>
+</ul>
+
+<h2>Steps in Filing a Tax Objection</h2>
+
+<ol>
+<li>Review the assessment notice carefully.</li>
+<li>Gather supporting documentation.</li>
+<li>Prepare a detailed objection statement.</li>
+<li>Submit the objection through the iTax platform.</li>
+<li>Respond promptly to any KRA requests for clarification.</li>
+</ol>
+
+<h2>Importance of Professional Guidance</h2>
+
+<p>
+Tax disputes can have significant financial implications for an
+organisation. Proper documentation, strong technical arguments and
+timely responses greatly improve the chances of a successful outcome.
+</p>
+
+<p>
+Professional tax advisors help organisations analyse assessments,
+prepare supporting evidence and communicate effectively with KRA.
+</p>
+
+<h2>How Obusubiri MM & Associates Can Help</h2>
+
+<p>
+Our tax specialists assist organisations in reviewing tax assessments,
+preparing professional objections, compiling evidence and representing
+clients during engagements with KRA.
+</p>
+
+<div class="alert alert-light border-start border-4 border-warning mt-4">
+<strong>Need assistance?</strong>
+Contact our team today for professional tax objection support.
+</div>
+
+"""
         }
     )
 
+def blog_tax_appeals(request):
+
+    return render(
+        request,
+        "service_detail.html",
+        {
+            "title": "Tax Appeals Tribunal Guide",
+            "content": """
+
+<h2>Introduction</h2>
+
+<p>
+The Tax Appeals Tribunal (TAT) is an independent body established under Kenyan law to hear and determine tax disputes between taxpayers and the Kenya Revenue Authority (KRA).
+</p>
+
+<p>
+The Tribunal provides taxpayers with an opportunity to challenge objection decisions issued by KRA through a structured and legally recognised process.
+</p>
+
+<h2>When Should a Taxpayer Appeal?</h2>
+
+<p>
+A taxpayer may file an appeal when they are dissatisfied with the objection decision issued by KRA after lodging a tax objection.
+</p>
+
+<p>
+The appeal process allows taxpayers to present facts, evidence and legal arguments supporting their position before an independent Tribunal.
+</p>
+
+<h2>Documents Commonly Required</h2>
+
+<ul>
+<li>Notice of Appeal</li>
+<li>Statement of Facts</li>
+<li>Copy of KRA Assessment</li>
+<li>Copy of Objection Decision</li>
+<li>Supporting Financial Documentation</li>
+<li>Relevant Tax Correspondence</li>
+</ul>
+
+<h2>Importance of Proper Preparation</h2>
+
+<p>
+Tax appeals often involve technical tax legislation, financial records and procedural requirements. Inadequate preparation may weaken a taxpayer's case and affect the outcome of the appeal.
+</p>
+
+<p>
+Professional support helps ensure that submissions are properly documented, timelines are met and legal arguments are effectively presented.
+</p>
+
+<h2>Benefits of Professional Representation</h2>
+
+<ul>
+<li>Improved case preparation</li>
+<li>Reduced procedural errors</li>
+<li>Professional documentation</li>
+<li>Strategic tax advice</li>
+<li>Effective engagement with tax authorities</li>
+</ul>
+
+<h2>How Obusubiri MM & Associates Can Help</h2>
+
+<p>
+We assist businesses, NGOs and institutions in preparing appeal documentation, analysing tax assessments, compiling supporting evidence and navigating the Tax Appeals Tribunal process.
+</p>
+
+<p>
+Our goal is to help clients pursue fair outcomes while maintaining compliance with applicable tax laws and regulations.
+</p>
+
+"""
+        }
+    )
+
+def blog_tax_exemption(request):
+
+    return render(
+        request,
+        "service_detail.html",
+        {
+            "title": "Applying for Tax Exemptions in Kenya",
+            "content": """
+
+<h2>Introduction</h2>
+
+<p>
+Tax exemptions provide qualifying organisations with an opportunity to reduce their tax obligations and direct more resources towards achieving their objectives.
+</p>
+
+<p>
+In Kenya, certain organisations including NGOs, charitable institutions, religious organisations and public benefit entities may qualify for tax exemptions subject to approval by the Kenya Revenue Authority (KRA).
+</p>
+
+<h2>Who May Qualify for Tax Exemptions?</h2>
+
+<p>
+Eligibility for tax exemption depends on the nature of an organisation and the activities it undertakes.
+</p>
+
+<p>
+Organisations that operate for charitable, educational, religious, humanitarian or public benefit purposes may qualify for consideration under applicable tax laws.
+</p>
+
+<h2>Documents Commonly Required</h2>
+
+<ul>
+<li>Certificate of Registration or Incorporation</li>
+<li>Organisation Constitution or Governing Documents</li>
+<li>Audited Financial Statements</li>
+<li>Evidence of Charitable or Public Benefit Activities</li>
+<li>Project Reports and Supporting Documentation</li>
+<li>Compliance and Regulatory Documents</li>
+</ul>
+
+<h2>Importance of Proper Preparation</h2>
+
+<p>
+Applications for tax exemption require careful preparation and adequate supporting documentation.
+</p>
+
+<p>
+Proper preparation helps demonstrate that an organisation satisfies the eligibility requirements and operates in accordance with applicable regulations.
+</p>
+
+<h2>Benefits of Tax Exemption</h2>
+
+<ul>
+<li>Reduced tax obligations</li>
+<li>Improved financial sustainability</li>
+<li>Increased resources for programme activities</li>
+<li>Enhanced donor confidence</li>
+<li>Strengthened regulatory compliance</li>
+</ul>
+
+<h2>How Obusubiri MM & Associates Can Help</h2>
+
+<p>
+We assist NGOs, charitable organisations, religious institutions and other qualifying entities throughout the tax exemption application process.
+</p>
+
+<p>
+Our services include eligibility assessments, document reviews, application preparation, compliance evaluations and professional support during engagements with relevant authorities.
+</p>
+
+"""
+        }
+    )
 
 def training(request):
     return render(request, 'training.html')
