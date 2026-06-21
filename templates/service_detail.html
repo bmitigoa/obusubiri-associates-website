@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ title }} | Obusubiri MM & Associates
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5 text-white"
+         style="background:linear-gradient(rgba(26,35,72,.92),rgba(166,62,197,.85));">
+
+```
+<div class="container text-center">
+
+    <h1 class="display-4 fw-bold">
+        {{ title }}
+    </h1>
+
+    <p class="lead">
+        Professional solutions tailored to your organisation's needs.
+    </p>
+
+</div>
+```
+
+</section>
+
+<section class="container py-5">
+
+```
+<div class="row justify-content-center">
+
+    <div class="col-lg-10">
+
+        {{ content|safe }}
+
+        <div class="text-center mt-5">
+
+            <a href="/contact/"
+               class="btn btn-warning btn-lg">
+
+                Request Consultation
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</section>
+
+{% endblock %}

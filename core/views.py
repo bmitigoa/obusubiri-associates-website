@@ -15,6 +15,97 @@ def about(request):
 def services(request):
     return render(request, 'services.html')
 
+def tax_objections(request):
+
+    content = """
+    <h2>Tax Objections & Appeals</h2>
+
+    <p>
+    We assist businesses, NGOs and institutions in challenging
+    incorrect tax assessments issued by the Kenya Revenue Authority (KRA).
+    </p>
+
+    <p>
+    Our team supports clients in preparing objections,
+    compiling supporting documentation, responding to KRA,
+    and representing clients before the Tax Appeals Tribunal.
+    </p>
+
+    <h3>Our Services Include:</h3>
+
+    <ul>
+        <li>Tax objection preparation</li>
+        <li>Tax dispute resolution</li>
+        <li>Appeals before the Tax Appeals Tribunal</li>
+        <li>Tax compliance reviews</li>
+    </ul>
+    """
+
+    return render(
+        request,
+        "service_detail.html",
+        {
+            "title": "Tax Objections & Appeals",
+            "content": content
+        }
+    )
+
+
+def tax_advisory(request):
+
+    content = """
+    <h2>Tax Advisory Services</h2>
+
+    <p>
+    We provide strategic tax planning and compliance advice
+    to organisations across Kenya.
+    </p>
+
+    <ul>
+        <li>Corporate tax planning</li>
+        <li>VAT advisory</li>
+        <li>PAYE compliance</li>
+        <li>Tax risk assessments</li>
+    </ul>
+    """
+
+    return render(
+        request,
+        "service_detail.html",
+        {
+            "title": "Tax Advisory Services",
+            "content": content
+        }
+    )
+
+
+def external_audit(request):
+
+    content = """
+    <h2>External Audit Services</h2>
+
+    <p>
+    Independent audit services that enhance transparency,
+    accountability and stakeholder confidence.
+    </p>
+
+    <ul>
+        <li>NGO audits</li>
+        <li>Company audits</li>
+        <li>Donor-funded project audits</li>
+        <li>Statutory audits</li>
+    </ul>
+    """
+
+    return render(
+        request,
+        "service_detail.html",
+        {
+            "title": "External Audit Services",
+            "content": content
+        }
+    )
+
 
 def training(request):
     return render(request, 'training.html')
