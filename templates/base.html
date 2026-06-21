@@ -61,17 +61,20 @@
         .hero{
             background:
             linear-gradient(
-                rgba(15,25,60,.78),
-                rgba(15,25,60,.78)
+            rgba(15,25,60,.78),
+            rgba(15,25,60,.78)
             ),
-            url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40');
+            url("{% static 'images/hero-africa.jpg' %}");
 
             background-size:cover;
             background-position:center;
+            background-repeat:no-repeat;
+
             min-height:85vh;
 
             display:flex;
             align-items:center;
+            justify-content:center;
 
             color:white;
         }
