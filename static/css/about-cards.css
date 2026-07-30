@@ -261,6 +261,124 @@
 }
 
 /* ============================================================
+   MANAGING PARTNER CARD  — dark navy premium card
+   ============================================================ */
+
+.partner-card {
+    background: #1A2348;
+    border-radius: 16px;
+    border: none;
+    padding: 48px 36px 44px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(26, 35, 72, 0.22);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Gold top accent bar */
+.partner-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #D4AF37;
+}
+
+/* Subtle radial glow in corner */
+.partner-card::after {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(166, 62, 197, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.partner-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 56px rgba(26, 35, 72, 0.32);
+}
+
+.partner-icon-badge {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #D4AF37, #f0c85a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    flex-shrink: 0;
+}
+
+.partner-icon-badge i {
+    font-size: 32px;
+    color: #1A2348;
+}
+
+.partner-eyebrow {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.partner-card-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.partner-card-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #D4AF37;
+    margin-bottom: 8px;
+}
+
+.partner-card-credentials {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 18px;
+    font-style: italic;
+}
+
+.partner-card-text {
+    font-size: 0.975rem;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.65;
+    margin: 0;
+}
+
+@media (max-width: 767px) {
+    .partner-card {
+        padding: 36px 24px 32px;
+        margin-bottom: 8px;
+    }
+
+    .partner-icon-badge {
+        width: 64px;
+        height: 64px;
+    }
+
+    .partner-icon-badge i {
+        font-size: 26px;
+    }
+}
+
+/* ============================================================
    STATISTICS  — dark navy premium cards with icon badges
    ============================================================ */
 
