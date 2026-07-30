@@ -170,6 +170,58 @@ class ExportInquiriesCSVTests(TestCase):
         self.assertEqual(row[6], 'Normal')
 
 
+class ServiceAreaMapConsistencyTests(TestCase):
+    """System-check level tests: SERVICE_AREA_MAP must cover every SERVICE_CHOICES value."""
+
+    def test_every_service_choice_is_in_service_area_map(self):
+        """Every value in SERVICE_CHOICES must appear in at least one SERVICE_AREA_MAP entry.
+
+        Failing here means a service would silently disappear from the contact
+        form for visitors who have a service area pre-selected.
+        """
+        all_mapped_services = {
+            service
+            for services in Inquiry.SERVICE_AREA_MAP.values()
+            for service in services
+        }
+        missing = [
+            value
+            for value, _label in Inquiry.SERVICE_CHOICES
+            if value not in all_mapped_services
+        ]
+        self.assertEqual(
+            missing,
+            [],
+            msg=(
+                f"The following SERVICE_CHOICES values are not listed in any "
+                f"SERVICE_AREA_MAP entry: {missing}. Add them to at least one "
+                f"area in Inquiry.SERVICE_AREA_MAP."
+            ),
+        )
+
+    def test_service_area_map_contains_no_unknown_services(self):
+        """Every service listed inside SERVICE_AREA_MAP must be a valid SERVICE_CHOICES value.
+
+        Stale or misspelled entries in SERVICE_AREA_MAP would never be shown to
+        users but indicate a data-integrity problem worth catching early.
+        """
+        valid_services = {value for value, _label in Inquiry.SERVICE_CHOICES}
+        unknown = [
+            service
+            for services in Inquiry.SERVICE_AREA_MAP.values()
+            for service in services
+            if service not in valid_services
+        ]
+        self.assertEqual(
+            unknown,
+            [],
+            msg=(
+                f"SERVICE_AREA_MAP references services not in SERVICE_CHOICES: "
+                f"{unknown}. Remove or correct these entries."
+            ),
+        )
+
+
 class SafeCSVValueTests(TestCase):
     """Unit tests for the _safe_csv_value helper."""
 
