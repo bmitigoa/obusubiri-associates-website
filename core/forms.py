@@ -37,6 +37,21 @@ class InquiryForm(forms.ModelForm):
         else:
             self.fields['service'].choices = list(Inquiry.SERVICE_CHOICES)
 
+    def clean(self):
+        cleaned_data = super().clean()
+        service_area = cleaned_data.get('service_area')
+        service = cleaned_data.get('service')
+
+        if service_area and service_area in Inquiry.SERVICE_AREA_MAP:
+            allowed = Inquiry.SERVICE_AREA_MAP[service_area]
+            if service and service not in allowed:
+                self.add_error(
+                    'service',
+                    'The selected service is not available under the chosen service area.'
+                )
+
+        return cleaned_data
+
     class Meta:
         model = Inquiry
 
