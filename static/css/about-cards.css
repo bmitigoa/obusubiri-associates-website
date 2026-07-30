@@ -362,10 +362,23 @@
     margin: 0;
 }
 
+/* Stacked layout (tablet and below): card needs top spacing when it falls
+   beneath the "Who We Are" text column (col-lg-6 stacks below 992px) */
+@media (max-width: 991px) {
+    .partner-card {
+        margin-top: 32px;
+    }
+}
+
 @media (max-width: 767px) {
     .partner-card {
         padding: 36px 24px 32px;
+        margin-top: 24px;
         margin-bottom: 8px;
+    }
+
+    .partner-card-title {
+        font-size: 1.4rem;
     }
 
     .partner-icon-badge {
