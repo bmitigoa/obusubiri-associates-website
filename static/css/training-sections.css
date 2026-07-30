@@ -16,6 +16,41 @@
 }
 
 /* ============================================================
+   INTRO LEFT COLUMN — visual lift to pair with the wy-card
+   ============================================================ */
+
+/* Thin gold rule beneath the heading */
+.ti-divider {
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, #D4AF37, #A63EC5);
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+
+/* Lead paragraph — slightly larger weight */
+.ti-lead {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Pull-quote with gold left border */
+.ti-pullquote {
+    margin: 0;
+    padding: 14px 20px;
+    border-left: 4px solid #D4AF37;
+    background: #faf8ff;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.92rem;
+    font-style: normal;
+    color: #1A2348;
+    line-height: 1.65;
+    font-weight: 500;
+}
+
+/* ============================================================
    WHY OUR TRAINING?  — branded intro card
    ============================================================ */
 
