@@ -656,7 +656,106 @@ Our services include eligibility assessments, document reviews, application prep
     )
 
 def training(request):
-    return render(request, 'training.html')
+    sp_panels = [
+        {
+            'number': '01',
+            'title': 'Board Governance',
+            'image': 'images/sp-capacity.jpg',
+            'image_alt': 'Capacity building workshop session in East Africa',
+            'desc': (
+                'Equipping board members and senior leaders with the governance '
+                'knowledge, tools and frameworks to fulfil their oversight '
+                'responsibilities effectively.'
+            ),
+            'items': [
+                'Roles and responsibilities of board members',
+                'Board oversight and accountability',
+                'Strategic planning for boards',
+                'Board-management relations',
+                'Governance best practices for NGOs and SACCOs',
+                'Risk oversight and compliance',
+            ],
+            'cta_text': 'Request this Programme',
+            'cta_url': '/contact/',
+        },
+        {
+            'number': '02',
+            'title': 'Finance for Non-Finance Managers',
+            'image': 'images/sp-capacity.jpg',
+            'image_alt': 'Capacity building workshop session in East Africa',
+            'desc': (
+                'Practical financial literacy training that enables programme '
+                'managers, project officers and non-finance staff to read, '
+                'interpret and use financial information confidently.'
+            ),
+            'items': [
+                'Understanding financial statements',
+                'Budget monitoring and variance analysis',
+                'Internal controls and accountability',
+                'Cash flow concepts for managers',
+                'Donor reporting and compliance',
+                'Cost management and value for money',
+            ],
+            'cta_text': 'Request this Programme',
+            'cta_url': '/contact/',
+        },
+        {
+            'number': '03',
+            'title': 'Tax Compliance',
+            'image': 'images/sp-capacity.jpg',
+            'image_alt': 'Capacity building workshop session in East Africa',
+            'desc': (
+                'Hands-on workshops that build staff capacity to meet tax '
+                'obligations accurately and on time — reducing risk and '
+                'strengthening regulatory compliance across the organisation.'
+            ),
+            'items': [
+                'Corporate tax obligations and filing',
+                'VAT registration, returns and compliance',
+                'PAYE and payroll tax management',
+                'Withholding tax requirements',
+                'Tax exemptions for NGOs and charities',
+                'iTax platform and KRA engagement',
+            ],
+            'cta_text': 'Request this Programme',
+            'cta_url': '/contact/',
+        },
+        {
+            'number': '04',
+            'title': 'Risk Management',
+            'image': 'images/sp-capacity.jpg',
+            'image_alt': 'Capacity building workshop session in East Africa',
+            'desc': (
+                'Structured training that helps organisations identify, assess '
+                'and manage risks — building a culture of proactive risk '
+                'awareness and resilient internal controls.'
+            ),
+            'items': [
+                'Enterprise risk management frameworks',
+                'Risk identification and assessment',
+                'Risk registers and reporting',
+                'Internal control design and review',
+                'Fraud prevention and detection',
+                'Business continuity planning',
+            ],
+            'cta_text': 'Request this Programme',
+            'cta_url': '/contact/',
+        },
+    ]
+    return render(request, 'training.html', {
+        'sp_id': 'training-programmes',
+        'sp_label': 'Programme Topics',
+        'sp_heading': 'Training Programmes That Build Lasting Capability',
+        'sp_intro': (
+            'Our programmes combine practical content, experienced facilitators '
+            'and interactive delivery to give participants skills they can apply '
+            'immediately within their organisations.'
+        ),
+        'sp_alt_bg': False,
+        'sp_flip': False,
+        'sp_badge_label': 'Training',
+        'sp_panels': sp_panels,
+    })
 
 
 def contact(request):

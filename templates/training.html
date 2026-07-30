@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
 Training & Capacity Building | Obusubiri & Associates
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/sticky-panels.css' %}">
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/sticky-panels.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -98,147 +108,9 @@ Training & Capacity Building | Obusubiri & Associates
 
 </section>
 
-<!-- TRAINING AREAS -->
+<!-- TRAINING PROGRAMMES — STICKY PANELS -->
 
-<section class="bg-light py-5">
-
-
-<div class="container">
-
-    <div class="text-center mb-5">
-
-        <h2 class="purple-text">
-            Training Areas
-        </h2>
-
-        <p class="lead">
-            Professional development programs tailored to organisational needs.
-        </p>
-
-    </div>
-
-    <div class="row">
-
-        <div class="col-md-4 mb-4">
-
-            <div class="card service-card shadow h-100">
-
-                <div class="card-body text-center">
-
-                    <h4>Financial Management</h4>
-
-                    <p>
-                        Budgeting, financial reporting,
-                        internal controls and accountability.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="col-md-4 mb-4">
-
-            <div class="card service-card shadow h-100">
-
-                <div class="card-body text-center">
-
-                    <h4>Governance & Leadership</h4>
-
-                    <p>
-                        Board governance, leadership development
-                        and strategic management.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="col-md-4 mb-4">
-
-            <div class="card service-card shadow h-100">
-
-                <div class="card-body text-center">
-
-                    <h4>Internal Audit</h4>
-
-                    <p>
-                        Internal audit practices,
-                        risk assessment and assurance.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="col-md-4 mb-4">
-
-            <div class="card service-card shadow h-100">
-
-                <div class="card-body text-center">
-
-                    <h4>Risk Management</h4>
-
-                    <p>
-                        Enterprise risk management,
-                        compliance and control frameworks.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="col-md-4 mb-4">
-
-            <div class="card service-card shadow h-100">
-
-                <div class="card-body text-center">
-
-                    <h4>Tax Compliance</h4>
-
-                    <p>
-                        Tax planning, compliance,
-                        filing obligations and updates.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="col-md-4 mb-4">
-
-            <div class="card service-card shadow h-100">
-
-                <div class="card-body text-center">
-
-                    <h4>Accounting Systems</h4>
-
-                    <p>
-                        Accounting software, financial systems
-                        and reporting processes.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-</section>
+{% include 'components/sticky_panels.html' %}
 
 <!-- WHO WE TRAIN -->
 
