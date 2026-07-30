@@ -41,6 +41,8 @@ class Inquiry(models.Model):
         default='',
     )
 
+    programme = models.CharField(max_length=200, blank=True, default='')
+
     message = models.TextField()
 
     created_at = models.DateTimeField(auto_now_add=True)

@@ -34,5 +34,6 @@ class InquiryForm(forms.ModelForm):
             'organisation',
             'service_area',
             'service',
+            'programme',
             'message'
         ]

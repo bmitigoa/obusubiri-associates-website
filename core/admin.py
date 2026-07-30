@@ -9,6 +9,7 @@ class InquiryAdmin(admin.ModelAdmin):
         'full_name',
         'organisation',
         'service',
+        'programme',
         'email',
         'created_at'
     )
