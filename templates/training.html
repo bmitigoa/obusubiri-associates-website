@@ -145,61 +145,15 @@ Training & Capacity Building | Obusubiri & Associates
 
     <div class="wt-grid">
 
+        {% for tile in who_we_train %}
         <div class="wt-tile">
             <div class="wt-icon-badge">
-                <i class="bi bi-people-fill"></i>
+                <i class="{{ tile.icon }}"></i>
             </div>
-            <span class="wt-tile-label">NGOs &amp; Development Partners</span>
-            <p class="wt-tile-desc">Governance, financial management and compliance training for civil society organisations and their implementing partners.</p>
+            <span class="wt-tile-label">{{ tile.label }}</span>
+            <p class="wt-tile-desc">{{ tile.desc }}</p>
         </div>
-
-        <div class="wt-tile">
-            <div class="wt-icon-badge">
-                <i class="bi bi-building-fill"></i>
-            </div>
-            <span class="wt-tile-label">Government Institutions</span>
-            <p class="wt-tile-desc">Public financial management, accountability and performance improvement programmes for ministries, departments and agencies.</p>
-        </div>
-
-        <div class="wt-tile">
-            <div class="wt-icon-badge">
-                <i class="bi bi-heart-fill"></i>
-            </div>
-            <span class="wt-tile-label">Faith-Based Organisations</span>
-            <p class="wt-tile-desc">Stewardship, internal controls and organisational governance tailored to the structure and values of faith-based bodies.</p>
-        </div>
-
-        <div class="wt-tile">
-            <div class="wt-icon-badge">
-                <i class="bi bi-mortarboard-fill"></i>
-            </div>
-            <span class="wt-tile-label">Educational Institutions</span>
-            <p class="wt-tile-desc">Financial oversight, compliance and institutional strengthening for schools, colleges and universities.</p>
-        </div>
-
-        <div class="wt-tile">
-            <div class="wt-icon-badge">
-                <i class="bi bi-cash-stack"></i>
-            </div>
-            <span class="wt-tile-label">SACCOs &amp; Cooperatives</span>
-            <p class="wt-tile-desc">Credit management, regulatory compliance and sound governance practices for savings and credit cooperative organisations.</p>
-        </div>
-
-        <div class="wt-tile">
-            <div class="wt-icon-badge">
-                <i class="bi bi-briefcase-fill"></i>
-            </div>
-            <span class="wt-tile-label">Boards of Directors</span>
-            <p class="wt-tile-desc">Strategic oversight, fiduciary responsibilities and board effectiveness for directors across all sectors.</p>
-        </div>
-
-        <div class="wt-tile">
-            <div class="wt-icon-badge">
-                <i class="bi bi-graph-up-arrow"></i>
-            </div>
-            <span class="wt-tile-label">Private Sector Organisations</span>
-            <p class="wt-tile-desc">Corporate governance, risk management and internal audit capacity building for businesses seeking sustainable growth.</p>
-        </div>
+        {% endfor %}
 
     </div>
 
