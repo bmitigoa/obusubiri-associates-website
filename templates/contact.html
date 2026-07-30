@@ -194,11 +194,35 @@ Contact Us | Obusubiri MM & Associates
 
                     {% if success %}
 
-                    <div class="alert alert-success">
+                    <div class="alert alert-success mb-3">
+                        <h5 class="alert-heading mb-1">Enquiry received — thank you{% if submitted_name %}, {{ submitted_name }}{% endif %}!</h5>
+                        <p class="mb-0">Our team will be in touch with you shortly.</p>
+                    </div>
 
-                        Thank you for contacting Obusubiri MM & Associates.
-                        Your inquiry has been received and our team will contact you shortly.
-
+                    <div class="card border-0 bg-light mb-4">
+                        <div class="card-body">
+                            <h6 class="card-title text-muted text-uppercase small fw-semibold mb-3">Enquiry Summary</h6>
+                            <dl class="mb-0">
+                                {% if submitted_service %}
+                                <div class="d-flex gap-2 mb-1">
+                                    <dt class="fw-normal text-muted" style="min-width:7rem;">Service</dt>
+                                    <dd class="mb-0 fw-semibold">{{ submitted_service }}</dd>
+                                </div>
+                                {% endif %}
+                                {% if submitted_service_area %}
+                                <div class="d-flex gap-2 mb-1">
+                                    <dt class="fw-normal text-muted" style="min-width:7rem;">Service area</dt>
+                                    <dd class="mb-0 fw-semibold">{{ submitted_service_area }}</dd>
+                                </div>
+                                {% endif %}
+                                {% if submitted_programme %}
+                                <div class="d-flex gap-2 mb-1">
+                                    <dt class="fw-normal text-muted" style="min-width:7rem;">Programme</dt>
+                                    <dd class="mb-0 fw-semibold">{{ submitted_programme }}</dd>
+                                </div>
+                                {% endif %}
+                            </dl>
+                        </div>
                     </div>
 
                     {% endif %}

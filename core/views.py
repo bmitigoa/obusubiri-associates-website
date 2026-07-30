@@ -1016,6 +1016,10 @@ Message:
                 {
                     'form': InquiryForm(),
                     'success': True,
+                    'submitted_name': form.cleaned_data.get('full_name', ''),
+                    'submitted_service': form.cleaned_data.get('service', ''),
+                    'submitted_service_area': service_area,
+                    'submitted_programme': programme,
                     'service_area_map_json': service_area_map_json,
                     'all_service_choices': all_service_choices,
                 }
