@@ -222,6 +222,47 @@ class ServiceAreaMapConsistencyTests(TestCase):
         )
 
 
+class WhoWeTrainTileIntegrityTests(TestCase):
+    """Sanity-check every 'Who We Train' tile in the training view."""
+
+    def _get_who_we_train(self):
+        from core.views import training
+        from django.test import RequestFactory
+        factory = RequestFactory()
+        request = factory.get('/training/')
+        response = training(request)
+        # Pull the list directly from the view context
+        response = self.client.get(reverse('training'))
+        return response.context['who_we_train']
+
+    def test_every_tile_has_non_empty_icon(self):
+        """Each tile must carry a non-empty icon string (Bootstrap Icons class)."""
+        tiles = self._get_who_we_train()
+        for tile in tiles:
+            self.assertTrue(
+                tile.get('icon', '').strip(),
+                msg=f"Tile '{tile.get('label', '<unknown>')}' has a missing or blank icon.",
+            )
+
+    def test_every_tile_has_non_empty_label(self):
+        """Each tile must carry a non-empty label string."""
+        tiles = self._get_who_we_train()
+        for tile in tiles:
+            self.assertTrue(
+                tile.get('label', '').strip(),
+                msg="A tile has a missing or blank label.",
+            )
+
+    def test_every_tile_has_non_empty_desc(self):
+        """Each tile must carry a non-empty description string."""
+        tiles = self._get_who_we_train()
+        for tile in tiles:
+            self.assertTrue(
+                tile.get('desc', '').strip(),
+                msg=f"Tile '{tile.get('label', '<unknown>')}' has a missing or blank desc.",
+            )
+
+
 class SafeCSVValueTests(TestCase):
     """Unit tests for the _safe_csv_value helper."""
 
