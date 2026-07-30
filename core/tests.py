@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 from django.test import TestCase
 from django.urls import reverse
 from django.core import mail
@@ -64,3 +66,12 @@ class ContactFormProgrammeTests(TestCase):
         response = self.client.get(reverse('contact'))
         self.assertEqual(response.status_code, 200)
         self.assertNotContains(response, 'training programme')
+
+    def test_mail_failure_still_returns_success_page(self):
+        """If the mail backend raises an exception the view must still return
+        the success page — the inquiry is already saved to the database."""
+        with patch('core.views.send_mail', side_effect=Exception('SMTP unavailable')):
+            response = self.client.post(reverse('contact'), self.BASE_POST)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.context['success'])

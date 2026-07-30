@@ -1,8 +1,12 @@
 import json
+import logging
+
 from django.shortcuts import render
 from django.core.mail import send_mail
 
 from .forms import InquiryForm
+
+logger = logging.getLogger(__name__)
 
 
 def home(request):
@@ -991,9 +995,10 @@ def contact(request):
             programme_line = f"\nProgramme Requested: {programme}" if programme else ""
             service_area_line = f"\nService Area: {service_area}" if service_area else ""
 
-            send_mail(
-                subject=f"New Website Inquiry - {inquiry.service}",
-                message=f"""
+            try:
+                send_mail(
+                    subject=f"New Website Inquiry - {inquiry.service}",
+                    message=f"""
 New inquiry received from the website.
 
 Name: {inquiry.full_name}
@@ -1004,11 +1009,17 @@ Service Required: {inquiry.service}{service_area_line}{programme_line}
 
 Message:
 {inquiry.message}
-                """,
-                from_email='info@obusubiriassociates.co.ke',
-                recipient_list=['info@obusubiriassociates.co.ke'],
-                fail_silently=False,
-            )
+                    """,
+                    from_email='info@obusubiriassociates.co.ke',
+                    recipient_list=['info@obusubiriassociates.co.ke'],
+                    fail_silently=False,
+                )
+            except Exception:
+                logger.warning(
+                    "Failed to send enquiry notification email for inquiry pk=%s",
+                    inquiry.pk,
+                    exc_info=True,
+                )
 
             return render(
                 request,
