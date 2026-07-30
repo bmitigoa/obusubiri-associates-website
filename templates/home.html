@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
 Home | Obusubiri & Associates
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/sticky-panels.css' %}">
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/sticky-panels.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -198,65 +208,8 @@ Home | Obusubiri & Associates
 
 </section>
 
-<!-- SERVICES -->
-
-<section class="container py-5">
-
-
-<div class="text-center mb-5">
-
-    <h2 class="purple-text">
-        Our Core Services
-    </h2>
-
-    <p class="lead">
-        Professional solutions tailored to organisational needs.
-    </p>
-
-</div>
-
-<div class="row">
-
-    <div class="col-md-3 mb-4">
-        <div class="card service-card shadow h-100">
-            <div class="card-body text-center">
-                <i class="bi bi-clipboard-data service-icon"></i>
-                <h5>External Audit</h5>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 mb-4">
-        <div class="card service-card shadow h-100">
-            <div class="card-body text-center">
-                <i class="bi bi-search service-icon"></i>
-                <h5>Internal Audit</h5>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 mb-4">
-        <div class="card service-card shadow h-100">
-            <div class="card-body text-center">
-                <i class="bi bi-graph-up-arrow service-icon"></i>
-                <h5>Financial Advisory</h5>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 mb-4">
-        <div class="card service-card shadow h-100">
-            <div class="card-body text-center">
-                <i class="bi bi-calculator service-icon"></i>
-                <h5>Tax Advisory</h5>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
-</section>
+<!-- SERVICES — sticky panels component -->
+{% include 'components/sticky_panels.html' %}
 
 <!-- INDUSTRIES -->
 

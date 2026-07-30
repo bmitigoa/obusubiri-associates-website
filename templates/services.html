@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 Our Services | Obusubiri MM & Associates
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/sticky-panels.css' %}">
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/sticky-panels.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -23,188 +32,8 @@ Our Services | Obusubiri MM & Associates
 
 </section>
 
-<section class="container py-5">
-
-    <div class="text-center mb-5">
-
-        <h2 class="purple-text">
-            What We Do
-        </h2>
-
-        <p class="lead">
-            Professional solutions designed to strengthen governance,
-            accountability, compliance and organisational performance.
-        </p>
-
-    </div>
-
-    <div class="row">
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-shield-check service-icon"></i>
-                    <h4 class="purple-text">External Audit</h4>
-                    <p>
-                        Independent assurance services that build confidence among stakeholders.
-                    </p>
-                    <a href="/services/external-audit/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-search service-icon"></i>
-                    <h4 class="purple-text">Internal Audit</h4>
-                    <p>
-                        Strengthening controls, governance and risk management systems.
-                    </p>
-                    <a href="/services/internal-audit/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-clipboard-data service-icon"></i>
-                    <h4 class="purple-text">Project Audit</h4>
-                    <p>
-                        Independent reviews of donor-funded and development projects.
-                    </p>
-                    <a href="/services/project-audit/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-calculator service-icon"></i>
-                    <h4 class="purple-text">Tax Advisory</h4>
-                    <p>
-                        Strategic tax planning and compliance support for organisations.
-                    </p>
-                    <a href="/services/tax-advisory/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-file-earmark-text service-icon"></i>
-                    <h4 class="purple-text">Tax Return Filing</h4>
-                    <p>
-                        Accurate preparation and submission of statutory returns.
-                    </p>
-                    <a href="/services/tax-return-filing/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-bank service-icon"></i>
-                    <h4 class="purple-text">Tax Objections & Appeals</h4>
-                    <p>
-                        Professional representation and support in filing tax objections,
-                        resolving tax disputes and pursuing appeals before the Tax Appeals Tribunal.
-                    </p>
-                    <a href="/services/tax-objections-appeals/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-award service-icon"></i>
-                    <h4 class="purple-text">Tax Exemptions & Incentives</h4>
-                    <p>
-                        Assistance with tax exemption applications, waivers,
-                        reliefs and incentives for qualifying organisations and institutions.
-                    </p>
-                    <a href="/services/tax-exemption/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-cash-stack service-icon"></i>
-                    <h4 class="purple-text">Accounting Services</h4>
-                    <p>
-                        Financial reporting, bookkeeping and accounting support.
-                    </p>
-                    <a href="/services/accounting-bookkeeping/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-graph-up-arrow service-icon"></i>
-                    <h4 class="purple-text">Financial Advisory</h4>
-                    <p>
-                        Strategic planning, budgeting and performance improvement.
-                    </p>
-                    <a href="/services/financial-advisory/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-mortarboard service-icon"></i>
-                    <h4 class="purple-text">Training & Capacity Building</h4>
-                    <p>
-                        Building institutional and staff capacity through practical training.
-                    </p>
-                    <a href="/services/capacity-building/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</section>
+{# Services — sticky panels component #}
+{% include 'components/sticky_panels.html' %}
 
 <section class="bg-light py-5">
 

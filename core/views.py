@@ -5,7 +5,103 @@ from .forms import InquiryForm
 
 
 def home(request):
-    return render(request, 'home.html')
+    sp_panels = [
+        {
+            'number': '01',
+            'title': 'Audit & Assurance',
+            'image': 'images/sp-audit.jpg',
+            'image_alt': 'Audit team reviewing financial statements',
+            'desc': (
+                'Independent, evidence-based examination of financial records '
+                'that builds stakeholder confidence and strengthens governance.'
+            ),
+            'items': [
+                'External / statutory audits',
+                'Internal audit services',
+                'Donor-funded project audits',
+                'Compliance & regulatory audits',
+                'Fraud prevention reviews',
+                'Risk & control assessments',
+            ],
+            'cta_text': 'Explore Audit Services',
+            'cta_url': '/services/',
+        },
+        {
+            'number': '02',
+            'title': 'Tax Advisory & Compliance',
+            'image': 'images/sp-tax.jpg',
+            'image_alt': 'Tax documents and professional calculator on a desk',
+            'desc': (
+                'Strategic tax planning, accurate filing and expert representation '
+                'to keep your organisation fully compliant and financially efficient.'
+            ),
+            'items': [
+                'Corporate tax planning',
+                'VAT & PAYE advisory',
+                'Tax return filing',
+                'Tax objections & KRA disputes',
+                'Tax Appeals Tribunal support',
+                'Tax exemption applications',
+            ],
+            'cta_text': 'Explore Tax Services',
+            'cta_url': '/services/',
+        },
+        {
+            'number': '03',
+            'title': 'Financial Advisory',
+            'image': 'images/sp-advisory.jpg',
+            'image_alt': 'Professional advisory meeting in a modern boardroom',
+            'desc': (
+                'Practical financial guidance that improves performance, '
+                'supports long-term planning and drives organisational sustainability.'
+            ),
+            'items': [
+                'Strategic financial planning',
+                'Budget development & review',
+                'Cash flow management',
+                'Accounting & bookkeeping',
+                'Management accounts',
+                'Performance analysis',
+            ],
+            'cta_text': 'Explore Advisory Services',
+            'cta_url': '/services/',
+        },
+        {
+            'number': '04',
+            'title': 'Training & Capacity Building',
+            'image': 'images/sp-capacity.jpg',
+            'image_alt': 'Capacity building workshop session in East Africa',
+            'desc': (
+                'Tailored training programmes that strengthen institutional knowledge, '
+                'improve compliance and build lasting staff capability.'
+            ),
+            'items': [
+                'Board governance training',
+                'Finance for non-finance managers',
+                'Tax compliance workshops',
+                'Internal control training',
+                'Risk management training',
+                'NGO financial management',
+            ],
+            'cta_text': 'Explore Training',
+            'cta_url': '/training/',
+        },
+    ]
+    return render(request, 'home.html', {
+        'sp_id': 'home-services',
+        'sp_label': 'What We Do',
+        'sp_heading': 'Professional Services Built for African Organisations',
+        'sp_intro': (
+            'From independent audits to strategic tax planning, advisory and '
+            'capacity building — we deliver rigorous, practical expertise to '
+            'NGOs, government bodies, SACCOs and private sector clients across '
+            'Kenya and the wider region.'
+        ),
+        'sp_alt_bg': False,
+        'sp_flip': False,
+        'sp_badge_label': 'Our Services',
+        'sp_panels': sp_panels,
+    })
 
 
 def about(request):
@@ -13,7 +109,101 @@ def about(request):
 
 
 def services(request):
-    return render(request, 'services.html')
+    sp_panels = [
+        {
+            'number': '01',
+            'title': 'Audit & Assurance',
+            'image': 'images/sp-audit.jpg',
+            'image_alt': 'Audit professionals reviewing financial statements',
+            'desc': (
+                'We conduct rigorous independent audits for organisations of all types — '
+                'giving funders, boards and regulators the assurance they need.'
+            ),
+            'items': [
+                'Statutory / external audits',
+                'Internal audit engagements',
+                'Donor-funded project audits',
+                'Expenditure verification',
+                'Grant compliance reviews',
+                'Governance & fraud reviews',
+            ],
+            'cta_text': 'External Audit detail',
+            'cta_url': '/services/external-audit/',
+        },
+        {
+            'number': '02',
+            'title': 'Tax Advisory & Compliance',
+            'image': 'images/sp-tax.jpg',
+            'image_alt': 'Tax documents, forms and calculator on a professional desk',
+            'desc': (
+                'Comprehensive tax services from strategic planning through to dispute '
+                'resolution — helping your organisation stay compliant and tax-efficient.'
+            ),
+            'items': [
+                'Corporate & individual tax planning',
+                'VAT & PAYE compliance',
+                'Annual tax return filing',
+                'KRA tax objection preparation',
+                'Tax Appeals Tribunal representation',
+                'Tax exemption applications',
+            ],
+            'cta_text': 'Tax Advisory detail',
+            'cta_url': '/services/tax-advisory/',
+        },
+        {
+            'number': '03',
+            'title': 'Financial Advisory & Accounting',
+            'image': 'images/sp-advisory.jpg',
+            'image_alt': 'Financial advisory meeting in a corporate boardroom',
+            'desc': (
+                'We partner with finance teams to sharpen financial management, '
+                'improve reporting quality and support long-term strategic decisions.'
+            ),
+            'items': [
+                'Strategic financial planning',
+                'Budgeting & forecasting',
+                'Cash flow analysis',
+                'Bookkeeping & management accounts',
+                'Financial statement preparation',
+                'Payroll & statutory reporting',
+            ],
+            'cta_text': 'Financial Advisory detail',
+            'cta_url': '/services/financial-advisory/',
+        },
+        {
+            'number': '04',
+            'title': 'Training & Capacity Building',
+            'image': 'images/sp-capacity.jpg',
+            'image_alt': 'Training workshop session with African professionals',
+            'desc': (
+                'Practical, organisation-specific training that equips boards, '
+                'finance staff and teams with skills that stick.'
+            ),
+            'items': [
+                'Board governance & oversight',
+                'Finance for non-finance managers',
+                'Tax compliance workshops',
+                'Internal controls training',
+                'Risk management frameworks',
+                'NGO financial management',
+            ],
+            'cta_text': 'Training programmes',
+            'cta_url': '/training/',
+        },
+    ]
+    return render(request, 'services.html', {
+        'sp_id': 'services-detail',
+        'sp_label': 'Service Areas',
+        'sp_heading': 'How We Help Your Organisation',
+        'sp_intro': (
+            'Each service area is delivered by experienced professionals '
+            'with deep sector knowledge and a practical, client-first approach.'
+        ),
+        'sp_alt_bg': True,
+        'sp_flip': True,
+        'sp_badge_label': 'Service Areas',
+        'sp_panels': sp_panels,
+    })
 
 
 # =========================
