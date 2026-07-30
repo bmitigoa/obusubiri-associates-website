@@ -16,6 +16,75 @@
 }
 
 /* ============================================================
+   WHY OUR TRAINING?  — branded intro card
+   ============================================================ */
+
+.wy-card {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(26, 35, 72, 0.13);
+}
+
+.wy-card-header {
+    background: linear-gradient(135deg, #1A2348, #A63EC5);
+    padding: 28px 32px 24px;
+    text-align: center;
+}
+
+.wy-card-title {
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.wy-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+
+.wy-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 28px;
+    border-bottom: 1px solid #f0edf8;
+    transition: background 0.2s ease;
+}
+
+.wy-item:last-child {
+    border-bottom: none;
+}
+
+.wy-item:hover {
+    background: #faf8ff;
+}
+
+.wy-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #A63EC5, #1A2348);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wy-icon i {
+    font-size: 16px;
+    color: #fff;
+}
+
+.wy-text {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1A2348;
+}
+
+/* ============================================================
    WHO WE TRAIN  — icon-badge tile grid
    ============================================================ */
 
