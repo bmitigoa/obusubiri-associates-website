@@ -123,8 +123,8 @@ def about(request):
                 'Fraud prevention reviews',
                 'Risk & control assessments',
             ],
-            'cta_text': 'Explore Audit Services',
-            'cta_url': '/services/',
+            'cta_text': 'Enquire about Audit & Assurance',
+            'cta_url': '/contact/?service_area=Audit+%26+Assurance',
         },
         {
             'number': '02',
@@ -143,8 +143,8 @@ def about(request):
                 'Tax Appeals Tribunal support',
                 'Tax exemption applications',
             ],
-            'cta_text': 'Explore Tax Services',
-            'cta_url': '/services/',
+            'cta_text': 'Enquire about Tax Advisory',
+            'cta_url': '/contact/?service_area=Tax+Advisory+%26+Compliance',
         },
         {
             'number': '03',
@@ -163,8 +163,8 @@ def about(request):
                 'Documentation & evidence packs',
                 'Follow-up with authorities',
             ],
-            'cta_text': 'Explore Tax Objections',
-            'cta_url': '/services/',
+            'cta_text': 'Enquire about Tax Objections',
+            'cta_url': '/contact/?service_area=Tax+Objections+%26+Appeals',
         },
         {
             'number': '04',
@@ -183,8 +183,8 @@ def about(request):
                 'Risk management training',
                 'NGO financial management',
             ],
-            'cta_text': 'Explore Training',
-            'cta_url': '/training/',
+            'cta_text': 'Enquire about Training',
+            'cta_url': '/contact/?service_area=Capacity+Building+%26+Training',
         },
     ]
     return render(request, 'about.html', {
@@ -921,8 +921,10 @@ def contact(request):
 
             inquiry = form.save()
             programme = form.cleaned_data.get('programme', '')
+            service_area = form.cleaned_data.get('service_area', '')
 
             programme_line = f"\nProgramme Requested: {programme}" if programme else ""
+            service_area_line = f"\nService Area: {service_area}" if service_area else ""
 
             send_mail(
                 subject=f"New Website Inquiry - {inquiry.service}",
@@ -933,7 +935,7 @@ Name: {inquiry.full_name}
 Email: {inquiry.email}
 Phone: {inquiry.phone_number}
 Organisation: {inquiry.organisation}
-Service Required: {inquiry.service}{programme_line}
+Service Required: {inquiry.service}{service_area_line}{programme_line}
 
 Message:
 {inquiry.message}
@@ -954,10 +956,13 @@ Message:
 
     else:
         programme = request.GET.get('programme', '')
+        service_area = request.GET.get('service_area', '')
         initial = {}
         if programme:
             initial['service'] = 'Training & Capacity Building'
             initial['programme'] = programme
+        if service_area:
+            initial['service_area'] = service_area
         form = InquiryForm(initial=initial)
 
     return render(

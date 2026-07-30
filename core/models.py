@@ -27,6 +27,20 @@ class Inquiry(models.Model):
         choices=SERVICE_CHOICES
     )
 
+    SERVICE_AREA_CHOICES = [
+        ('Audit & Assurance', 'Audit & Assurance'),
+        ('Tax Advisory & Compliance', 'Tax Advisory & Compliance'),
+        ('Tax Objections & Appeals', 'Tax Objections & Appeals'),
+        ('Capacity Building & Training', 'Capacity Building & Training'),
+    ]
+
+    service_area = models.CharField(
+        max_length=100,
+        choices=SERVICE_AREA_CHOICES,
+        blank=True,
+        default='',
+    )
+
     message = models.TextField()
 
     created_at = models.DateTimeField(auto_now_add=True)
