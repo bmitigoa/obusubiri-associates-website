@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.core.mail import send_mail
 
@@ -913,6 +914,10 @@ def training(request):
 
 def contact(request):
 
+    from .models import Inquiry as _Inquiry
+    service_area_map_json = json.dumps(_Inquiry.SERVICE_AREA_MAP)
+    all_service_choices = _Inquiry.SERVICE_CHOICES
+
     if request.method == 'POST':
 
         form = InquiryForm(request.POST)
@@ -950,7 +955,9 @@ Message:
                 'contact.html',
                 {
                     'form': InquiryForm(),
-                    'success': True
+                    'success': True,
+                    'service_area_map_json': service_area_map_json,
+                    'all_service_choices': all_service_choices,
                 }
             )
 
@@ -963,12 +970,14 @@ Message:
             initial['programme'] = programme
         if service_area:
             initial['service_area'] = service_area
-        form = InquiryForm(initial=initial)
+        form = InquiryForm(initial=initial, service_area=service_area or None)
 
     return render(
         request,
         'contact.html',
         {
-            'form': form
+            'form': form,
+            'service_area_map_json': service_area_map_json,
+            'all_service_choices': all_service_choices,
         }
     )

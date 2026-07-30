@@ -4,6 +4,57 @@
 Contact Us | Obusubiri MM & Associates
 {% endblock %}
 
+{% block js %}
+<script>
+(function () {
+    "use strict";
+
+    // Mapping injected by the server: { "Audit & Assurance": ["External Audit", ...], ... }
+    var SERVICE_AREA_MAP = {{ service_area_map_json|safe }};
+
+    var areaSelect    = document.getElementById("id_service_area");
+    var serviceSelect = document.getElementById("id_service");
+
+    if (!areaSelect || !serviceSelect) return;
+
+    // Store the full set of non-placeholder options so filtering is reversible.
+    var allOptions = Array.from(serviceSelect.options).filter(function (o) {
+        return o.value !== "";
+    });
+
+    function filterServices(selectedArea) {
+        var allowed = SERVICE_AREA_MAP[selectedArea] || null;
+        var currentValue = serviceSelect.value;
+
+        // Remove all non-placeholder options then re-add the matching ones.
+        while (serviceSelect.options.length > 1) {
+            serviceSelect.remove(1);
+        }
+
+        allOptions.forEach(function (opt) {
+            if (!allowed || allowed.indexOf(opt.value) !== -1) {
+                serviceSelect.appendChild(opt.cloneNode(true));
+            }
+        });
+
+        // Restore selection if still valid, otherwise reset to placeholder.
+        var stillAvailable = Array.from(serviceSelect.options).some(function (o) {
+            return o.value === currentValue;
+        });
+        serviceSelect.value = stillAvailable ? currentValue : "";
+    }
+
+    // Filter whenever the area changes.
+    areaSelect.addEventListener("change", function () {
+        filterServices(this.value);
+    });
+
+    // Apply immediately on page load (handles ?service_area= query-param pre-selection).
+    filterServices(areaSelect.value);
+}());
+</script>
+{% endblock %}
+
 {% block content %}
 
 <section class="py-5 text-white"
@@ -217,10 +268,23 @@ Contact Us | Obusubiri MM & Associates
 
                     </div>
 
-                    <div class="mb-3">
+                    <div class="mb-3" id="service-field-wrapper">
 
-                        <label class="form-label">Service Required</label>
-                        {{ form.service }}
+                        <label class="form-label" for="id_service">Service Required</label>
+                        {# Render all options manually so client-side JS can filter them.
+                           data-areas carries a JSON list of areas that include this service. #}
+                        <select name="service" id="id_service" class="form-select" required>
+                            <option value="">— Select a service —</option>
+                            {% for value, label in all_service_choices %}
+                            <option value="{{ value }}"
+                                    {% if form.service.value == value %}selected{% endif %}>
+                                {{ label }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                        {% if form.service.errors %}
+                        <div class="text-danger small mt-1">{{ form.service.errors }}</div>
+                        {% endif %}
 
                     </div>
 

@@ -24,6 +24,19 @@ class InquiryForm(forms.ModelForm):
         widget=forms.Select(attrs={'class': 'form-select'}),
     )
 
+    def __init__(self, *args, service_area=None, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # Server-side: narrow the service choices when the area is known
+        # (used for query-param pre-selection and as a no-JS fallback).
+        if service_area and service_area in Inquiry.SERVICE_AREA_MAP:
+            allowed = Inquiry.SERVICE_AREA_MAP[service_area]
+            self.fields['service'].choices = [
+                (v, l) for v, l in Inquiry.SERVICE_CHOICES if v in allowed
+            ]
+        else:
+            self.fields['service'].choices = list(Inquiry.SERVICE_CHOICES)
+
     class Meta:
         model = Inquiry
 

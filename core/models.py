@@ -14,6 +14,28 @@ class Inquiry(models.Model):
         ('Training & Capacity Building', 'Training & Capacity Building'),
     ]
 
+    # Maps each service area to the subset of SERVICE_CHOICES that belong to it.
+    SERVICE_AREA_MAP = {
+        'Audit & Assurance': [
+            'External Audit',
+            'Internal Audit',
+            'Project Audit',
+        ],
+        'Tax Advisory & Compliance': [
+            'Tax Advisory',
+            'Tax Return Filing',
+            'Accounting Services',
+            'Financial Advisory',
+        ],
+        'Tax Objections & Appeals': [
+            'Tax Advisory',
+            'Financial Advisory',
+        ],
+        'Capacity Building & Training': [
+            'Training & Capacity Building',
+        ],
+    }
+
     full_name = models.CharField(max_length=200)
 
     email = models.EmailField()
