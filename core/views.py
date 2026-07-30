@@ -829,7 +829,7 @@ def training(request):
                 'Risk oversight and compliance',
             ],
             'cta_text': 'Request this Programme',
-            'cta_url': '/contact/',
+            'cta_url': '/contact/?programme=Board+Governance',
         },
         {
             'number': '02',
@@ -850,7 +850,7 @@ def training(request):
                 'Cost management and value for money',
             ],
             'cta_text': 'Request this Programme',
-            'cta_url': '/contact/',
+            'cta_url': '/contact/?programme=Finance+for+Non-Finance+Managers',
         },
         {
             'number': '03',
@@ -871,7 +871,7 @@ def training(request):
                 'iTax platform and KRA engagement',
             ],
             'cta_text': 'Request this Programme',
-            'cta_url': '/contact/',
+            'cta_url': '/contact/?programme=Tax+Compliance',
         },
         {
             'number': '04',
@@ -892,7 +892,7 @@ def training(request):
                 'Business continuity planning',
             ],
             'cta_text': 'Request this Programme',
-            'cta_url': '/contact/',
+            'cta_url': '/contact/?programme=Risk+Management',
         },
     ]
     return render(request, 'training.html', {
@@ -920,6 +920,9 @@ def contact(request):
         if form.is_valid():
 
             inquiry = form.save()
+            programme = form.cleaned_data.get('programme', '')
+
+            programme_line = f"\nProgramme Requested: {programme}" if programme else ""
 
             send_mail(
                 subject=f"New Website Inquiry - {inquiry.service}",
@@ -930,7 +933,7 @@ Name: {inquiry.full_name}
 Email: {inquiry.email}
 Phone: {inquiry.phone_number}
 Organisation: {inquiry.organisation}
-Service Required: {inquiry.service}
+Service Required: {inquiry.service}{programme_line}
 
 Message:
 {inquiry.message}
@@ -950,7 +953,12 @@ Message:
             )
 
     else:
-        form = InquiryForm()
+        programme = request.GET.get('programme', '')
+        initial = {}
+        if programme:
+            initial['service'] = 'Training & Capacity Building'
+            initial['programme'] = programme
+        form = InquiryForm(initial=initial)
 
     return render(
         request,
