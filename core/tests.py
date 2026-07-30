@@ -240,8 +240,8 @@ class WhoWeTrainTileIntegrityTests(TestCase):
         tiles = self._get_who_we_train()
         for tile in tiles:
             self.assertTrue(
-                tile.get('icon', '').strip(),
-                msg=f"Tile '{tile.get('label', '<unknown>')}' has a missing or blank icon.",
+                tile.icon.strip(),
+                msg=f"Tile '{tile.label}' has a missing or blank icon.",
             )
 
     def test_every_tile_has_non_empty_label(self):
@@ -249,7 +249,7 @@ class WhoWeTrainTileIntegrityTests(TestCase):
         tiles = self._get_who_we_train()
         for tile in tiles:
             self.assertTrue(
-                tile.get('label', '').strip(),
+                tile.label.strip(),
                 msg="A tile has a missing or blank label.",
             )
 
@@ -258,8 +258,8 @@ class WhoWeTrainTileIntegrityTests(TestCase):
         tiles = self._get_who_we_train()
         for tile in tiles:
             self.assertTrue(
-                tile.get('desc', '').strip(),
-                msg=f"Tile '{tile.get('label', '<unknown>')}' has a missing or blank desc.",
+                tile.description.strip(),
+                msg=f"Tile '{tile.label}' has a missing or blank description.",
             )
 
 

@@ -71,3 +71,26 @@ class Inquiry(models.Model):
 
     def __str__(self):
         return self.full_name
+
+
+class TrainingAudience(models.Model):
+    """Represents a single 'Who We Train' tile on the training page."""
+
+    icon = models.CharField(
+        max_length=100,
+        help_text="Bootstrap Icons class, e.g. 'bi bi-people-fill'",
+    )
+    label = models.CharField(max_length=200)
+    description = models.TextField()
+    order = models.PositiveSmallIntegerField(
+        default=0,
+        help_text="Lower numbers appear first.",
+    )
+
+    class Meta:
+        ordering = ['order', 'label']
+        verbose_name = 'Training Audience'
+        verbose_name_plural = 'Training Audiences'
+
+    def __str__(self):
+        return self.label

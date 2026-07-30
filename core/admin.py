@@ -3,7 +3,7 @@ import csv
 from django.contrib import admin
 from django.http import HttpResponse
 
-from .models import Inquiry
+from .models import Inquiry, TrainingAudience
 
 _FORMULA_PREFIXES = ('=', '+', '-', '@', '\t', '\r')
 
@@ -70,3 +70,11 @@ class InquiryAdmin(admin.ModelAdmin):
     )
 
     actions = [export_as_csv]
+
+
+@admin.register(TrainingAudience)
+class TrainingAudienceAdmin(admin.ModelAdmin):
+
+    list_display = ('label', 'icon', 'order')
+    list_editable = ('order',)
+    ordering = ('order', 'label')

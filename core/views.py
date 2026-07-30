@@ -900,64 +900,8 @@ def training(request):
             'cta_url': '/contact/?programme=Risk+Management',
         },
     ]
-    who_we_train = [
-        {
-            'icon': 'bi bi-people-fill',
-            'label': 'NGOs & Development Partners',
-            'desc': (
-                'Governance, financial management and compliance training for '
-                'civil society organisations and their implementing partners.'
-            ),
-        },
-        {
-            'icon': 'bi bi-building-fill',
-            'label': 'Government Institutions',
-            'desc': (
-                'Public financial management, accountability and performance '
-                'improvement programmes for ministries, departments and agencies.'
-            ),
-        },
-        {
-            'icon': 'bi bi-heart-fill',
-            'label': 'Faith-Based Organisations',
-            'desc': (
-                'Stewardship, internal controls and organisational governance '
-                'tailored to the structure and values of faith-based bodies.'
-            ),
-        },
-        {
-            'icon': 'bi bi-mortarboard-fill',
-            'label': 'Educational Institutions',
-            'desc': (
-                'Financial oversight, compliance and institutional strengthening '
-                'for schools, colleges and universities.'
-            ),
-        },
-        {
-            'icon': 'bi bi-cash-stack',
-            'label': 'SACCOs & Cooperatives',
-            'desc': (
-                'Credit management, regulatory compliance and sound governance '
-                'practices for savings and credit cooperative organisations.'
-            ),
-        },
-        {
-            'icon': 'bi bi-briefcase-fill',
-            'label': 'Boards of Directors',
-            'desc': (
-                'Strategic oversight, fiduciary responsibilities and board '
-                'effectiveness for directors across all sectors.'
-            ),
-        },
-        {
-            'icon': 'bi bi-graph-up-arrow',
-            'label': 'Private Sector Organisations',
-            'desc': (
-                'Corporate governance, risk management and internal audit '
-                'capacity building for businesses seeking sustainable growth.'
-            ),
-        },
-    ]
+    from .models import TrainingAudience
+    who_we_train = TrainingAudience.objects.all()
 
     from website.models import TrainingIntro
     training_intro = TrainingIntro.get_solo()
