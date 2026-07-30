@@ -105,7 +105,102 @@ def home(request):
 
 
 def about(request):
-    return render(request, 'about.html')
+    sp_panels = [
+        {
+            'number': '01',
+            'title': 'Audit & Assurance',
+            'image': 'images/sp-audit.jpg',
+            'image_alt': 'Audit professionals reviewing financial statements',
+            'desc': (
+                'We conduct rigorous independent audits for organisations of all types — '
+                'giving funders, boards and regulators the confidence they need.'
+            ),
+            'items': [
+                'External / statutory audits',
+                'Internal audit engagements',
+                'Donor-funded project audits',
+                'Expenditure verification',
+                'Compliance & governance audits',
+                'Fraud prevention reviews',
+            ],
+            'cta_text': 'Audit services',
+            'cta_url': '/services/external-audit/',
+        },
+        {
+            'number': '02',
+            'title': 'Tax Advisory & Dispute Resolution',
+            'image': 'images/sp-tax.jpg',
+            'image_alt': 'Tax documents and calculator on a professional desk',
+            'desc': (
+                'From day-to-day compliance to complex KRA disputes and Tax Appeals '
+                'Tribunal representation — we keep your organisation tax-compliant and protected.'
+            ),
+            'items': [
+                'Corporate & VAT tax planning',
+                'Annual tax return filing',
+                'PAYE compliance reviews',
+                'KRA tax objection preparation',
+                'Tax Appeals Tribunal representation',
+                'Tax exemption applications',
+            ],
+            'cta_text': 'Tax services',
+            'cta_url': '/services/tax-advisory/',
+        },
+        {
+            'number': '03',
+            'title': 'Financial Advisory & Accounting',
+            'image': 'images/sp-advisory.jpg',
+            'image_alt': 'Financial advisory meeting in a modern boardroom',
+            'desc': (
+                'Practical financial guidance that sharpens planning, improves '
+                'reporting quality and drives long-term organisational sustainability.'
+            ),
+            'items': [
+                'Strategic financial planning',
+                'Budgeting & forecasting',
+                'Cash flow management',
+                'Bookkeeping & management accounts',
+                'Financial statement preparation',
+                'Performance & business analysis',
+            ],
+            'cta_text': 'Advisory services',
+            'cta_url': '/services/financial-advisory/',
+        },
+        {
+            'number': '04',
+            'title': 'Capacity Building & Training',
+            'image': 'images/sp-capacity.jpg',
+            'image_alt': 'Capacity building training workshop with African professionals',
+            'desc': (
+                'Tailored training programmes that build lasting institutional knowledge '
+                'in governance, finance, compliance and risk across all levels of staff.'
+            ),
+            'items': [
+                'Board governance & oversight',
+                'Finance for non-finance managers',
+                'Tax compliance workshops',
+                'Internal controls training',
+                'Risk management frameworks',
+                'NGO financial management',
+            ],
+            'cta_text': 'Training programmes',
+            'cta_url': '/training/',
+        },
+    ]
+    return render(request, 'about.html', {
+        'sp_id': 'about-expertise',
+        'sp_label': 'Areas of Expertise',
+        'sp_heading': 'What We Do Best',
+        'sp_intro': (
+            'Over 15 years of hands-on experience across audit, tax, advisory '
+            'and capacity building — serving NGOs, government institutions, '
+            'SACCOs and private organisations across East and Central Africa.'
+        ),
+        'sp_alt_bg': True,
+        'sp_flip': True,
+        'sp_badge_label': 'Expertise',
+        'sp_panels': sp_panels,
+    })
 
 
 def services(request):

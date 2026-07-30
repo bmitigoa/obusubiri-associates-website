@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 About Us | Obusubiri MM & Associates
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/sticky-panels.css' %}">
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/sticky-panels.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -152,82 +161,8 @@ About Us | Obusubiri MM & Associates
 
 </section>
 
-<!-- MISSION & VISION -->
-
-<!-- AREAS OF EXPERTISE -->
-
-<section class="bg-light py-5">
-
-    <div class="container">
-
-        <div class="text-center mb-5">
-
-            <h2 class="purple-text">
-                Our Areas of Expertise
-            </h2>
-
-            <p class="lead">
-                Practical professional solutions that strengthen governance,
-                compliance and organisational performance.
-            </p>
-
-        </div>
-
-        <div class="row">
-
-            <div class="col-md-4 mb-4">
-                <div class="card service-card shadow h-100">
-                    <div class="card-body text-center">
-                        <h5>Audit & Assurance</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card service-card shadow h-100">
-                    <div class="card-body text-center">
-                        <h5>Tax Advisory & Compliance</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card service-card shadow h-100">
-                    <div class="card-body text-center">
-                        <h5>Tax Objections & Appeals</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card service-card shadow h-100">
-                    <div class="card-body text-center">
-                        <h5>Tax Appeals Tribunal Representation</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card service-card shadow h-100">
-                    <div class="card-body text-center">
-                        <h5>Tax Exemption Applications</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card service-card shadow h-100">
-                    <div class="card-body text-center">
-                        <h5>Capacity Building & Training</h5>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
+<!-- AREAS OF EXPERTISE — sticky panels component -->
+{% include 'components/sticky_panels.html' %}
 
 <section class="bg-light py-5">
 
