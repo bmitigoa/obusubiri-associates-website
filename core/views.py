@@ -110,93 +110,92 @@ def about(request):
             'number': '01',
             'title': 'Audit & Assurance',
             'image': 'images/sp-audit.jpg',
-            'image_alt': 'Audit professionals reviewing financial statements',
+            'image_alt': 'Audit team reviewing financial statements',
             'desc': (
-                'We conduct rigorous independent audits for organisations of all types — '
-                'giving funders, boards and regulators the confidence they need.'
+                'Independent, evidence-based examination of financial records '
+                'that builds stakeholder confidence and strengthens governance.'
             ),
             'items': [
                 'External / statutory audits',
-                'Internal audit engagements',
+                'Internal audit services',
                 'Donor-funded project audits',
-                'Expenditure verification',
-                'Compliance & governance audits',
+                'Compliance & regulatory audits',
                 'Fraud prevention reviews',
+                'Risk & control assessments',
             ],
-            'cta_text': 'Audit services',
-            'cta_url': '/services/external-audit/',
+            'cta_text': 'Explore Audit Services',
+            'cta_url': '/services/',
         },
         {
             'number': '02',
-            'title': 'Tax Advisory & Dispute Resolution',
+            'title': 'Tax Advisory & Compliance',
             'image': 'images/sp-tax.jpg',
-            'image_alt': 'Tax documents and calculator on a professional desk',
+            'image_alt': 'Tax documents and professional calculator on a desk',
             'desc': (
-                'From day-to-day compliance to complex KRA disputes and Tax Appeals '
-                'Tribunal representation — we keep your organisation tax-compliant and protected.'
+                'Strategic tax planning, accurate filing and expert representation '
+                'to keep your organisation fully compliant and financially efficient.'
             ),
             'items': [
-                'Corporate & VAT tax planning',
-                'Annual tax return filing',
-                'PAYE compliance reviews',
-                'KRA tax objection preparation',
-                'Tax Appeals Tribunal representation',
+                'Corporate tax planning',
+                'VAT & PAYE advisory',
+                'Tax return filing',
+                'KRA objections & disputes',
+                'Tax Appeals Tribunal support',
                 'Tax exemption applications',
             ],
-            'cta_text': 'Tax services',
-            'cta_url': '/services/tax-advisory/',
+            'cta_text': 'Explore Tax Services',
+            'cta_url': '/services/',
         },
         {
             'number': '03',
-            'title': 'Financial Advisory & Accounting',
+            'title': 'Tax Objections & Appeals',
             'image': 'images/sp-advisory.jpg',
-            'image_alt': 'Financial advisory meeting in a modern boardroom',
+            'image_alt': 'Professional advisor preparing a tax objection document',
             'desc': (
-                'Practical financial guidance that sharpens planning, improves '
-                'reporting quality and drives long-term organisational sustainability.'
+                'Expert representation at the Tax Appeals Tribunal and '
+                'professionally prepared objections that protect your tax position.'
             ),
             'items': [
-                'Strategic financial planning',
-                'Budgeting & forecasting',
-                'Cash flow management',
-                'Bookkeeping & management accounts',
-                'Financial statement preparation',
-                'Performance & business analysis',
+                'KRA tax objection preparation',
+                'Dispute resolution support',
+                'Tax Appeals Tribunal representation',
+                'Assessment review & analysis',
+                'Documentation & evidence packs',
+                'Follow-up with authorities',
             ],
-            'cta_text': 'Advisory services',
-            'cta_url': '/services/financial-advisory/',
+            'cta_text': 'Explore Tax Objections',
+            'cta_url': '/services/',
         },
         {
             'number': '04',
             'title': 'Capacity Building & Training',
             'image': 'images/sp-capacity.jpg',
-            'image_alt': 'Capacity building training workshop with African professionals',
+            'image_alt': 'Capacity building workshop session in East Africa',
             'desc': (
-                'Tailored training programmes that build lasting institutional knowledge '
-                'in governance, finance, compliance and risk across all levels of staff.'
+                'Tailored training programmes that strengthen institutional knowledge, '
+                'improve compliance and build lasting staff capability.'
             ),
             'items': [
-                'Board governance & oversight',
+                'Board governance training',
                 'Finance for non-finance managers',
                 'Tax compliance workshops',
-                'Internal controls training',
-                'Risk management frameworks',
+                'Internal control training',
+                'Risk management training',
                 'NGO financial management',
             ],
-            'cta_text': 'Training programmes',
+            'cta_text': 'Explore Training',
             'cta_url': '/training/',
         },
     ]
     return render(request, 'about.html', {
         'sp_id': 'about-expertise',
-        'sp_label': 'Areas of Expertise',
-        'sp_heading': 'What We Do Best',
+        'sp_label': 'Expertise',
+        'sp_heading': 'Our Areas of Expertise',
         'sp_intro': (
-            'Over 15 years of hands-on experience across audit, tax, advisory '
-            'and capacity building — serving NGOs, government institutions, '
-            'SACCOs and private organisations across East and Central Africa.'
+            'Practical professional solutions that strengthen governance, '
+            'compliance and organisational performance across East Africa.'
         ),
-        'sp_alt_bg': True,
+        'sp_alt_bg': False,
         'sp_flip': True,
         'sp_badge_label': 'Expertise',
         'sp_panels': sp_panels,
@@ -301,9 +300,9 @@ def services(request):
     })
 
 
-# =========================
+# --------
 # SERVICE PAGES
-# =========================
+# --------
 
 def external_audit(request):
     content = """
@@ -461,7 +460,6 @@ def accounting_bookkeeping(request):
     })
 
 
-
 def financial_advisory(request):
     content = """
     <p>We offer financial advisory services designed to improve financial performance and long-term sustainability.</p>
@@ -510,23 +508,83 @@ def capacity_building(request):
 
 
 def blog_kra_tax_objection(request):
-    content = """
-    <p>If you disagree with a tax assessment issued by KRA, you have a legal right to lodge a tax objection.</p>
 
-    <p>The objection must be submitted within the timelines provided by tax legislation and supported with relevant documentation.</p>
-
-    <p>Professional guidance can significantly improve the quality of your objection and increase the chances of a successful outcome.</p>
-    """
-    return render(request, "service_detail.html", {
-        "title": "How to File a Tax Objection with KRA in Kenya",
-        "content": content
-    })
+    return render(
+        request,
+        "service_detail.html",
+        {
+            "title": "Understanding Tax Objections in Kenya",
+            "content": """
 
 
+<h2>What is a Tax Objection?</h2>
 
-# =========================
+<p>
+A tax objection is a formal process that allows taxpayers to challenge
+a tax assessment issued by the Kenya Revenue Authority (KRA) when they
+believe the assessment is incorrect.
+</p>
+
+<p>
+Businesses, NGOs, institutions and individuals have a legal right
+to dispute assessments that do not accurately reflect their tax position.
+</p>
+
+<h2>Common Reasons for Filing a Tax Objection</h2>
+
+<ul>
+<li>Incorrect tax computations</li>
+<li>Disallowed business expenses</li>
+<li>VAT disputes</li>
+<li>PAYE assessments</li>
+<li>Withholding tax disputes</li>
+<li>Penalty and interest disputes</li>
+</ul>
+
+<h2>Steps in Filing a Tax Objection</h2>
+
+<ol>
+<li>Review the assessment notice carefully.</li>
+<li>Gather supporting documentation.</li>
+<li>Prepare a detailed objection statement.</li>
+<li>Submit the objection through the iTax platform.</li>
+<li>Respond promptly to any KRA requests for clarification.</li>
+</ol>
+
+<h2>Importance of Professional Guidance</h2>
+
+<p>
+Tax disputes can have significant financial implications for an
+organisation. Proper documentation, strong technical arguments and
+timely responses greatly improve the chances of a successful outcome.
+</p>
+
+<p>
+Professional tax advisors help organisations analyse assessments,
+prepare supporting evidence and communicate effectively with KRA.
+</p>
+
+<h2>How Obusubiri MM & Associates Can Help</h2>
+
+<p>
+Our tax specialists assist organisations in reviewing tax assessments,
+preparing professional objections, compiling evidence and representing
+clients during engagements with KRA.
+</p>
+
+<div class="alert alert-light border-start border-4 border-warning mt-4">
+<strong>Need assistance?</strong>
+Contact our team today for professional tax objection support.
+</div>
+
+"""
+        }
+    )
+
+
+# --------
 # BLOG PAGE
-# =========================
+# --------
 
 def blog_kra_tax_objection(request):
 
