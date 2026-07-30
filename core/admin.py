@@ -60,7 +60,9 @@ class InquiryAdmin(admin.ModelAdmin):
         'created_at'
     )
 
-    list_filter = ('service_area',)
+    date_hierarchy = 'created_at'
+
+    list_filter = ('service_area', 'service', 'programme')
 
     search_fields = (
         'full_name',
