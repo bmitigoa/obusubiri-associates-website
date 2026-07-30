@@ -959,7 +959,11 @@ def training(request):
         },
     ]
 
+    from website.models import TrainingIntro
+    training_intro = TrainingIntro.get_solo()
+
     return render(request, 'training.html', {
+        'training_intro': training_intro,
         'sp_id': 'training-programmes',
         'sp_label': 'Programme Topics',
         'sp_heading': 'Training Programmes That Build Lasting Capability',
