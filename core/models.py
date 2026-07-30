@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 
 
@@ -73,6 +74,20 @@ class Inquiry(models.Model):
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def clean(self):
+        if self.service_area and self.service:
+            allowed = self.SERVICE_AREA_MAP.get(self.service_area, [])
+            if self.service not in allowed:
+                raise ValidationError(
+                    {
+                        'service': (
+                            f"'{self.service}' is not available under "
+                            f"'{self.service_area}'. "
+                            f"Valid choices are: {', '.join(allowed) or 'none'}."
+                        )
+                    }
+                )
 
     def __str__(self):
         return self.full_name
