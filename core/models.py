@@ -67,6 +67,11 @@ class Inquiry(models.Model):
 
     message = models.TextField()
 
+    email_sent = models.BooleanField(
+        default=True,
+        help_text="False if the notification email failed to send.",
+    )
+
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -199,6 +199,13 @@ Contact Us | Obusubiri MM & Associates
                         <p class="mb-0">Our team will be in touch with you shortly.</p>
                     </div>
 
+                    {% if email_sent == False %}
+                    <div class="alert alert-warning mb-3" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        We'll be in touch shortly — if you don't hear from us within one business day, please call us directly on <strong>+254 712 238 764</strong> or <strong>+254 733 901 589</strong>.
+                    </div>
+                    {% endif %}
+
                     <div class="card border-0 bg-light mb-4">
                         <div class="card-body">
                             <h6 class="card-title text-muted text-uppercase small fw-semibold mb-3">Enquiry Summary</h6>

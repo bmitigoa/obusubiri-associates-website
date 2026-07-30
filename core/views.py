@@ -968,6 +968,8 @@ Message:
                     inquiry.pk,
                     exc_info=True,
                 )
+                inquiry.email_sent = False
+                inquiry.save(update_fields=['email_sent'])
 
             return render(
                 request,
@@ -975,6 +977,7 @@ Message:
                 {
                     'form': InquiryForm(),
                     'success': True,
+                    'email_sent': inquiry.email_sent,
                     'submitted_name': form.cleaned_data.get('full_name', ''),
                     'submitted_service': form.cleaned_data.get('service', ''),
                     'submitted_service_area': service_area,
