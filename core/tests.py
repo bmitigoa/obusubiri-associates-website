@@ -84,6 +84,71 @@ class ContactFormProgrammeTests(TestCase):
         self.assertTrue(response.context['success'])
 
 
+class EnquirySummaryContextTests(TestCase):
+    """Tests that the success context echoes back the submitted form values."""
+
+    TRAINING_POST = {
+        'full_name': 'Alice Kamau',
+        'email': 'alice@example.com',
+        'phone_number': '+254700111222',
+        'organisation': 'Kenya NGO',
+        'service': 'Training & Capacity Building',
+        'service_area': 'Capacity Building & Training',
+        'programme': 'Board Governance',
+        'message': 'Please register me for the programme.',
+    }
+
+    NON_TRAINING_POST = {
+        'full_name': 'Bob Otieno',
+        'email': 'bob@example.com',
+        'phone_number': '+254700333444',
+        'organisation': 'Nairobi SACCO',
+        'service': 'External Audit',
+        'service_area': 'Audit & Assurance',
+        'programme': '',
+        'message': 'We need an external audit.',
+    }
+
+    def test_training_submission_context_contains_all_summary_fields(self):
+        """A training enquiry (with programme) must echo name, service,
+        service area and programme in the success context."""
+        response = self.client.post(reverse('contact'), self.TRAINING_POST)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.context['success'])
+        self.assertEqual(response.context['submitted_name'], 'Alice Kamau')
+        self.assertEqual(
+            response.context['submitted_service'], 'Training & Capacity Building'
+        )
+        self.assertEqual(
+            response.context['submitted_service_area'], 'Capacity Building & Training'
+        )
+        self.assertEqual(response.context['submitted_programme'], 'Board Governance')
+
+    def test_non_training_submission_context_contains_expected_fields(self):
+        """A non-training enquiry (without programme) must echo name, service
+        and service area; programme must be empty."""
+        response = self.client.post(reverse('contact'), self.NON_TRAINING_POST)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.context['success'])
+        self.assertEqual(response.context['submitted_name'], 'Bob Otieno')
+        self.assertEqual(response.context['submitted_service'], 'External Audit')
+        self.assertEqual(
+            response.context['submitted_service_area'], 'Audit & Assurance'
+        )
+
+    def test_programme_is_empty_when_not_submitted(self):
+        """submitted_programme must be an empty string when no programme is
+        included in the POST — ensures the programme row is omitted from the
+        confirmation page."""
+        response = self.client.post(reverse('contact'), self.NON_TRAINING_POST)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.context['success'])
+        self.assertEqual(response.context['submitted_programme'], '')
+
+
 class ExportInquiriesCSVTests(TestCase):
     """Tests for the export_as_csv admin action."""
 
