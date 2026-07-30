@@ -162,6 +162,13 @@
     line-height: 1.35;
 }
 
+.wt-tile-desc {
+    font-size: 0.8rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 10px 0 0;
+}
+
 /* Bottom row: 3-col on same grid (span trick) */
 .wt-grid .wt-tile--wide {
     /* handled via grid placement in HTML */
