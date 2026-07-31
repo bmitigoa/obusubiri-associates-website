@@ -57,12 +57,13 @@ class InquiryAdmin(admin.ModelAdmin):
         'service',
         'programme',
         'email',
-        'created_at'
+        'email_sent',
+        'created_at',
     )
 
     date_hierarchy = 'created_at'
 
-    list_filter = ('service_area', 'service', 'programme')
+    list_filter = ('service_area', 'service', 'programme', 'email_sent')
 
     search_fields = (
         'full_name',
@@ -80,3 +81,6 @@ class TrainingAudienceAdmin(admin.ModelAdmin):
     list_display = ('label', 'icon', 'order')
     list_editable = ('order',)
     ordering = ('order', 'label')
+
+    class Media:
+        js = ('js/admin-sortable.js',)
