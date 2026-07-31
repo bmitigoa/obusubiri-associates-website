@@ -213,6 +213,82 @@
     margin: 0;
 }
 
+/* ---- Enquiry form card ---------------------------------------
+   The right-hand form card on the Contact page.
+   Dark navy header band + white body with grouped field sections.
+   ------------------------------------------------------------- */
+.enquiry-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(26, 35, 72, 0.13);
+    border: none;
+    height: 100%;
+}
+
+.enquiry-card-header {
+    background: linear-gradient(135deg, #1A2348, #A63EC5);
+    padding: 28px 36px 24px;
+    position: relative;
+}
+
+.enquiry-card-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: #D4AF37;
+}
+
+.enquiry-card-eyebrow {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #D4AF37;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.enquiry-card-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.enquiry-card-body {
+    background: #fff;
+    padding: 32px 36px 36px;
+}
+
+.enquiry-field-group {
+    margin-bottom: 8px;
+}
+
+.enquiry-field-group-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #A63EC5;
+    display: block;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ede9f7;
+}
+
+@media (max-width: 575px) {
+    .enquiry-card-header {
+        padding: 22px 24px 20px;
+    }
+    .enquiry-card-body {
+        padding: 24px 24px 28px;
+    }
+}
+
 /* ---- Article / blog card -------------------------------------
    Used on the "Client Insights" cards on Services page.
    ------------------------------------------------------------- */
