@@ -63,5 +63,32 @@ class InquiryForm(forms.ModelForm):
             'service_area',
             'service',
             'programme',
-            'message'
+            'message',
         ]
+
+        widgets = {
+            'full_name': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Your full name',
+            }),
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'your@email.com',
+            }),
+            'phone_number': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': '+254 700 000 000',
+            }),
+            'organisation': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Your organisation',
+            }),
+            'service': forms.Select(attrs={
+                'class': 'form-select',
+            }),
+            'message': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 5,
+                'placeholder': 'Briefly describe what you need help with…',
+            }),
+        }
