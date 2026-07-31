@@ -7,6 +7,7 @@ Our Services | Obusubiri MM & Associates
 
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/sticky-panels.css' %}">
+<link rel="stylesheet" href="{% static 'css/about-cards.css' %}">
 {% endblock %}
 
 {% block js %}
@@ -35,87 +36,54 @@ Our Services | Obusubiri MM & Associates
 {# Services — sticky panels component #}
 {% include 'components/sticky_panels.html' %}
 
-<section class="bg-light py-5">
+<section class="stat-section">
 
     <div class="container">
 
         <div class="text-center mb-5">
-
-            <h2 class="purple-text">
-                Why Clients Choose Us
-            </h2>
-
+            <span class="ob-section-label">Our Track Record</span>
+            <h2 class="ob-section-heading" style="color:#fff;">Why Clients Choose Us</h2>
         </div>
 
-        <div class="row text-center">
+        <div class="row g-4 justify-content-center">
 
-            <div class="col-md-3 mb-4">
-                <h1 class="purple-text">15+</h1>
-                <p>Years Experience</p>
-            </div>
-
-            <div class="col-md-3 mb-4">
-                <h1 class="purple-text">100+</h1>
-                <p>Clients Served</p>
-            </div>
-
-            <div class="col-md-3 mb-4">
-                <h1 class="purple-text">500+</h1>
-                <p>Assignments Completed</p>
-            </div>
-
-            <div class="col-md-3 mb-4">
-                <h1 class="purple-text">5+</h1>
-                <p>Countries Served</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="py-5">
-
-    <div class="container">
-
-        <div class="text-center mb-5">
-            <h2 class="purple-text">
-                Industries We Serve
-            </h2>
-        </div>
-
-        <div class="row">
-
-            <div class="col-md-3 mb-4">
-                <div class="card shadow h-100 text-center">
-                    <div class="card-body">
-                        NGOs & Development Partners
+            <div class="col-sm-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-clock-history"></i>
                     </div>
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
                 </div>
             </div>
 
-            <div class="col-md-3 mb-4">
-                <div class="card shadow h-100 text-center">
-                    <div class="card-body">
-                        Government Institutions
+            <div class="col-sm-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-people-fill"></i>
                     </div>
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Clients Served</div>
                 </div>
             </div>
 
-            <div class="col-md-3 mb-4">
-                <div class="card shadow h-100 text-center">
-                    <div class="card-body">
-                        Faith-Based Organisations
+            <div class="col-sm-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-clipboard2-check-fill"></i>
                     </div>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Assignments Completed</div>
                 </div>
             </div>
 
-            <div class="col-md-3 mb-4">
-                <div class="card shadow h-100 text-center">
-                    <div class="card-body">
-                        Private Sector Organisations
+            <div class="col-sm-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-globe-americas"></i>
                     </div>
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Countries Served</div>
                 </div>
             </div>
 
@@ -125,70 +93,117 @@ Our Services | Obusubiri MM & Associates
 
 </section>
 
-<section class="py-5 bg-light">
+<section class="cv-section">
+
+    <div class="container">
+
+        <div class="text-center mb-2">
+            <span class="ab-section-label">Sectors We Work In</span>
+            <h2 class="cv-section-heading">Industries We Serve</h2>
+        </div>
+
+        <div class="cv-grid">
+
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-people"></i>
+                </div>
+                <h5 class="cv-card-title">NGOs &amp; Development Partners</h5>
+                <p class="cv-card-text">
+                    Donor audit, grant compliance and financial management
+                    for civil society organisations.
+                </p>
+            </div>
+
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-bank2"></i>
+                </div>
+                <h5 class="cv-card-title">Government Institutions</h5>
+                <p class="cv-card-text">
+                    Audit, compliance and advisory services for public sector
+                    entities and parastatals.
+                </p>
+            </div>
+
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-building"></i>
+                </div>
+                <h5 class="cv-card-title">Faith-Based Organisations</h5>
+                <p class="cv-card-text">
+                    Governance, financial accountability and tax exemption
+                    support for religious bodies.
+                </p>
+            </div>
+
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-briefcase"></i>
+                </div>
+                <h5 class="cv-card-title">Private Sector Organisations</h5>
+                <p class="cv-card-text">
+                    Tax planning, statutory audit and strategic advisory
+                    for companies and SACCOs.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="ob-section ob-section--alt">
 
     <div class="container">
 
         <div class="text-center mb-5">
-            <h2 class="purple-text">
-                Client Insights
-            </h2>
-
-            <p class="lead">
-                Expert insights on taxation, compliance and governance.
+            <span class="ob-section-label">Resources</span>
+            <h2 class="ob-section-heading">Client Insights</h2>
+            <p class="ob-section-intro">
+                Expert guidance on taxation, compliance and governance.
             </p>
         </div>
 
-        <div class="row">
+        <div class="row g-4">
 
-            <div class="col-md-4 mb-4">
-                <div class="card shadow h-100">
-                    <div class="card-body">
-                        <h5 class="purple-text">
-                            <a href="/blog/kra-tax-objection-guide/"
-                               style="color:#8E44AD;text-decoration:none;">
-                               Understanding Tax Objections in Kenya
-                            </a>
-                        </h5>
-                        <p>
-                            Learn how businesses can challenge incorrect tax assessments and
-                            protect their rights through the tax objection process.
-                        </p>
-                    </div>
+            <div class="col-md-4">
+                <div class="article-card">
+                    <span class="article-card-eyebrow">Tax Advisory</span>
+                    <a href="/blog/kra-tax-objection-guide/" class="article-card-title">
+                        Understanding Tax Objections in Kenya
+                    </a>
+                    <p class="article-card-text">
+                        Learn how businesses can challenge incorrect tax assessments and
+                        protect their rights through the tax objection process.
+                    </p>
                 </div>
             </div>
 
-            <div class="col-md-4 mb-4">
-                <div class="card shadow h-100">
-                    <div class="card-body">
-                        <h5>
-                            <a href="/blog/tax-appeals-tribunal-guide/"
-                            style="color:#9c4dcc;text-decoration:none;">
-                            Tax Appeals Tribunal Guide
-                            </a>
-                        </h5>
-                        <p>
-                            A practical guide to filing appeals, understanding timelines,
-                            documentation requirements and dispute resolution procedures.
-                        </p>
-                    </div>
+            <div class="col-md-4">
+                <div class="article-card">
+                    <span class="article-card-eyebrow">Tax Appeals</span>
+                    <a href="/blog/tax-appeals-tribunal-guide/" class="article-card-title">
+                        Tax Appeals Tribunal Guide
+                    </a>
+                    <p class="article-card-text">
+                        A practical guide to filing appeals, understanding timelines,
+                        documentation requirements and dispute resolution procedures.
+                    </p>
                 </div>
             </div>
 
-            <div class="col-md-4 mb-4">
-                <div class="card shadow h-100">
-                    <div class="card-body">
-                        <h5>
-                            <a href="/blog/applying-for-tax-exemptions/"
-                            style="color:#9c4dcc;text-decoration:none;">
-                            Applying for Tax Exemptions
-                            </a>
-                        </h5>
-                        <p>
-                            Understand eligibility requirements and application procedures
-                            for tax exemptions available to qualifying organisations.
-                        </p>
-                    </div>
+            <div class="col-md-4">
+                <div class="article-card">
+                    <span class="article-card-eyebrow">Tax Exemptions</span>
+                    <a href="/blog/applying-for-tax-exemptions/" class="article-card-title">
+                        Applying for Tax Exemptions
+                    </a>
+                    <p class="article-card-text">
+                        Understand eligibility requirements and application procedures
+                        for tax exemptions available to qualifying organisations.
+                    </p>
                 </div>
             </div>
 

@@ -114,8 +114,9 @@
    ============================================================ */
 
 .cv-section {
-    padding: 80px 0;
+    padding: 80px 0 96px; /* extra bottom padding prevents hover lift from clipping */
     background: #fff;
+    overflow: visible;
 }
 
 .cv-section-heading {

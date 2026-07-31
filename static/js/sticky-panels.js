@@ -49,37 +49,14 @@
                 // Close all
                 panels.forEach(function (p) { closePanel(p); });
 
-                // Toggle clicked
+                // Toggle clicked — open if it was closed, keep image synced if it was already open
                 if (!isOpen) {
                     openPanel(panel, index);
                 } else {
-                    // Reopened: keep image on current panel
                     setActiveImage(index);
                 }
             });
         });
-
-        /* ---- IntersectionObserver: update image as panels scroll into view ---- */
-
-        var isMobile = function () { return window.innerWidth < 768; };
-
-        var observer = new IntersectionObserver(function (entries) {
-            if (isMobile()) return;
-
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    var idx = panels.indexOf(entry.target);
-                    if (idx !== -1) {
-                        // Only crossfade the image — don't auto-open the panel
-                        setActiveImage(idx);
-                    }
-                }
-            });
-        }, {
-            threshold: 0.45
-        });
-
-        panels.forEach(function (panel) { observer.observe(panel); });
 
         /* ---- Open first panel by default ---- */
         openPanel(panels[0], 0);

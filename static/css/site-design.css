@@ -1,0 +1,150 @@
+/* ============================================================
+   SITE-WIDE DESIGN SYSTEM — Obusubiri MM & Associates
+   Global typography scale, section rhythm, word-break
+   normalization. Loaded in base.html before page-level sheets.
+   ============================================================ */
+
+/* ---- Word-break normalization --------------------------------
+   Bootstrap 5 + browser defaults can break long words mid-character
+   inside narrow columns. Force natural word-boundary wrapping
+   across all card and body elements.
+   ------------------------------------------------------------- */
+.card-body,
+.cv-card,
+.mv-card,
+.stat-card,
+.wt-tile,
+.td-card,
+.rp-card,
+.partner-card,
+.sp-panel-title,
+.sp-body-content,
+.sp-body-desc {
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+}
+
+/* ---- Section headings ----------------------------------------
+   One consistent scale for every page-level h2 section heading.
+   ob-section-heading replaces bare .purple-text h2 usages.
+   ------------------------------------------------------------- */
+.ob-section-heading {
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: #1A2348;
+    line-height: 1.15;
+    margin-bottom: 12px;
+}
+
+.ob-section-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #D4AF37;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.ob-section-intro {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ---- Section wrappers ----------------------------------------
+   Consistent top/bottom padding so nothing bleeds across
+   section boundaries.
+   ------------------------------------------------------------- */
+.ob-section {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.ob-section--alt {
+    background: #f8f7fc;
+}
+
+.ob-section--dark {
+    background: #1A2348;
+}
+
+@media (max-width: 767px) {
+    .ob-section {
+        padding: 48px 0;
+    }
+}
+
+/* ---- Article / blog card -------------------------------------
+   Used on the "Client Insights" cards on Services page.
+   ------------------------------------------------------------- */
+.article-card {
+    background: #fff;
+    border: 1px solid #ede9f7;
+    border-radius: 14px;
+    padding: 32px 28px;
+    box-shadow: 0 4px 18px rgba(26, 35, 72, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.article-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #D4AF37;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.article-card:hover::before {
+    transform: scaleX(1);
+}
+
+.article-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(26, 35, 72, 0.12);
+}
+
+.article-card-eyebrow {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #A63EC5;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.article-card-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1A2348;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.article-card-title:hover {
+    color: #A63EC5;
+}
+
+.article-card-text {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.65;
+    margin: 0;
+    word-break: normal;
+    overflow-wrap: normal;
+}
