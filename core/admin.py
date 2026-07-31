@@ -79,8 +79,4 @@ class InquiryAdmin(admin.ModelAdmin):
 class TrainingAudienceAdmin(admin.ModelAdmin):
 
     list_display = ('label', 'icon', 'order')
-    list_editable = ('order',)
     ordering = ('order', 'label')
-
-    class Media:
-        js = ('js/admin-sortable.js',)
