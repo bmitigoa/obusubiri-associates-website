@@ -95,7 +95,7 @@ def home(request):
     return render(request, 'home.html', {
         'sp_id': 'home-services',
         'sp_label': 'What We Do',
-        'sp_heading': 'Professional Services Built for African Organisations',
+        'sp_heading': 'Professional Services Built for Every Organisation',
         'sp_intro': (
             'From independent audits to strategic tax planning, advisory and '
             'capacity building — we deliver rigorous, practical expertise to '

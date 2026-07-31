@@ -78,6 +78,141 @@
     }
 }
 
+/* ---- Standard inner-page hero --------------------------------
+   All inner pages (About, Services, Training, Contact) use this
+   class for a consistent header: same gradient, same padding,
+   same type scale.
+   ------------------------------------------------------------- */
+.page-hero {
+    background: linear-gradient(135deg, #1A2348 0%, #A63EC5 100%);
+    padding: 72px 0 64px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+/* Thin gold accent bar at the very bottom of every page hero */
+.page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #D4AF37, #A63EC5, #D4AF37);
+}
+
+.page-hero h1 {
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+}
+
+.page-hero .page-hero-sub {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    opacity: 0.88;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+@media (max-width: 767px) {
+    .page-hero {
+        padding: 48px 0 44px;
+    }
+}
+
+/* ---- Contact page premium info panel -----------------------
+   Dark navy card used for the contact details column.
+   ------------------------------------------------------------- */
+.contact-premium-card {
+    background: #1A2348;
+    border-radius: 16px;
+    padding: 44px 36px 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(26, 35, 72, 0.22);
+    height: 100%;
+}
+
+.contact-premium-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: #D4AF37;
+}
+
+.contact-premium-card::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(166, 62, 197, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.contact-card-heading {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.contact-card-intro {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.68);
+    line-height: 1.6;
+    margin-bottom: 36px;
+}
+
+.contact-detail-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 26px;
+}
+
+.contact-detail-row:last-child {
+    margin-bottom: 0;
+}
+
+.contact-detail-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #D4AF37, #f0c85a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #1A2348;
+    flex-shrink: 0;
+}
+
+.contact-detail-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.contact-detail-value {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.6;
+    margin: 0;
+}
+
 /* ---- Article / blog card -------------------------------------
    Used on the "Client Insights" cards on Services page.
    ------------------------------------------------------------- */
