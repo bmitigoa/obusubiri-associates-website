@@ -123,27 +123,7 @@
             color:white;
         }
 
-        /* ===== FOOTER ===== */
-
-        footer{
-            background:var(--primary);
-            color:white;
-            margin-top:50px;
-        }
-
-        footer h4{
-            margin-bottom:15px;
-            color:white;
-        }
-
-        footer ul{
-            padding-left:0;
-            list-style:none;
-        }
-
-        footer ul li{
-            margin-bottom:8px;
-        }
+        /* ===== FOOTER ===== handled by site-design.css .site-footer ===== */
 
         .service-icon{
             font-size:50px;
@@ -369,65 +349,80 @@
 {% block content %}
 {% endblock %}
 
-<footer>
+<footer class="site-footer pt-5">
 
-    <div class="container py-5">
+    <div class="container">
 
-        <div class="row">
+        <div class="row g-5 pb-5">
 
-            <div class="col-md-4">
+            <!-- Brand column -->
+            <div class="col-lg-4 col-md-6">
 
-                <h4>Obusubiri MM & Associates</h4>
+                <p class="footer-brand-name">Obusubiri MM &amp; Associates</p>
 
-                <p>
-                    Professional Audit, Tax, Advisory,
-                    Accounting and Capacity Building Services.
+                <p class="footer-tagline">
+                    Professional Audit, Tax, Advisory, Accounting
+                    and Capacity Building Services — serving NGOs,
+                    private companies, faith-based organisations
+                    and public institutions across Kenya.
                 </p>
 
             </div>
 
-            <div class="col-md-4">
+            <!-- Services column -->
+            <div class="col-lg-4 col-md-6">
 
-                <h4>Our Services</h4>
+                <span class="footer-col-heading">Our Services</span>
 
-                <ul>
+                <ul class="footer-links">
                     <li>External Audit</li>
                     <li>Internal Audit</li>
                     <li>Project Audit</li>
                     <li>Tax Advisory</li>
                     <li>Tax Return Filing</li>
-                    <li>Tax Objections & Appeals</li>
+                    <li>Tax Objections &amp; Appeals</li>
                     <li>Tax Exemptions Applications</li>
-                    <li>Training & Capacity Building</li>
+                    <li>Training &amp; Capacity Building</li>
                 </ul>
 
             </div>
 
-            <div class="col-md-4">
+            <!-- Contact column -->
+            <div class="col-lg-4 col-md-12">
 
-                <h4>Contact Us</h4>
+                <span class="footer-col-heading">Contact Us</span>
 
-                <p>Email: info@obusubiriassociates.co.ke</p>
+                <div class="footer-contact-row">
+                    <div class="footer-contact-icon">
+                        <i class="bi bi-envelope-fill"></i>
+                    </div>
+                    <span>info@obusubiriassociates.co.ke</span>
+                </div>
 
-                <p>Phone:  +254 712238764 / +254733901589</p>
+                <div class="footer-contact-row">
+                    <div class="footer-contact-icon">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+                    <span>+254 712 238 764<br>+254 733 901 589</span>
+                </div>
 
-                <p>Nairobi, Kenya</p>
+                <div class="footer-contact-row">
+                    <div class="footer-contact-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <span>Nairobi, Kenya</span>
+                </div>
 
             </div>
 
         </div>
 
-        <hr style="border-color:rgba(255,255,255,.2);">
+    </div>
 
-        <div class="text-center">
+    <hr class="footer-divider">
 
-            <p class="mb-0">
-                © 2026 Obusubiri MM & Associates.
-                All Rights Reserved.
-            </p>
-
-        </div>
-
+    <div class="footer-bottom">
+        © 2026 Obusubiri MM &amp; Associates. All Rights Reserved.
     </div>
 
 </footer>
