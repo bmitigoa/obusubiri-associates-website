@@ -70,24 +70,43 @@
         /* ===== HERO ===== */
 
         .hero{
-            background:
-            linear-gradient(
-            rgba(15,25,60,.78),
-            rgba(15,25,60,.78)
-            ),
-            url("{% static 'images/hero-africa.jpg' %}");
-
-            background-size:cover;
-            background-position:center;
-            background-repeat:no-repeat;
-
+            position:relative;
+            overflow:hidden;
             min-height:85vh;
-
             display:flex;
             align-items:center;
             justify-content:center;
-
             color:white;
+        }
+
+        /* Full-bleed video layer */
+        .hero-video{
+            position:absolute;
+            inset:0;
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            object-position:center;
+            z-index:0;
+        }
+
+        /* Dark overlay so text stays legible over the video */
+        .hero-overlay{
+            position:absolute;
+            inset:0;
+            background:linear-gradient(
+                160deg,
+                rgba(10,18,50,.82) 0%,
+                rgba(26,35,72,.75) 60%,
+                rgba(80,20,100,.55) 100%
+            );
+            z-index:1;
+        }
+
+        /* Content must sit above the overlay */
+        .hero > .container{
+            position:relative;
+            z-index:2;
         }
 
         .gold-text{
