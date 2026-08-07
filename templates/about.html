@@ -267,6 +267,34 @@ About Us | Obusubiri MM & Associates
 
 </section>
 
+<!-- SVG filter: fabric-wave effect for flag images.
+     feTurbulence generates a shifting noise field;
+     feDisplacementMap warps each pixel of SourceGraphic through it.
+     The SMIL <animate> cycles baseFrequency so the wave moves forever. -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <defs>
+    <filter id="flag-wave-filter"
+            x="-8%" y="-8%" width="116%" height="116%"
+            color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise"
+                    baseFrequency="0.012 0.08"
+                    numOctaves="3"
+                    result="noise">
+        <!-- Animate the noise field to make it flow continuously -->
+        <animate attributeName="baseFrequency"
+                 values="0.012 0.07; 0.018 0.09; 0.012 0.07"
+                 dur="2.2s"
+                 repeatCount="indefinite"/>
+      </feTurbulence>
+      <!-- scale controls how much pixels are displaced (cloth depth) -->
+      <feDisplacementMap in="SourceGraphic" in2="noise"
+                         scale="12"
+                         xChannelSelector="R"
+                         yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
 <!-- REGIONAL PRESENCE -->
 
 <section class="rp-section">

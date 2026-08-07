@@ -536,44 +536,28 @@
 }
 
 .rp-flag-wrap {
-    width: 80px;
-    height: 54px;
+    width: 90px;
+    height: 58px;
     margin: 0 auto 16px;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 3px 12px rgba(26, 35, 72, 0.20);
+    border-radius: 4px;
+    /* overflow visible so the displacement filter isn't clipped at edges */
+    overflow: visible;
+    box-shadow: 0 3px 14px rgba(26, 35, 72, 0.22);
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Small flagpole stub on the left */
-    border-left: 3px solid #8a7040;
     position: relative;
 }
 
-/* ---- Waving flag animation ---------------------------------- */
-@keyframes flag-wave {
-    0%, 100% { transform: skewY(0deg)    scaleX(1.00); }
-    20%       { transform: skewY(-4deg)  scaleX(0.95); }
-    40%       { transform: skewY(0deg)   scaleX(1.00); }
-    60%       { transform: skewY(4deg)   scaleX(0.95); }
-    80%       { transform: skewY(0deg)   scaleX(1.00); }
-}
-
 .rp-flag-wrap img {
-    width: 105%;   /* slightly oversized so skew gaps don't show */
-    height: 105%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     display: block;
-    transform-origin: left center;  /* pole edge stays fixed */
-    animation: flag-wave 2.4s ease-in-out infinite;
+    border-radius: 3px;
+    /* Apply the SVG fabric-wave filter defined inline in about.html */
+    filter: url('#flag-wave-filter');
 }
-
-/* Stagger each flag so they're not in sync */
-.rp-section .col-lg-2:nth-child(1) .rp-flag-wrap img { animation-delay: 0.0s; }
-.rp-section .col-lg-2:nth-child(2) .rp-flag-wrap img { animation-delay: 0.4s; }
-.rp-section .col-lg-2:nth-child(3) .rp-flag-wrap img { animation-delay: 0.8s; }
-.rp-section .col-lg-2:nth-child(4) .rp-flag-wrap img { animation-delay: 1.2s; }
-.rp-section .col-lg-2:nth-child(5) .rp-flag-wrap img { animation-delay: 1.6s; }
 
 .rp-country-name {
     font-size: 0.875rem;
