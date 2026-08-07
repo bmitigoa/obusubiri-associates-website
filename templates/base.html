@@ -349,31 +349,25 @@
 {% block content %}
 {% endblock %}
 
-<footer class="site-footer pt-5">
+<footer class="site-footer">
 
-    <div class="container">
+    <!-- Brand bar -->
+    <div class="footer-brand-bar">
+        <div class="container text-center">
+            <p class="footer-brand-name">Obusubiri MM &amp; Associates</p>
+            <p class="footer-tagline">
+                Audit &bull; Tax &bull; Advisory &bull; Accounting &bull; Capacity Building
+            </p>
+        </div>
+    </div>
 
-        <div class="row g-5 pb-5">
+    <!-- Three-column body -->
+    <div class="container footer-body">
+        <div class="row g-0 justify-content-center">
 
-            <!-- Brand column -->
-            <div class="col-lg-4 col-md-6">
-
-                <p class="footer-brand-name">Obusubiri MM &amp; Associates</p>
-
-                <p class="footer-tagline">
-                    Professional Audit, Tax, Advisory, Accounting
-                    and Capacity Building Services — serving NGOs,
-                    private companies, faith-based organisations
-                    and public institutions across Kenya.
-                </p>
-
-            </div>
-
-            <!-- Services column -->
-            <div class="col-lg-4 col-md-6">
-
+            <!-- Services -->
+            <div class="col-lg-4 col-md-4 footer-col">
                 <span class="footer-col-heading">Our Services</span>
-
                 <ul class="footer-links">
                     <li>External Audit</li>
                     <li>Internal Audit</li>
@@ -384,12 +378,28 @@
                     <li>Tax Exemptions Applications</li>
                     <li>Training &amp; Capacity Building</li>
                 </ul>
-
             </div>
 
-            <!-- Contact column -->
-            <div class="col-lg-4 col-md-12">
+            <!-- Divider -->
+            <div class="footer-col-divider d-none d-md-block"></div>
 
+            <!-- Quick Nav -->
+            <div class="col-lg-3 col-md-3 footer-col">
+                <span class="footer-col-heading">Quick Links</span>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">About Us</a></li>
+                    <li><a href="/services/">Services</a></li>
+                    <li><a href="/training/">Training</a></li>
+                    <li><a href="/contact/">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Divider -->
+            <div class="footer-col-divider d-none d-md-block"></div>
+
+            <!-- Contact -->
+            <div class="col-lg-4 col-md-4 footer-col">
                 <span class="footer-col-heading">Contact Us</span>
 
                 <div class="footer-contact-row">
@@ -403,7 +413,7 @@
                     <div class="footer-contact-icon">
                         <i class="bi bi-telephone-fill"></i>
                     </div>
-                    <span>+254 712 238 764<br>+254 733 901 589</span>
+                    <span>+254 712 238 764 &nbsp;/&nbsp; +254 733 901 589</span>
                 </div>
 
                 <div class="footer-contact-row">
@@ -412,17 +422,16 @@
                     </div>
                     <span>Nairobi, Kenya</span>
                 </div>
-
             </div>
 
         </div>
-
     </div>
 
-    <hr class="footer-divider">
-
-    <div class="footer-bottom">
-        © 2026 Obusubiri MM &amp; Associates. All Rights Reserved.
+    <!-- Bottom bar -->
+    <div class="footer-bottom-bar">
+        <div class="container text-center">
+            <span>© 2026 Obusubiri MM &amp; Associates. All Rights Reserved.</span>
+        </div>
     </div>
 
 </footer>
