@@ -30,6 +30,7 @@ if not SECRET_KEY:
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
+    "178.162.252.49",
     "obusubiriassociates.co.ke",
     "www.obusubiriassociates.co.ke",
 ] + [h for h in os.environ.get('REPLIT_DOMAINS', '').split(',') if h] \
