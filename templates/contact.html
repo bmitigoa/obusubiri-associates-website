@@ -224,6 +224,12 @@ Contact Us | Obusubiri MM &amp; Associates
 
                             {{ form.programme }}
 
+                            {# ---- Spam trap: real visitors never see this field; leave it blank ---- #}
+                            <div class="hp-field-wrap" aria-hidden="true">
+                                <label for="{{ form.website.id_for_label }}">Leave this field blank</label>
+                                {{ form.website }}
+                            </div>
+
                             {# ---- Section: Personal Details ---- #}
                             <div class="enquiry-field-group">
                                 <span class="enquiry-field-group-label">Personal Details</span>

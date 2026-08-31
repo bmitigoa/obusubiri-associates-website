@@ -936,6 +936,26 @@ def contact(request):
 
         if form.is_valid():
 
+            if form.is_probably_spam():
+                # Honeypot field was filled in: a real visitor cannot do
+                # this. Show the same success screen so a bot has no way
+                # to tell it was blocked, but skip saving and emailing.
+                return render(
+                    request,
+                    'contact.html',
+                    {
+                        'form': InquiryForm(),
+                        'success': True,
+                        'email_sent': True,
+                        'submitted_name': form.cleaned_data.get('full_name', ''),
+                        'submitted_service': form.cleaned_data.get('service', ''),
+                        'submitted_service_area': form.cleaned_data.get('service_area', ''),
+                        'submitted_programme': form.cleaned_data.get('programme', ''),
+                        'service_area_map_json': service_area_map_json,
+                        'all_service_choices': all_service_choices,
+                    }
+                )
+
             inquiry = form.save()
             programme = form.cleaned_data.get('programme', '')
             service_area = form.cleaned_data.get('service_area', '')

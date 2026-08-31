@@ -9,6 +9,22 @@ class InquiryForm(forms.ModelForm):
         widget=forms.HiddenInput,
     )
 
+    # Honeypot spam trap: a real visitor never sees or fills this field (it
+    # is hidden with CSS, not just the "hidden" input type, and skipped in
+    # tab order). Simple bots that auto-fill every input on the page tend to
+    # fill it anyway, which the view uses to silently discard the submission
+    # in InquiryForm.is_probably_spam() below.
+    website = forms.CharField(
+        required=False,
+        label='',
+        widget=forms.TextInput(attrs={
+            'autocomplete': 'off',
+            'tabindex': '-1',
+            'class': 'hp-field',
+            'aria-hidden': 'true',
+        }),
+    )
+
     SERVICE_AREA_CHOICES = [
         ('', '— Select a service area —'),
         ('Audit & Assurance', 'Audit & Assurance'),
@@ -51,6 +67,12 @@ class InquiryForm(forms.ModelForm):
                 )
 
         return cleaned_data
+
+    def is_probably_spam(self):
+        """True if the honeypot field was filled in, which a real visitor
+        cannot do since it is invisible and unreachable by tab. Call this
+        after the form has been validated (is_valid() / clean())."""
+        return bool(self.cleaned_data.get('website'))
 
     class Meta:
         model = Inquiry

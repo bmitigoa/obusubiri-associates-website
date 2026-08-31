@@ -586,3 +586,15 @@
     word-break: normal;
     overflow-wrap: normal;
 }
+
+/* Contact form spam trap: keeps the honeypot field invisible to real
+   visitors (unlike a plain "hidden" input, this also hides it from
+   anything that only checks whether a field is visually on screen). */
+.hp-field-wrap {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
