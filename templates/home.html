@@ -1,7 +1,18 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}
 Home | Obusubiri & Associates
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/sticky-panels.css' %}">
+<link rel="stylesheet" href="{% static 'css/about-cards.css' %}">
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/sticky-panels.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -10,6 +21,13 @@ Home | Obusubiri & Associates
 
 <section class="hero">
 
+    <!-- Accounting/audit video background (AI-generated, loops silently) -->
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="{% static 'videos/hero-accounting.mp4' %}" type="video/mp4">
+    </video>
+
+    <!-- Gradient overlay for text legibility -->
+    <div class="hero-overlay"></div>
 
 <div class="container text-center">
 
@@ -47,84 +65,55 @@ Home | Obusubiri & Associates
 
 <!-- STATISTICS -->
 
-<section class="container py-5">
+<section class="stat-section">
 
-<div class="row text-center">
+    <div class="container">
 
-    <div class="col-md-3 mb-4">
+        <div class="row g-4 justify-content-center">
 
-        <div class="card service-card shadow border-0 h-100">
+            <div class="col-sm-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-clock-history"></i>
+                    </div>
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
 
-            <div class="card-body">
+            <div class="col-sm-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-clipboard2-check-fill"></i>
+                    </div>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Assignments Completed</div>
+                </div>
+            </div>
 
-                <h1 class="purple-text">15+</h1>
+            <div class="col-sm-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Clients Served</div>
+                </div>
+            </div>
 
-                <p class="mb-0">
-                    Years Experience
-                </p>
-
+            <div class="col-sm-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-globe-americas"></i>
+                    </div>
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
             </div>
 
         </div>
 
     </div>
-
-    <div class="col-md-3 mb-4">
-
-        <div class="card service-card shadow border-0 h-100">
-
-            <div class="card-body">
-
-                <h1 class="purple-text">500+</h1>
-
-                <p class="mb-0">
-                    Assignments Completed
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="col-md-3 mb-4">
-
-        <div class="card service-card shadow border-0 h-100">
-
-            <div class="card-body">
-
-                <h1 class="purple-text">100+</h1>
-
-                <p class="mb-0">
-                    Clients Served
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="col-md-3 mb-4">
-
-        <div class="card service-card shadow border-0 h-100">
-
-            <div class="card-body">
-
-                <h1 class="purple-text">5+</h1>
-
-                <p class="mb-0">
-                    Countries Served
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
 
 </section>
 
@@ -198,65 +187,8 @@ Home | Obusubiri & Associates
 
 </section>
 
-<!-- SERVICES -->
-
-<section class="container py-5">
-
-
-<div class="text-center mb-5">
-
-    <h2 class="purple-text">
-        Our Core Services
-    </h2>
-
-    <p class="lead">
-        Professional solutions tailored to organisational needs.
-    </p>
-
-</div>
-
-<div class="row">
-
-    <div class="col-md-3 mb-4">
-        <div class="card service-card shadow h-100">
-            <div class="card-body text-center">
-                <i class="bi bi-clipboard-data service-icon"></i>
-                <h5>External Audit</h5>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 mb-4">
-        <div class="card service-card shadow h-100">
-            <div class="card-body text-center">
-                <i class="bi bi-search service-icon"></i>
-                <h5>Internal Audit</h5>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 mb-4">
-        <div class="card service-card shadow h-100">
-            <div class="card-body text-center">
-                <i class="bi bi-graph-up-arrow service-icon"></i>
-                <h5>Financial Advisory</h5>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3 mb-4">
-        <div class="card service-card shadow h-100">
-            <div class="card-body text-center">
-                <i class="bi bi-calculator service-icon"></i>
-                <h5>Tax Advisory</h5>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
-</section>
+<!-- SERVICES — sticky panels component -->
+{% include 'components/sticky_panels.html' %}
 
 <!-- INDUSTRIES -->
 
@@ -347,129 +279,88 @@ Home | Obusubiri & Associates
 
 <!-- WHY CHOOSE US -->
 
-<section class="bg-light py-5">
+<section class="cv-section">
 
+    <div class="container">
 
-<div class="container">
-
-    <div class="text-center mb-5">
-
-        <h2 class="purple-text">
-            Why Choose Us
-        </h2>
-
-    </div>
-
-    <div class="row">
-
-        <div class="col-md-3 mb-4">
-
-            <div class="card service-card shadow h-100">
-
-                <div class="card-body text-center">
-
-                    <h5>Professional Team</h5>
-
-                    <p>
-                        Experienced professionals delivering quality services.
-                    </p>
-
-                </div>
-
-            </div>
-
+        <div class="text-center mb-2">
+            <span class="ab-section-label">Why Clients Choose Us</span>
+            <h2 class="cv-section-heading">Why Choose Us</h2>
         </div>
 
-        <div class="col-md-3 mb-4">
+        <div class="cv-grid">
 
-            <div class="card service-card shadow h-100">
-
-                <div class="card-body text-center">
-
-                    <h5>Industry Expertise</h5>
-
-                    <p>
-                        Deep understanding of multiple sectors.
-                    </p>
-
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-people-fill"></i>
                 </div>
-
+                <h5 class="cv-card-title">Professional Team</h5>
+                <p class="cv-card-text">
+                    Experienced professionals delivering quality services
+                    with diligence and rigour.
+                </p>
             </div>
 
-        </div>
-
-        <div class="col-md-3 mb-4">
-
-            <div class="card service-card shadow h-100">
-
-                <div class="card-body text-center">
-
-                    <h5>Quality Assurance</h5>
-
-                    <p>
-                        Services delivered to professional standards.
-                    </p>
-
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-graph-up-arrow"></i>
                 </div>
-
+                <h5 class="cv-card-title">Industry Expertise</h5>
+                <p class="cv-card-text">
+                    Deep understanding of NGO, public sector, SACCO
+                    and private sector requirements.
+                </p>
             </div>
 
-        </div>
-
-        <div class="col-md-3 mb-4">
-
-            <div class="card service-card shadow h-100">
-
-                <div class="card-body text-center">
-
-                    <h5>Client Focus</h5>
-
-                    <p>
-                        Solutions tailored to client needs.
-                    </p>
-
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-shield-check"></i>
                 </div>
+                <h5 class="cv-card-title">Quality Assurance</h5>
+                <p class="cv-card-text">
+                    Every engagement delivered to recognised professional
+                    and regulatory standards.
+                </p>
+            </div>
 
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-heart-fill"></i>
+                </div>
+                <h5 class="cv-card-title">Client Focus</h5>
+                <p class="cv-card-text">
+                    Solutions tailored to each client's goals, sector
+                    and operational context.
+                </p>
             </div>
 
         </div>
 
     </div>
-
-</div>
-
 
 </section>
 
 <!-- FINAL CTA -->
 
-<section class="py-5 text-center text-white"
-         style="background:#1A2348;">
+<section class="ob-cta-section">
+    <div class="container" style="position:relative;">
 
+        <span class="ob-cta-eyebrow">Work With Us</span>
 
-<div class="container">
+        <h2 class="ob-cta-heading">
+            Ready To Strengthen Your Organisation?
+        </h2>
 
-    <h2>
-        Ready To Strengthen Your Organisation?
-    </h2>
+        <p class="ob-cta-sub">
+            Partner with experienced professionals committed
+            to accountability, compliance and sustainable growth.
+        </p>
 
-    <p class="lead">
+        <a href="/contact/" class="btn btn-warning btn-lg px-4">
+            Get Started Today
+        </a>
 
-        Partner with experienced professionals committed
-        to accountability, compliance and sustainable growth.
-
-    </p>
-
-    <a href="/contact/"
-       class="btn btn-warning btn-lg">
-
-        Get Started Today
-
-    </a>
-
-</div>
-
-
+    </div>
 </section>
 
 {% endblock %}

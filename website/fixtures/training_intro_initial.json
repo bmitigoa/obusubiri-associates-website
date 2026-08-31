@@ -1,0 +1,11 @@
+[
+  {
+    "model": "website.trainingintro",
+    "pk": 1,
+    "fields": {
+      "heading": "Building Stronger Organisations",
+      "lead": "At Obusubiri & Associates, we provide practical, results-oriented training programs designed to strengthen governance, financial management, compliance, accountability and organisational performance.",
+      "pullquote": "Our programs are tailored for NGOs, Development Partners, Government Institutions, Faith-Based Organisations, Educational Institutions, SACCOs and Private Sector Organisations."
+    }
+  }
+]

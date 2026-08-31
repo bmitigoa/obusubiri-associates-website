@@ -1,292 +1,81 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 Our Services | Obusubiri MM & Associates
 {% endblock %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/sticky-panels.css' %}">
+<link rel="stylesheet" href="{% static 'css/about-cards.css' %}">
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/sticky-panels.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 
-<section class="py-5 text-white"
-         style="background:linear-gradient(rgba(26,35,72,.92),rgba(166,62,197,.85));">
-
-    <div class="container text-center">
-
-        <h1 class="display-4 fw-bold">
-            Our Professional Services
-        </h1>
-
-        <p class="lead">
-            Audit • Tax • Advisory • Accounting • Capacity Building
+<section class="page-hero">
+    <div class="container">
+        <h1>Our Professional Services</h1>
+        <p class="page-hero-sub">
+            Audit &bull; Tax &bull; Advisory &bull; Accounting &bull; Capacity Building
         </p>
-
     </div>
-
 </section>
 
-<section class="container py-5">
+{# Services — sticky panels component #}
+{% include 'components/sticky_panels.html' %}
 
-    <div class="text-center mb-5">
-
-        <h2 class="purple-text">
-            What We Do
-        </h2>
-
-        <p class="lead">
-            Professional solutions designed to strengthen governance,
-            accountability, compliance and organisational performance.
-        </p>
-
-    </div>
-
-    <div class="row">
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-shield-check service-icon"></i>
-                    <h4 class="purple-text">External Audit</h4>
-                    <p>
-                        Independent assurance services that build confidence among stakeholders.
-                    </p>
-                    <a href="/services/external-audit/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-search service-icon"></i>
-                    <h4 class="purple-text">Internal Audit</h4>
-                    <p>
-                        Strengthening controls, governance and risk management systems.
-                    </p>
-                    <a href="/services/internal-audit/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-clipboard-data service-icon"></i>
-                    <h4 class="purple-text">Project Audit</h4>
-                    <p>
-                        Independent reviews of donor-funded and development projects.
-                    </p>
-                    <a href="/services/project-audit/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-calculator service-icon"></i>
-                    <h4 class="purple-text">Tax Advisory</h4>
-                    <p>
-                        Strategic tax planning and compliance support for organisations.
-                    </p>
-                    <a href="/services/tax-advisory/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-file-earmark-text service-icon"></i>
-                    <h4 class="purple-text">Tax Return Filing</h4>
-                    <p>
-                        Accurate preparation and submission of statutory returns.
-                    </p>
-                    <a href="/services/tax-return-filing/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-bank service-icon"></i>
-                    <h4 class="purple-text">Tax Objections & Appeals</h4>
-                    <p>
-                        Professional representation and support in filing tax objections,
-                        resolving tax disputes and pursuing appeals before the Tax Appeals Tribunal.
-                    </p>
-                    <a href="/services/tax-objections-appeals/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-award service-icon"></i>
-                    <h4 class="purple-text">Tax Exemptions & Incentives</h4>
-                    <p>
-                        Assistance with tax exemption applications, waivers,
-                        reliefs and incentives for qualifying organisations and institutions.
-                    </p>
-                    <a href="/services/tax-exemption/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-cash-stack service-icon"></i>
-                    <h4 class="purple-text">Accounting Services</h4>
-                    <p>
-                        Financial reporting, bookkeeping and accounting support.
-                    </p>
-                    <a href="/services/accounting-bookkeeping/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-graph-up-arrow service-icon"></i>
-                    <h4 class="purple-text">Financial Advisory</h4>
-                    <p>
-                        Strategic planning, budgeting and performance improvement.
-                    </p>
-                    <a href="/services/financial-advisory/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-4">
-            <div class="card service-card shadow h-100">
-                <div class="card-body text-center">
-                    <i class="bi bi-mortarboard service-icon"></i>
-                    <h4 class="purple-text">Training & Capacity Building</h4>
-                    <p>
-                        Building institutional and staff capacity through practical training.
-                    </p>
-                    <a href="/services/capacity-building/"
-                       class="btn btn-outline-primary mt-3">
-                       Learn More
-                    </a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-<section class="bg-light py-5">
+<section class="stat-section">
 
     <div class="container">
 
         <div class="text-center mb-5">
-
-            <h2 class="purple-text">
-                Why Clients Choose Us
-            </h2>
-
+            <span class="ob-section-label">Our Track Record</span>
+            <h2 class="ob-section-heading" style="color:#fff;">Why Clients Choose Us</h2>
         </div>
 
-        <div class="row text-center">
+        <div class="row g-4 justify-content-center">
 
-            <div class="col-md-3 mb-4">
-                <h1 class="purple-text">15+</h1>
-                <p>Years Experience</p>
-            </div>
-
-            <div class="col-md-3 mb-4">
-                <h1 class="purple-text">100+</h1>
-                <p>Clients Served</p>
-            </div>
-
-            <div class="col-md-3 mb-4">
-                <h1 class="purple-text">500+</h1>
-                <p>Assignments Completed</p>
-            </div>
-
-            <div class="col-md-3 mb-4">
-                <h1 class="purple-text">5+</h1>
-                <p>Countries Served</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="py-5">
-
-    <div class="container">
-
-        <div class="text-center mb-5">
-            <h2 class="purple-text">
-                Industries We Serve
-            </h2>
-        </div>
-
-        <div class="row">
-
-            <div class="col-md-3 mb-4">
-                <div class="card shadow h-100 text-center">
-                    <div class="card-body">
-                        NGOs & Development Partners
+            <div class="col-sm-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-clock-history"></i>
                     </div>
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
                 </div>
             </div>
 
-            <div class="col-md-3 mb-4">
-                <div class="card shadow h-100 text-center">
-                    <div class="card-body">
-                        Government Institutions
+            <div class="col-sm-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-people-fill"></i>
                     </div>
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Clients Served</div>
                 </div>
             </div>
 
-            <div class="col-md-3 mb-4">
-                <div class="card shadow h-100 text-center">
-                    <div class="card-body">
-                        Faith-Based Organisations
+            <div class="col-sm-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-clipboard2-check-fill"></i>
                     </div>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Assignments Completed</div>
                 </div>
             </div>
 
-            <div class="col-md-3 mb-4">
-                <div class="card shadow h-100 text-center">
-                    <div class="card-body">
-                        Private Sector Organisations
+            <div class="col-sm-6 col-md-3">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-globe-americas"></i>
                     </div>
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Countries Served</div>
                 </div>
             </div>
 
@@ -296,70 +85,117 @@ Our Services | Obusubiri MM & Associates
 
 </section>
 
-<section class="py-5 bg-light">
+<section class="cv-section">
+
+    <div class="container">
+
+        <div class="text-center mb-2">
+            <span class="ab-section-label">Sectors We Work In</span>
+            <h2 class="cv-section-heading">Industries We Serve</h2>
+        </div>
+
+        <div class="cv-grid">
+
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-people"></i>
+                </div>
+                <h5 class="cv-card-title">NGOs &amp; Development Partners</h5>
+                <p class="cv-card-text">
+                    Donor audit, grant compliance and financial management
+                    for civil society organisations.
+                </p>
+            </div>
+
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-bank2"></i>
+                </div>
+                <h5 class="cv-card-title">Government Institutions</h5>
+                <p class="cv-card-text">
+                    Audit, compliance and advisory services for public sector
+                    entities and parastatals.
+                </p>
+            </div>
+
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-building"></i>
+                </div>
+                <h5 class="cv-card-title">Faith-Based Organisations</h5>
+                <p class="cv-card-text">
+                    Governance, financial accountability and tax exemption
+                    support for religious bodies.
+                </p>
+            </div>
+
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-briefcase"></i>
+                </div>
+                <h5 class="cv-card-title">Private Sector Organisations</h5>
+                <p class="cv-card-text">
+                    Tax planning, statutory audit and strategic advisory
+                    for companies and SACCOs.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="ob-section ob-section--alt">
 
     <div class="container">
 
         <div class="text-center mb-5">
-            <h2 class="purple-text">
-                Client Insights
-            </h2>
-
-            <p class="lead">
-                Expert insights on taxation, compliance and governance.
+            <span class="ob-section-label">Resources</span>
+            <h2 class="ob-section-heading">Client Insights</h2>
+            <p class="ob-section-intro">
+                Expert guidance on taxation, compliance and governance.
             </p>
         </div>
 
-        <div class="row">
+        <div class="row g-4">
 
-            <div class="col-md-4 mb-4">
-                <div class="card shadow h-100">
-                    <div class="card-body">
-                        <h5 class="purple-text">
-                            <a href="/blog/kra-tax-objection-guide/"
-                               style="color:#8E44AD;text-decoration:none;">
-                               Understanding Tax Objections in Kenya
-                            </a>
-                        </h5>
-                        <p>
-                            Learn how businesses can challenge incorrect tax assessments and
-                            protect their rights through the tax objection process.
-                        </p>
-                    </div>
+            <div class="col-md-4">
+                <div class="article-card">
+                    <span class="article-card-eyebrow">Tax Advisory</span>
+                    <a href="/blog/kra-tax-objection-guide/" class="article-card-title">
+                        Understanding Tax Objections in Kenya
+                    </a>
+                    <p class="article-card-text">
+                        Learn how businesses can challenge incorrect tax assessments and
+                        protect their rights through the tax objection process.
+                    </p>
                 </div>
             </div>
 
-            <div class="col-md-4 mb-4">
-                <div class="card shadow h-100">
-                    <div class="card-body">
-                        <h5>
-                            <a href="/blog/tax-appeals-tribunal-guide/"
-                            style="color:#9c4dcc;text-decoration:none;">
-                            Tax Appeals Tribunal Guide
-                            </a>
-                        </h5>
-                        <p>
-                            A practical guide to filing appeals, understanding timelines,
-                            documentation requirements and dispute resolution procedures.
-                        </p>
-                    </div>
+            <div class="col-md-4">
+                <div class="article-card">
+                    <span class="article-card-eyebrow">Tax Appeals</span>
+                    <a href="/blog/tax-appeals-tribunal-guide/" class="article-card-title">
+                        Tax Appeals Tribunal Guide
+                    </a>
+                    <p class="article-card-text">
+                        A practical guide to filing appeals, understanding timelines,
+                        documentation requirements and dispute resolution procedures.
+                    </p>
                 </div>
             </div>
 
-            <div class="col-md-4 mb-4">
-                <div class="card shadow h-100">
-                    <div class="card-body">
-                        <h5>
-                            <a href="/blog/applying-for-tax-exemptions/"
-                            style="color:#9c4dcc;text-decoration:none;">
-                            Applying for Tax Exemptions
-                            </a>
-                        </h5>
-                        <p>
-                            Understand eligibility requirements and application procedures
-                            for tax exemptions available to qualifying organisations.
-                        </p>
-                    </div>
+            <div class="col-md-4">
+                <div class="article-card">
+                    <span class="article-card-eyebrow">Tax Exemptions</span>
+                    <a href="/blog/applying-for-tax-exemptions/" class="article-card-title">
+                        Applying for Tax Exemptions
+                    </a>
+                    <p class="article-card-text">
+                        Understand eligibility requirements and application procedures
+                        for tax exemptions available to qualifying organisations.
+                    </p>
                 </div>
             </div>
 
@@ -369,28 +205,25 @@ Our Services | Obusubiri MM & Associates
 
 </section>
 
-<section class="py-5 text-center text-white"
-         style="background:#1A2348;">
+<section class="ob-cta-section">
+    <div class="container" style="position:relative;">
 
-    <div class="container">
+        <span class="ob-cta-eyebrow">Let's Talk</span>
 
-        <h2>
+        <h2 class="ob-cta-heading">
             Need Professional Audit, Tax or Advisory Support?
         </h2>
 
-        <p class="lead">
-            Speak to our team today and discover how we can help your organisation.
+        <p class="ob-cta-sub">
+            Speak to our team today and discover how we
+            can help your organisation stay compliant and thrive.
         </p>
 
-        <a href="/contact/"
-           class="btn btn-warning btn-lg">
-
+        <a href="/contact/" class="btn btn-warning btn-lg px-4">
             Request Consultation
-
         </a>
 
     </div>
-
 </section>
 
 {% endblock %}

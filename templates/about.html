@@ -1,79 +1,78 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 About Us | Obusubiri MM & Associates
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/sticky-panels.css' %}">
+<link rel="stylesheet" href="{% static 'css/about-cards.css' %}">
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/sticky-panels.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 
 <!-- HERO SECTION -->
 
-<section class="about-hero py-5 text-white">
-
-    <div class="container text-center">
-
-        <h1 class="display-3 fw-bold">
-            About Obusubiri MM & Associates
-        </h1>
-
-        <p class="lead">
-            Trusted Audit, Tax, Advisory & Capacity Building Professionals
+<section class="page-hero">
+    <div class="container">
+        <h1>About Obusubiri MM &amp; Associates</h1>
+        <p class="page-hero-sub">
+            Trusted Audit, Tax, Advisory &amp; Capacity Building Professionals
         </p>
-
     </div>
-
 </section>
 
 <!-- STATISTICS -->
 
-<section class="container py-5">
+<section class="stat-section">
 
-    <div class="row text-center">
+    <div class="container">
 
-        <div class="col-md-3 mb-4">
+        <div class="row g-4 justify-content-center">
 
-            <div class="card stat-card shadow">
-
-                <h1 class="purple-text">15+</h1>
-
-                <p>Years Experience</p>
-
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-clock-history"></i>
+                    </div>
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
             </div>
 
-        </div>
-
-        <div class="col-md-3 mb-4">
-
-            <div class="card stat-card shadow">
-
-                <h1 class="purple-text">100+</h1>
-
-                <p>Clients Served</p>
-
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Clients Served</div>
+                </div>
             </div>
 
-        </div>
-
-        <div class="col-md-3 mb-4">
-
-            <div class="card stat-card shadow">
-
-                <h1 class="purple-text">500+</h1>
-
-                <p>Assignments Completed</p>
-
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-clipboard2-check-fill"></i>
+                    </div>
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Assignments Completed</div>
+                </div>
             </div>
 
-        </div>
-
-        <div class="col-md-3 mb-4">
-
-            <div class="card stat-card shadow">
-
-                <h1 class="purple-text">5+</h1>
-
-                <p>Countries Served</p>
-
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon-badge">
+                        <i class="bi bi-globe-americas"></i>
+                    </div>
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
             </div>
 
         </div>
@@ -119,30 +118,32 @@ About Us | Obusubiri MM & Associates
 
         <div class="col-lg-6">
 
-            <div class="card shadow border-0">
+            <div class="partner-card">
 
-                <div class="card-body p-4">
-
-                    <h3 class="purple-text">
-                        Managing Partner
-                    </h3>
-
-                    <h4>
-                        CPA Moses Mitigoa Obusubiri
-                    </h4>
-
-                    <p>
-                        MBA (Finance), B.Ed, CPA(K)
-                    </p>
-
-                    <p>
-                           Over 15 years of experience in Audit,
-                           Taxation, Financial Management, Advisory Services,
-                           Tax Objections, Tax Appeals Tribunal representation,
-                           Tax Exemption Applications and Capacity Building.
-                    </p>
-
+                <div class="partner-icon-badge">
+                    <i class="bi bi-person-badge-fill"></i>
                 </div>
+
+                <span class="partner-eyebrow">Leadership</span>
+
+                <h3 class="partner-card-title">
+                    Managing Partner
+                </h3>
+
+                <h4 class="partner-card-name">
+                    CPA Moses Mitigoa Obusubiri
+                </h4>
+
+                <p class="partner-card-credentials">
+                    MBA (Finance), B.Ed, CPA(K)
+                </p>
+
+                <p class="partner-card-text">
+                    Over 15 years of experience in Audit,
+                    Taxation, Financial Management, Advisory Services,
+                    Tax Objections, Tax Appeals Tribunal representation,
+                    Tax Exemption Applications and Capacity Building.
+                </p>
 
             </div>
 
@@ -154,128 +155,51 @@ About Us | Obusubiri MM & Associates
 
 <!-- MISSION & VISION -->
 
-<!-- AREAS OF EXPERTISE -->
+<!-- AREAS OF EXPERTISE —  sticky panels component -->
+{% include 'components/sticky_panels.html' %}
 
-<section class="bg-light py-5">
+<!-- MISSION & VISION -->
+
+<section class="mv-section">
 
     <div class="container">
 
         <div class="text-center mb-5">
-
-            <h2 class="purple-text">
-                Our Areas of Expertise
+            <span class="ab-section-label">Who We Are &amp; Where We're Going</span>
+            <h2 class="fw-800" style="font-size:clamp(1.6rem,3vw,2.25rem);font-weight:800;color:#1A2348;">
+                Mission &amp; Vision
             </h2>
-
-            <p class="lead">
-                Practical professional solutions that strengthen governance,
-                compliance and organisational performance.
-            </p>
-
         </div>
 
-        <div class="row">
+        <div class="row g-4">
 
-            <div class="col-md-4 mb-4">
-                <div class="card service-card shadow h-100">
-                    <div class="card-body text-center">
-                        <h5>Audit & Assurance</h5>
+            <div class="col-md-6">
+                <div class="mv-card">
+                    <div class="mv-icon-badge">
+                        <i class="bi bi-bullseye"></i>
                     </div>
+                    <span class="mv-card-eyebrow">Our Purpose</span>
+                    <h3 class="mv-card-title">Mission</h3>
+                    <p class="mv-card-text">
+                        To provide high quality professional services
+                        that create value and strengthen governance
+                        and accountability.
+                    </p>
                 </div>
             </div>
 
-            <div class="col-md-4 mb-4">
-                <div class="card service-card shadow h-100">
-                    <div class="card-body text-center">
-                        <h5>Tax Advisory & Compliance</h5>
+            <div class="col-md-6">
+                <div class="mv-card">
+                    <div class="mv-icon-badge">
+                        <i class="bi bi-eye"></i>
                     </div>
+                    <span class="mv-card-eyebrow">Where We're Headed</span>
+                    <h3 class="mv-card-title">Vision</h3>
+                    <p class="mv-card-text">
+                        To be a leading professional services firm
+                        in Africa recognised for excellence and innovation.
+                    </p>
                 </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card service-card shadow h-100">
-                    <div class="card-body text-center">
-                        <h5>Tax Objections & Appeals</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card service-card shadow h-100">
-                    <div class="card-body text-center">
-                        <h5>Tax Appeals Tribunal Representation</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card service-card shadow h-100">
-                    <div class="card-body text-center">
-                        <h5>Tax Exemption Applications</h5>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card service-card shadow h-100">
-                    <div class="card-body text-center">
-                        <h5>Capacity Building & Training</h5>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="bg-light py-5">
-
-    <div class="container">
-
-        <div class="row">
-
-            <div class="col-md-6 mb-4">
-
-                <div class="card service-card shadow h-100">
-
-                    <div class="card-body text-center">
-
-                        <i class="bi bi-bullseye value-icon"></i>
-
-                        <h3>Mission</h3>
-
-                        <p>
-                            To provide high quality professional services
-                            that create value and strengthen governance
-                            and accountability.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="col-md-6 mb-4">
-
-                <div class="card service-card shadow h-100">
-
-                    <div class="card-body text-center">
-
-                        <i class="bi bi-eye value-icon"></i>
-
-                        <h3>Vision</h3>
-
-                        <p>
-                            To be a leading professional services firm
-                            in Africa recognised for excellence and innovation.
-                        </p>
-
-                    </div>
-
-                </div>
-
             </div>
 
         </div>
@@ -286,78 +210,55 @@ About Us | Obusubiri MM & Associates
 
 <!-- CORE VALUES -->
 
-<section class="container py-5">
+<section class="cv-section">
 
-    <div class="text-center mb-5">
+    <div class="container">
 
-        <h2 class="purple-text">
-            Our Core Values
-        </h2>
-
-    </div>
-
-    <div class="row">
-
-        <div class="col-md-3 mb-4">
-
-            <div class="card service-card shadow h-100">
-
-                <div class="card-body text-center">
-
-                    <i class="bi bi-shield-check value-icon"></i>
-
-                    <h5>Integrity</h5>
-
-                </div>
-
-            </div>
-
+        <div class="text-center mb-2">
+            <span class="ab-section-label">What Guides Us</span>
+            <h2 class="cv-section-heading">Our Core Values</h2>
         </div>
 
-        <div class="col-md-3 mb-4">
+        <div class="cv-grid">
 
-            <div class="card service-card shadow h-100">
-
-                <div class="card-body text-center">
-
-                    <i class="bi bi-award value-icon"></i>
-
-                    <h5>Professionalism</h5>
-
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-shield-check"></i>
                 </div>
-
+                <h5 class="cv-card-title">Integrity</h5>
+                <p class="cv-card-text">
+                    Upholding the highest ethical standards in every engagement and relationship.
+                </p>
             </div>
 
-        </div>
-
-        <div class="col-md-3 mb-4">
-
-            <div class="card service-card shadow h-100">
-
-                <div class="card-body text-center">
-
-                    <i class="bi bi-clipboard-check value-icon"></i>
-
-                    <h5>Accountability</h5>
-
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-award"></i>
                 </div>
-
+                <h5 class="cv-card-title">Professionalism</h5>
+                <p class="cv-card-text">
+                    Delivering expert, well-considered advice with diligence and rigour.
+                </p>
             </div>
 
-        </div>
-
-        <div class="col-md-3 mb-4">
-
-            <div class="card service-card shadow h-100">
-
-                <div class="card-body text-center">
-
-                    <i class="bi bi-people value-icon"></i>
-
-                    <h5>Client Focus</h5>
-
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-clipboard-check"></i>
                 </div>
+                <h5 class="cv-card-title">Accountability</h5>
+                <p class="cv-card-text">
+                    Taking ownership of our work and standing behind every recommendation.
+                </p>
+            </div>
 
+            <div class="cv-card">
+                <div class="cv-icon-badge">
+                    <i class="bi bi-people"></i>
+                </div>
+                <h5 class="cv-card-title">Client Focus</h5>
+                <p class="cv-card-text">
+                    Putting client needs at the centre of every service and solution we provide.
+                </p>
             </div>
 
         </div>
@@ -366,135 +267,98 @@ About Us | Obusubiri MM & Associates
 
 </section>
 
+<!-- SVG filter: fabric-wave effect for flag images.
+     feTurbulence generates a shifting noise field;
+     feDisplacementMap warps each pixel of SourceGraphic through it.
+     The SMIL <animate> cycles baseFrequency so the wave moves forever. -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <defs>
+    <filter id="flag-wave-filter"
+            x="-8%" y="-8%" width="116%" height="116%"
+            color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise"
+                    baseFrequency="0.012 0.08"
+                    numOctaves="3"
+                    result="noise">
+        <!-- Animate the noise field to make it flow continuously -->
+        <animate attributeName="baseFrequency"
+                 values="0.012 0.07; 0.018 0.09; 0.012 0.07"
+                 dur="2.2s"
+                 repeatCount="indefinite"/>
+      </feTurbulence>
+      <!-- scale controls how much pixels are displaced (cloth depth) -->
+      <feDisplacementMap in="SourceGraphic" in2="noise"
+                         scale="12"
+                         xChannelSelector="R"
+                         yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
 <!-- REGIONAL PRESENCE -->
 
-
-<section class="bg-light py-5">
+<section class="rp-section">
 
     <div class="container">
 
         <div class="text-center mb-5">
-
-            <h2 class="purple-text">
-                Regional Presence
-            </h2>
-
-            <p class="lead">
+            <span class="ab-section-label">Where We Work</span>
+            <h2 class="rp-section-heading">Regional Presence</h2>
+            <p class="rp-section-sub">
                 Delivering professional services across East and Central Africa.
             </p>
-
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center g-4">
 
             <!-- Kenya -->
-
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-
-                <div class="card shadow border-0 service-card h-100">
-
-                    <div class="card-body text-center">
-
-                        <img src="https://flagcdn.com/w320/ke.png"
-                             alt="Kenya"
-                             style="height:50px;width:auto;margin:auto;display:block;">
-
-                        <h6 class="mt-3 mb-0">
-                            Kenya
-                        </h6>
-
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                <div class="rp-card">
+                    <div class="rp-flag-wrap">
+                        <img src="https://flagcdn.com/w320/ke.png" alt="Kenya flag">
                     </div>
-
+                    <div class="rp-country-name">Kenya</div>
                 </div>
-
             </div>
 
             <!-- Uganda -->
-
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-
-                <div class="card shadow border-0 service-card h-100">
-
-                    <div class="card-body text-center">
-
-                        <img src="https://flagcdn.com/w320/ug.png"
-                             alt="Uganda"
-                             style="height:50px;width:auto;margin:auto;display:block;">
-
-                        <h6 class="mt-3 mb-0">
-                            Uganda
-                        </h6>
-
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                <div class="rp-card">
+                    <div class="rp-flag-wrap">
+                        <img src="https://flagcdn.com/w320/ug.png" alt="Uganda flag">
                     </div>
-
+                    <div class="rp-country-name">Uganda</div>
                 </div>
-
             </div>
 
             <!-- Rwanda -->
-
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-
-                <div class="card shadow border-0 service-card h-100">
-
-                    <div class="card-body text-center">
-
-                        <img src="https://flagcdn.com/w320/rw.png"
-                             alt="Rwanda"
-                             style="height:50px;width:auto;margin:auto;display:block;">
-
-                        <h6 class="mt-3 mb-0">
-                            Rwanda
-                        </h6>
-
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                <div class="rp-card">
+                    <div class="rp-flag-wrap">
+                        <img src="https://flagcdn.com/w320/rw.png" alt="Rwanda flag">
                     </div>
-
+                    <div class="rp-country-name">Rwanda</div>
                 </div>
-
             </div>
 
             <!-- South Sudan -->
-
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-
-                <div class="card shadow border-0 service-card h-100">
-
-                    <div class="card-body text-center">
-
-                        <img src="https://flagcdn.com/w320/ss.png"
-                             alt="South Sudan"
-                             style="height:50px;width:auto;margin:auto;display:block;">
-
-                        <h6 class="mt-3 mb-0">
-                            South Sudan
-                        </h6>
-
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                <div class="rp-card">
+                    <div class="rp-flag-wrap">
+                        <img src="https://flagcdn.com/w320/ss.png" alt="South Sudan flag">
                     </div>
-
+                    <div class="rp-country-name">South Sudan</div>
                 </div>
-
             </div>
 
             <!-- DR Congo -->
-
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4">
-
-                <div class="card shadow border-0 service-card h-100">
-
-                    <div class="card-body text-center">
-
-                        <img src="https://flagcdn.com/w320/cd.png"
-                             alt="DR Congo"
-                             style="height:50px;width:auto;margin:auto;display:block;">
-
-                        <h6 class="mt-3 mb-0">
-                            DR Congo
-                        </h6>
-
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                <div class="rp-card">
+                    <div class="rp-flag-wrap">
+                        <img src="https://flagcdn.com/w320/cd.png" alt="DR Congo flag">
                     </div>
-
+                    <div class="rp-country-name">DR Congo</div>
                 </div>
-
             </div>
 
         </div>
@@ -505,28 +369,25 @@ About Us | Obusubiri MM & Associates
 
 <!-- CTA -->
 
-<section class="py-5 text-center text-white"
-         style="background:#1A2348;">
+<section class="ob-cta-section">
+    <div class="container" style="position:relative;">
 
-    <div class="container">
+        <span class="ob-cta-eyebrow">Get In Touch</span>
 
-        <h2>
+        <h2 class="ob-cta-heading">
             Looking For Trusted Professional Advisors?
         </h2>
 
-        <p class="lead">
-            Let our experienced team help your organisation grow.
+        <p class="ob-cta-sub">
+            Let our experienced team help your organisation
+            achieve compliance, accountability and sustainable growth.
         </p>
 
-        <a href="/contact/"
-           class="btn btn-warning btn-lg">
-
+        <a href="/contact/" class="btn btn-warning btn-lg px-4">
             Contact Us
-
         </a>
 
     </div>
-
 </section>
 
 {% endblock %}

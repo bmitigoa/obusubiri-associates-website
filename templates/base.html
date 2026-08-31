@@ -21,6 +21,8 @@
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
+    <link rel="stylesheet" href="{% static 'css/site-design.css' %}">
+
     <style>
 
         :root{
@@ -68,24 +70,43 @@
         /* ===== HERO ===== */
 
         .hero{
-            background:
-            linear-gradient(
-            rgba(15,25,60,.78),
-            rgba(15,25,60,.78)
-            ),
-            url("{% static 'images/hero-africa.jpg' %}");
-
-            background-size:cover;
-            background-position:center;
-            background-repeat:no-repeat;
-
+            position:relative;
+            overflow:hidden;
             min-height:85vh;
-
             display:flex;
             align-items:center;
             justify-content:center;
-
             color:white;
+        }
+
+        /* Full-bleed video layer */
+        .hero-video{
+            position:absolute;
+            inset:0;
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            object-position:center;
+            z-index:0;
+        }
+
+        /* Dark overlay so text stays legible over the video */
+        .hero-overlay{
+            position:absolute;
+            inset:0;
+            background:linear-gradient(
+                160deg,
+                rgba(10,18,50,.82) 0%,
+                rgba(26,35,72,.75) 60%,
+                rgba(80,20,100,.55) 100%
+            );
+            z-index:1;
+        }
+
+        /* Content must sit above the overlay */
+        .hero > .container{
+            position:relative;
+            z-index:2;
         }
 
         .gold-text{
@@ -121,27 +142,7 @@
             color:white;
         }
 
-        /* ===== FOOTER ===== */
-
-        footer{
-            background:var(--primary);
-            color:white;
-            margin-top:50px;
-        }
-
-        footer h4{
-            margin-bottom:15px;
-            color:white;
-        }
-
-        footer ul{
-            padding-left:0;
-            list-style:none;
-        }
-
-        footer ul li{
-            margin-bottom:8px;
-        }
+        /* ===== FOOTER ===== handled by site-design.css .site-footer ===== */
 
         .service-icon{
             font-size:50px;
@@ -166,13 +167,7 @@
             transform:translateY(-8px);
         }
 
-        .about-hero{
-            background:linear-gradient(
-                135deg,
-                #1A2348,
-                #A63EC5
-            );
-        }
+        /* about-hero replaced by .page-hero in site-design.css */
 
         .country-card{
             border:none;
@@ -197,7 +192,10 @@
         }
 
         .service-card .card-body{
-            padding:30px;
+            padding:24px;
+            word-break: normal;
+            overflow-wrap: normal;
+            hyphens: none;
         }
 
         .contact-icon{
@@ -292,22 +290,8 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-E7M5LK8VG0');
     </script>
-     <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E7M5LK8VG0"></script>
-
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-    gtag('config', 'G-E7M5LK8VG0');
-</script>
 
 <!-- SEO Schema Markup -->
 <script type="application/ld+json">
@@ -384,65 +368,89 @@
 {% block content %}
 {% endblock %}
 
-<footer>
+<footer class="site-footer">
 
-    <div class="container py-5">
+    <!-- Brand bar -->
+    <div class="footer-brand-bar">
+        <div class="container text-center">
+            <p class="footer-brand-name">Obusubiri MM &amp; Associates</p>
+            <p class="footer-tagline">
+                Audit &bull; Tax &bull; Advisory &bull; Accounting &bull; Capacity Building
+            </p>
+        </div>
+    </div>
 
-        <div class="row">
+    <!-- Three-column body -->
+    <div class="container footer-body">
+        <div class="row g-0 justify-content-center">
 
-            <div class="col-md-4">
-
-                <h4>Obusubiri MM & Associates</h4>
-
-                <p>
-                    Professional Audit, Tax, Advisory,
-                    Accounting and Capacity Building Services.
-                </p>
-
-            </div>
-
-            <div class="col-md-4">
-
-                <h4>Our Services</h4>
-
-                <ul>
+            <!-- Services -->
+            <div class="col-lg-4 col-md-4 footer-col">
+                <span class="footer-col-heading">Our Services</span>
+                <ul class="footer-links">
                     <li>External Audit</li>
                     <li>Internal Audit</li>
                     <li>Project Audit</li>
                     <li>Tax Advisory</li>
                     <li>Tax Return Filing</li>
-                    <li>Tax Objections & Appeals</li>
+                    <li>Tax Objections &amp; Appeals</li>
                     <li>Tax Exemptions Applications</li>
-                    <li>Training & Capacity Building</li>
+                    <li>Training &amp; Capacity Building</li>
                 </ul>
-
             </div>
 
-            <div class="col-md-4">
+            <!-- Divider -->
+            <div class="footer-col-divider d-none d-md-block"></div>
 
-                <h4>Contact Us</h4>
+            <!-- Quick Nav -->
+            <div class="col-lg-3 col-md-3 footer-col">
+                <span class="footer-col-heading">Quick Links</span>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about/">About Us</a></li>
+                    <li><a href="/services/">Services</a></li>
+                    <li><a href="/training/">Training</a></li>
+                    <li><a href="/contact/">Contact Us</a></li>
+                </ul>
+            </div>
 
-                <p>Email: info@obusubiriassociates.co.ke</p>
+            <!-- Divider -->
+            <div class="footer-col-divider d-none d-md-block"></div>
 
-                <p>Phone:  +254 712238764 / +254733901589</p>
+            <!-- Contact -->
+            <div class="col-lg-4 col-md-4 footer-col">
+                <span class="footer-col-heading">Contact Us</span>
 
-                <p>Nairobi, Kenya</p>
+                <div class="footer-contact-row">
+                    <div class="footer-contact-icon">
+                        <i class="bi bi-envelope-fill"></i>
+                    </div>
+                    <span>info@obusubiriassociates.co.ke</span>
+                </div>
 
+                <div class="footer-contact-row">
+                    <div class="footer-contact-icon">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+                    <span>+254 712 238 764 &nbsp;/&nbsp; +254 733 901 589</span>
+                </div>
+
+                <div class="footer-contact-row">
+                    <div class="footer-contact-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <span>Nairobi, Kenya</span>
+                </div>
             </div>
 
         </div>
+    </div>
 
-        <hr style="border-color:rgba(255,255,255,.2);">
-
-        <div class="text-center">
-
-            <p class="mb-0">
-                © 2026 Obusubiri MM & Associates.
-                All Rights Reserved.
-            </p>
-
+    <!-- Bottom bar -->
+    <div class="footer-bottom-bar">
+        <div class="container text-center">
+            <span>© 2026 Obusubiri MM &amp; Associates. All Rights Reserved.</span>
         </div>
-
     </div>
 
 </footer>

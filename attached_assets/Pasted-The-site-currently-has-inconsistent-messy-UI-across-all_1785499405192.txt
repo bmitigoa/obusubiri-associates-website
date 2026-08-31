@@ -1,0 +1,11 @@
+The site currently has inconsistent, messy UI across all pages and needs a full visual restructure. Please do NOT change any copy/content — only layout, spacing, and component styling. Specific problems to fix:
+
+Bug: text is wrapping mid-word in the "Why Choose Us" cards (e.g. "Professional" breaks into "Profession" / "al"). Fix the card width/padding/font-size and remove any word-break: break-all or overly narrow fixed widths so text wraps naturally between words only.
+Bug: the sticky-panels accordion shows the wrong panel's content expanded. On the Services page, clicking "Financial Advisory" shows "04 Training & Capacity Building" content instead of the Financial Advisory content. Fix the JS so the expanded panel's number/title/content always match the one that was clicked.
+Build one consistent card component and use it everywhere cards appear (stats numbers, "Why Choose Us," "Industries We Serve," service list items, etc.) — same corner radius, same shadow OR border (pick one), same internal padding, same title/description type scale, equal heights within a row.
+Fix section rhythm and containment. Stats cards currently overlap the boundary between the hero image and the white section below — give every section clear top/bottom padding and a consistent max-width container so nothing floats across section boundaries or touches page edges.
+Fix the About page's "Core Values" box, which currently looks clipped/cut off against the section below — give it proper padding and spacing so it reads as a clean, self-contained card.
+Standardize typography scale site-wide: one consistent size/weight for section headings, one for card titles, one for body text, applied the same way on every page (Home, About, Services, Training, Contact).
+Once the design system (spacing scale, card component, type scale) is defined, apply it consistently across every page, not just the ones we've touched so far.
+
+Please work through this systematically — fix the two functional bugs first (#1 and #2), then build and apply the consistent card/spacing/type system across all pages.

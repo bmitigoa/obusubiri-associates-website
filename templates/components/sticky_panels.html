@@ -1,0 +1,113 @@
+{% load static %}
+{% comment %}
+  Sticky Panels Component
+  ========================
+  Context variables (set by view or parent template):
+    sp_id         — unique HTML id for this section (str)
+    sp_label      — small monospace badge label (str, optional)
+    sp_heading    — h2 heading text (str)
+    sp_intro      — short intro paragraph (str, optional)
+    sp_alt_bg     — use alternate section background (bool, optional)
+    sp_flip       — put image on the right side (bool, optional)
+    sp_badge_label — text stamped on the image badge (str, optional)
+    sp_panels     — list of dicts:
+        title       (str)
+        number      (str, e.g. "01")
+        desc        (str, optional)
+        items       (list of str, optional)
+        image       (str — path relative to static root, e.g. "images/sp-audit.jpg")
+        image_alt   (str)
+        cta_text    (str, optional)
+        cta_url     (str, optional)
+{% endcomment %}
+
+<section class="sp-section{% if sp_alt_bg %} sp-section--alt{% endif %}"
+         data-sticky-panels
+         id="{{ sp_id }}">
+
+    <div class="sp-grid{% if sp_flip %} sp-grid--flip{% endif %}">
+
+        {# ——— STICKY MEDIA COLUMN ——— #}
+        <div class="sp-media-col">
+            <div class="sp-media-sticky">
+                <div class="sp-media-frame">
+
+                    {% for panel in sp_panels %}
+                    <img class="sp-img{% if forloop.first %} is-active{% endif %}"
+                         src="{% static panel.image %}"
+                         alt="{{ panel.image_alt }}"
+                         loading="{% if forloop.first %}eager{% else %}lazy{% endif %}">
+                    {% endfor %}
+
+                    <div class="sp-media-badge">
+                        <span class="sp-badge-label">{{ sp_badge_label|default:"Our Services" }}</span>
+                        <span class="sp-badge-title">
+                            {% if sp_panels %}{{ sp_panels.0.title }}{% endif %}
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        {# ——— PANELS COLUMN ——— #}
+        <div class="sp-panels-col">
+
+            <div class="sp-section-header">
+                {% if sp_label %}
+                <span class="sp-section-label">{{ sp_label }}</span>
+                {% endif %}
+                <h2 class="sp-section-heading">{{ sp_heading }}</h2>
+                {% if sp_intro %}
+                <p class="sp-section-intro">{{ sp_intro }}</p>
+                {% endif %}
+            </div>
+
+            {% for panel in sp_panels %}
+            <div class="sp-panel">
+
+                <button class="sp-toggle" aria-expanded="false"
+                        aria-controls="sp-body-{{ sp_id }}-{{ forloop.counter }}">
+                    <div class="sp-toggle-titles">
+                        <span class="sp-panel-number">{{ panel.number }}</span>
+                        <span class="sp-panel-title">{{ panel.title }}</span>
+                    </div>
+                    <span class="sp-toggle-icon" aria-hidden="true">+</span>
+                </button>
+
+                <div class="sp-body"
+                     id="sp-body-{{ sp_id }}-{{ forloop.counter }}"
+                     role="region">
+                    <div class="sp-body-inner">
+                        <div class="sp-body-content">
+
+                            {% if panel.desc %}
+                            <p class="sp-body-desc">{{ panel.desc }}</p>
+                            {% endif %}
+
+                            {% if panel.items %}
+                            <ul class="sp-items">
+                                {% for item in panel.items %}
+                                <li>{{ item }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+
+                            {% if panel.cta_url %}
+                            <a href="{{ panel.cta_url }}" class="sp-panel-cta">
+                                {{ panel.cta_text|default:"Learn more" }}
+                            </a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>{# /.sp-panels-col #}
+
+    </div>{# /.sp-grid #}
+
+</section>

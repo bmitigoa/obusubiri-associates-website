@@ -1,0 +1,588 @@
+/* ============================================================
+   SITE-WIDE DESIGN SYSTEM — Obusubiri MM & Associates
+   Global typography scale, section rhythm, word-break
+   normalization. Loaded in base.html before page-level sheets.
+   ============================================================ */
+
+/* ---- Word-break normalization --------------------------------
+   Bootstrap 5 + browser defaults can break long words mid-character
+   inside narrow columns. Force natural word-boundary wrapping
+   across all card and body elements.
+   ------------------------------------------------------------- */
+.card-body,
+.cv-card,
+.mv-card,
+.stat-card,
+.wt-tile,
+.td-card,
+.rp-card,
+.partner-card,
+.sp-panel-title,
+.sp-body-content,
+.sp-body-desc {
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+}
+
+/* ---- Section headings ----------------------------------------
+   One consistent scale for every page-level h2 section heading.
+   ob-section-heading replaces bare .purple-text h2 usages.
+   ------------------------------------------------------------- */
+.ob-section-heading {
+    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: #1A2348;
+    line-height: 1.15;
+    margin-bottom: 12px;
+}
+
+.ob-section-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #D4AF37;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.ob-section-intro {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ---- Section wrappers ----------------------------------------
+   Consistent top/bottom padding so nothing bleeds across
+   section boundaries.
+   ------------------------------------------------------------- */
+.ob-section {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.ob-section--alt {
+    background: #f8f7fc;
+}
+
+.ob-section--dark {
+    background: #1A2348;
+}
+
+@media (max-width: 767px) {
+    .ob-section {
+        padding: 48px 0;
+    }
+}
+
+/* ---- Standard inner-page hero --------------------------------
+   All inner pages (About, Services, Training, Contact) use this
+   class for a consistent header: same gradient, same padding,
+   same type scale.
+   ------------------------------------------------------------- */
+.page-hero {
+    background: linear-gradient(135deg, #1A2348 0%, #A63EC5 100%);
+    padding: 72px 0 64px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+/* Thin gold accent bar at the very bottom of every page hero */
+.page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #D4AF37, #A63EC5, #D4AF37);
+}
+
+.page-hero h1 {
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+}
+
+.page-hero .page-hero-sub {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    opacity: 0.88;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+@media (max-width: 767px) {
+    .page-hero {
+        padding: 48px 0 44px;
+    }
+}
+
+/* ---- Contact page premium info panel -----------------------
+   Dark navy card used for the contact details column.
+   ------------------------------------------------------------- */
+.contact-premium-card {
+    background: #1A2348;
+    border-radius: 16px;
+    padding: 44px 36px 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(26, 35, 72, 0.22);
+    height: 100%;
+}
+
+.contact-premium-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: #D4AF37;
+}
+
+.contact-premium-card::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(166, 62, 197, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.contact-card-heading {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.contact-card-intro {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.68);
+    line-height: 1.6;
+    margin-bottom: 36px;
+}
+
+.contact-detail-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 26px;
+}
+
+.contact-detail-row:last-child {
+    margin-bottom: 0;
+}
+
+.contact-detail-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #D4AF37, #f0c85a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #1A2348;
+    flex-shrink: 0;
+}
+
+.contact-detail-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.contact-detail-value {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ---- CTA section (bottom of every page before footer) --------
+   Consistent treatment across Home, About, Services, Training.
+   ------------------------------------------------------------- */
+.ob-cta-section {
+    background: #1A2348;
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Centred radial purple glow */
+.ob-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 640px; height: 640px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(166, 62, 197, 0.18) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+/* Gold gradient bar along the top edge */
+.ob-cta-section::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #D4AF37 40%, #D4AF37 60%, transparent 100%);
+}
+
+.ob-cta-eyebrow {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #D4AF37;
+    display: block;
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.ob-cta-heading {
+    font-size: clamp(1.65rem, 3vw, 2.25rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    position: relative;
+}
+
+.ob-cta-sub {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto 36px;
+    position: relative;
+}
+
+@media (max-width: 767px) {
+    .ob-cta-section {
+        padding: 56px 0;
+    }
+}
+
+/* ---- Footer --------------------------------------------------
+   .site-footer — matches the site's navy (#1A2348) palette.
+   Top accent bar mirrors the page-hero gold bar.
+   ------------------------------------------------------------- */
+.site-footer {
+    background: #1A2348;
+    color: rgba(255, 255, 255, 0.78);
+    position: relative;
+}
+
+/* Gold gradient bar at the very top — same as .page-hero::after */
+.site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #D4AF37, #A63EC5, #D4AF37);
+}
+
+/* ---- Brand bar (centred name + one-liner tagline) ----------- */
+.footer-brand-bar {
+    padding: 44px 0 36px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.footer-brand-name {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+}
+
+.footer-tagline {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.06em;
+    margin-bottom: 0;
+}
+
+/* ---- Three-column body -------------------------------------- */
+.footer-body {
+    padding: 44px 0 40px;
+}
+
+/* Each column gets consistent internal padding */
+.footer-col {
+    padding: 0 32px;
+}
+
+/* Thin vertical separator between columns */
+.footer-col-divider {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.10);
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.footer-col-heading {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* ---- Service / nav link lists ------------------------------ */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.70);
+}
+
+/* Purple dot instead of arrow — cleaner when not hyperlinked */
+.footer-links li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #A63EC5;
+    flex-shrink: 0;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.70);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #D4AF37;
+}
+
+/* ---- Contact rows ------------------------------------------ */
+.footer-contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.55;
+}
+
+.footer-contact-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.12);
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #D4AF37;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ---- Bottom copyright bar ---------------------------------- */
+.footer-bottom-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    padding: 16px 0;
+    font-size: 0.80rem;
+    color: rgba(255, 255, 255, 0.38);
+}
+
+/* ---- Responsive -------------------------------------------- */
+@media (max-width: 767px) {
+    .footer-brand-bar {
+        padding: 36px 0 28px;
+    }
+
+    .footer-body {
+        padding: 32px 0 28px;
+    }
+
+    .footer-col {
+        padding: 24px 16px 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-col:last-child {
+        border-bottom: none;
+    }
+}
+
+/* ---- Enquiry form card ---------------------------------------
+   The right-hand form card on the Contact page.
+   Dark navy header band + white body with grouped field sections.
+   ------------------------------------------------------------- */
+.enquiry-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(26, 35, 72, 0.13);
+    border: none;
+    height: 100%;
+}
+
+.enquiry-card-header {
+    background: linear-gradient(135deg, #1A2348, #A63EC5);
+    padding: 28px 36px 24px;
+    position: relative;
+}
+
+.enquiry-card-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: #D4AF37;
+}
+
+.enquiry-card-eyebrow {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #D4AF37;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.enquiry-card-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.enquiry-card-body {
+    background: #fff;
+    padding: 32px 36px 36px;
+}
+
+.enquiry-field-group {
+    margin-bottom: 8px;
+}
+
+.enquiry-field-group-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #A63EC5;
+    display: block;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ede9f7;
+}
+
+@media (max-width: 575px) {
+    .enquiry-card-header {
+        padding: 22px 24px 20px;
+    }
+    .enquiry-card-body {
+        padding: 24px 24px 28px;
+    }
+}
+
+/* ---- Article / blog card -------------------------------------
+   Used on the "Client Insights" cards on Services page.
+   ------------------------------------------------------------- */
+.article-card {
+    background: #fff;
+    border: 1px solid #ede9f7;
+    border-radius: 14px;
+    padding: 32px 28px;
+    box-shadow: 0 4px 18px rgba(26, 35, 72, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.article-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #D4AF37;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+}
+
+.article-card:hover::before {
+    transform: scaleX(1);
+}
+
+.article-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(26, 35, 72, 0.12);
+}
+
+.article-card-eyebrow {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #A63EC5;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.article-card-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1A2348;
+    line-height: 1.35;
+    margin-bottom: 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.article-card-title:hover {
+    color: #A63EC5;
+}
+
+.article-card-text {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.65;
+    margin: 0;
+    word-break: normal;
+    overflow-wrap: normal;
+}
