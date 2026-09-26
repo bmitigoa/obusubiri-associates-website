@@ -26,6 +26,7 @@ def export_as_csv(modeladmin, request, queryset):
     writer.writerow([
         'full_name', 'email', 'phone_number', 'organisation',
         'service_area', 'service', 'programme', 'message', 'created_at',
+        'wants_booking', 'preferred_date', 'preferred_time', 'booking_status',
     ])
 
     for inquiry in queryset:
@@ -39,6 +40,10 @@ def export_as_csv(modeladmin, request, queryset):
             _safe_csv_value(inquiry.programme),
             _safe_csv_value(inquiry.message),
             inquiry.created_at,
+            _safe_csv_value(inquiry.wants_booking),
+            _safe_csv_value(inquiry.preferred_date),
+            _safe_csv_value(inquiry.preferred_time),
+            _safe_csv_value(inquiry.booking_status),
         ])
 
     return response
@@ -59,11 +64,19 @@ class InquiryAdmin(admin.ModelAdmin):
         'email',
         'email_sent',
         'created_at',
+        'wants_booking',
+        'preferred_date',
+        'preferred_time',
+        'booking_status',
     )
+
+    list_display_links = ('full_name',)
+
+    list_editable = ('booking_status',)
 
     date_hierarchy = 'created_at'
 
-    list_filter = ('service_area', 'service', 'programme', 'email_sent')
+    list_filter = ('service_area', 'service', 'programme', 'email_sent', 'wants_booking', 'booking_status')
 
     search_fields = (
         'full_name',

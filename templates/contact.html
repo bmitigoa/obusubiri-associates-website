@@ -50,6 +50,21 @@ Contact Us | Obusubiri MM &amp; Associates
     });
 
     filterServices(areaSelect.value);
+
+    // ---- Consultation booking: reveal date/time fields only when the
+    // "wants booking" checkbox is ticked, so visitors who aren't booking
+    // never see them. ----
+    var wantsBookingCheckbox = document.getElementById("id_wants_booking");
+    var bookingFieldsRow = document.getElementById("booking-fields-row");
+
+    if (wantsBookingCheckbox && bookingFieldsRow) {
+        function toggleBookingFields() {
+            bookingFieldsRow.style.display = wantsBookingCheckbox.checked ? "flex" : "none";
+        }
+
+        wantsBookingCheckbox.addEventListener("change", toggleBookingFields);
+        toggleBookingFields();
+    }
 }());
 </script>
 {% endblock %}
@@ -276,6 +291,32 @@ Contact Us | Obusubiri MM &amp; Associates
                                         {% if form.service.errors %}
                                         <div class="text-danger small mt-1">{{ form.service.errors }}</div>
                                         {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {# ---- Section: Consultation Booking (Optional) ---- #}
+                            <div class="enquiry-field-group mt-4">
+                                <span class="enquiry-field-group-label">Consultation Booking (Optional)</span>
+
+                                <div class="form-check mb-3">
+                                    {{ form.wants_booking }}
+                                    <label class="form-check-label" for="{{ form.wants_booking.id_for_label }}">
+                                        {{ form.wants_booking.label }}
+                                    </label>
+                                </div>
+
+                                <div id="booking-fields-row" class="row g-3" style="display:none;">
+                                    <div class="col-sm-6">
+                                        <label class="form-label fw-semibold small" for="{{ form.preferred_date.id_for_label }}">Preferred Date</label>
+                                        {{ form.preferred_date }}
+                                        {% if form.preferred_date.errors %}
+                                        <div class="text-danger small mt-1">{{ form.preferred_date.errors }}</div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="form-label fw-semibold small" for="{{ form.preferred_time.id_for_label }}">Preferred Time</label>
+                                        {{ form.preferred_time }}
                                     </div>
                                 </div>
                             </div>

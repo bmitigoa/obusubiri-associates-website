@@ -85,6 +85,9 @@ class InquiryForm(forms.ModelForm):
             'service_area',
             'service',
             'programme',
+            'wants_booking',
+            'preferred_date',
+            'preferred_time',
             'message',
         ]
 
@@ -106,6 +109,16 @@ class InquiryForm(forms.ModelForm):
                 'placeholder': 'Your organisation',
             }),
             'service': forms.Select(attrs={
+                'class': 'form-select',
+            }),
+            'wants_booking': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+            }),
+            'preferred_date': forms.DateInput(attrs={
+                'class': 'form-control',
+                'type': 'date',
+            }),
+            'preferred_time': forms.Select(attrs={
                 'class': 'form-select',
             }),
             'message': forms.Textarea(attrs={

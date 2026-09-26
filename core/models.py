@@ -67,6 +67,32 @@ class Inquiry(models.Model):
 
     programme = models.CharField(max_length=200, blank=True, default='')
 
+    wants_booking = models.BooleanField(
+        default=False,
+        verbose_name="This is a consultation booking request",
+    )
+
+    preferred_date = models.DateField(null=True, blank=True)
+
+    TIME_SLOT_CHOICES = [
+        ('', '— No preference —'),
+        ('Morning (9:00 AM – 12:00 PM)', 'Morning (9:00 AM – 12:00 PM)'),
+        ('Early Afternoon (12:00 PM – 2:00 PM)', 'Early Afternoon (12:00 PM – 2:00 PM)'),
+        ('Late Afternoon (2:00 PM – 5:00 PM)', 'Late Afternoon (2:00 PM – 5:00 PM)'),
+    ]
+    preferred_time = models.CharField(
+        max_length=60, choices=TIME_SLOT_CHOICES, blank=True, default='',
+    )
+
+    BOOKING_STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('confirmed', 'Confirmed'),
+        ('declined', 'Declined'),
+    ]
+    booking_status = models.CharField(
+        max_length=20, choices=BOOKING_STATUS_CHOICES, default='pending', blank=True,
+    )
+
     message = models.TextField()
 
     email_sent = models.BooleanField(
@@ -89,6 +115,16 @@ class Inquiry(models.Model):
                         )
                     }
                 )
+
+        if self.wants_booking and not self.preferred_date:
+            raise ValidationError(
+                {
+                    'preferred_date': (
+                        "Please select a preferred date for your "
+                        "consultation request."
+                    )
+                }
+            )
 
     def __str__(self):
         return self.full_name
