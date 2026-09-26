@@ -24,35 +24,37 @@ Home | Obusubiri & Associates
     <!-- Gradient overlay for text legibility -->
     <div class="hero-overlay"></div>
 
-<div class="container text-center">
+<div class="container">
 
-    <h1 class="display-2 fw-bold mb-4">
-        Building Trust Through Professional Excellence
-    </h1>
+    <div class="hero-copy">
 
-    <p class="lead mb-4">
+        <h1 class="hero-heading mb-4">
+            Building Trust Through Professional Excellence
+        </h1>
 
-        Audit • Tax • Advisory • Capacity Building
+        <p class="lead mb-4">
 
-        <br>
+            Audit • Tax • Advisory • Capacity Building
+            <br>
+            Serving Organisations Across Africa and Beyond.
 
-        Serving Organisations Across Africa and Beyond.
+        </p>
 
-    </p>
+        <a href="/contact/"
+           class="btn btn-warning btn-lg me-3">
 
-    <a href="/contact/"
-       class="btn btn-warning btn-lg me-3">
+            Request Consultation
 
-        Request Consultation
+        </a>
 
-    </a>
+        <a href="/services/"
+           class="btn btn-outline-light btn-lg">
 
-    <a href="/services/"
-       class="btn btn-outline-light btn-lg">
+            Explore Services
 
-        Explore Services
+        </a>
 
-    </a>
+    </div>
 
 </div>
 
@@ -174,11 +176,15 @@ Home | Obusubiri & Associates
 
     <div class="container">
 
-        <div class="text-center mb-2">
-            {% if sp_label %}<span class="ob-section-label">{{ sp_label }}</span>{% endif %}
-            <h2 class="ob-section-heading">{{ sp_heading }}</h2>
+        <div class="row align-items-end mb-2">
+            <div class="col-lg-7">
+                {% if sp_label %}<span class="ob-section-label">{{ sp_label }}</span>{% endif %}
+                <h2 class="ob-section-heading mb-0">{{ sp_heading }}</h2>
+            </div>
             {% if sp_intro %}
-            <p class="ob-section-intro mx-auto" style="max-width:640px;">{{ sp_intro }}</p>
+            <div class="col-lg-5">
+                <p class="ob-section-intro">{{ sp_intro }}</p>
+            </div>
             {% endif %}
         </div>
 

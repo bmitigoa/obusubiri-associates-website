@@ -7,15 +7,16 @@
 :root {
     --bg: #F5F6F3;
     --surface: #FFFFFF;
-    --ink: #12141F;
+    --ink: #1A2348;
     --ink-soft: #5A5F73;
-    --line: rgba(18, 20, 31, 0.12);
-    --line-soft: rgba(18, 20, 31, 0.08);
-    --gold: #B8862E;
-    --gold-deep: #8F6A22;
+    --line: rgba(26, 35, 72, 0.14);
+    --line-soft: rgba(26, 35, 72, 0.09);
+    --gold: #C99A3D;
+    --gold-deep: #A67C24;
     --gold-tint: #EFE4CC;
-    --navy-deep: #0D1120;
-    --gold-rgb: 184, 134, 46;
+    --navy-deep: #1A2348;
+    --navy-rgb: 26, 35, 72;
+    --gold-rgb: 201, 154, 61;
     --line-on-dark: rgba(255, 255, 255, 0.16);
     --line-on-dark-soft: rgba(255, 255, 255, 0.10);
 
@@ -49,6 +50,7 @@ h1, h2, h3, h4, h5, h6,
     font-family: var(--font-display);
     color: var(--ink);
     font-weight: 700;
+    line-height: 1.1;
 }
 
 .lead {
@@ -73,6 +75,21 @@ h1, h2, h3, h4, h5, h6,
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 2px;
+}
+
+/* Bordered panel — used for list-style content that needs a visible
+   container (Core Values, etc.) instead of a bare divided list */
+.panel-box {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 36px 40px;
+}
+
+@media (max-width: 575px) {
+    .panel-box {
+        padding: 28px 24px;
+    }
 }
 
 /* ---- Word-break normalization --------------------------------
@@ -103,11 +120,11 @@ h1, h2, h3, h4, h5, h6,
 .ob-section-heading,
 .purple-text {
     font-family: var(--font-display);
-    font-size: clamp(1.6rem, 3vw, 2.25rem);
+    font-size: clamp(1.9rem, 3.4vw, 2.75rem);
     font-weight: 700;
     color: var(--ink);
-    line-height: 1.15;
-    margin-bottom: 12px;
+    line-height: 1.12;
+    margin-bottom: 14px;
 }
 
 .ob-section-label,
@@ -179,10 +196,10 @@ h1, h2, h3, h4, h5, h6,
 
 .page-hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(1.9rem, 4vw, 3rem);
+    font-size: clamp(2.2rem, 4.6vw, 3.6rem);
     font-weight: 700;
-    line-height: 1.15;
-    margin-bottom: 16px;
+    line-height: 1.08;
+    margin-bottom: 18px;
     letter-spacing: -0.01em;
     color: #fff;
 }
@@ -715,42 +732,49 @@ h1, h2, h3, h4, h5, h6,
    replaces the shadowed card).
    ============================================================ */
 .value-panel {
-    padding: 8px 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 32px 36px;
 }
 
 .value-panel-heading {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--ink);
-    margin-bottom: 22px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
 }
 
 .value-list {
     list-style: none;
     margin: 0;
     padding: 0;
-    border-top: 1px solid var(--line);
 }
 
 .value-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-family: var(--font-sans);
-    font-size: 1rem;
+    font-size: 1.05rem;
+    font-weight: 500;
     color: var(--ink);
-    padding: 15px 0 15px 22px;
+    padding: 14px 0;
     border-bottom: 1px solid var(--line);
-    position: relative;
 }
 
-.value-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 6px;
-    height: 6px;
-    background: var(--gold);
+.value-list li:last-child {
+    border-bottom: none;
+}
+
+.value-list li::after {
+    content: '\203A';
+    color: var(--gold);
+    font-size: 1.2rem;
+    line-height: 1;
 }
 
 /* ============================================================

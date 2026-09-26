@@ -24,7 +24,7 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 
-    <link rel="stylesheet" href="{% static 'css/site-design.css' %}?v=3">
+    <link rel="stylesheet" href="{% static 'css/site-design.css' %}?v=4">
 
     <style>
 
@@ -83,15 +83,17 @@
             z-index:0;
         }
 
-        /* Dark navy overlay so text stays legible over the video */
+        /* Dark navy overlay so text stays legible over the video —
+           stronger on the left where the headline sits, easing off
+           to the right so the video still reads through. */
         .hero-overlay{
             position:absolute;
             inset:0;
             background:linear-gradient(
-                160deg,
-                rgba(13,17,32,.90) 0%,
-                rgba(13,17,32,.74) 55%,
-                rgba(13,17,32,.58) 100%
+                100deg,
+                rgba(26,35,72,.92) 0%,
+                rgba(26,35,72,.80) 42%,
+                rgba(26,35,72,.42) 100%
             );
             z-index:1;
         }
@@ -102,13 +104,22 @@
             z-index:2;
         }
 
-        .hero h1{
-            color:#fff;
+        .hero-copy{
+            max-width:640px;
+        }
+
+        .hero-heading{
             font-family:var(--font-display);
+            font-weight:700;
+            font-size:clamp(2.6rem,5.2vw,4.2rem);
+            line-height:1.05;
+            letter-spacing:-0.01em;
+            color:#fff;
         }
 
         .hero .lead{
-            color:rgba(255,255,255,.86);
+            font-size:1.15rem;
+            color:rgba(255,255,255,.88);
         }
 
         .gold-text{
