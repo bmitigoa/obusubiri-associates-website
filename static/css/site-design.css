@@ -7,18 +7,18 @@
 :root {
     --bg: #F5F6F3;
     --surface: #FFFFFF;
-    --ink: #1A2348;
+    --ink: #14162A;
     --ink-soft: #5A5F73;
-    --line: rgba(26, 35, 72, 0.14);
-    --line-soft: rgba(26, 35, 72, 0.09);
+    --line: rgba(20, 22, 42, 0.14);
+    --line-soft: rgba(20, 22, 42, 0.09);
     --gold: #C99A3D;
     --gold-deep: #A67C24;
     --gold-tint: #EFE4CC;
-    --navy-deep: #1A2348;
-    --navy-rgb: 26, 35, 72;
+    --navy-deep: #10111F;
+    --navy-rgb: 16, 17, 31;
     --gold-rgb: 201, 154, 61;
-    --line-on-dark: rgba(255, 255, 255, 0.16);
-    --line-on-dark-soft: rgba(255, 255, 255, 0.10);
+    --line-on-dark: rgba(255, 255, 255, 0.14);
+    --line-on-dark-soft: rgba(255, 255, 255, 0.09);
 
     --font-display: 'Libre Caslon Display', Georgia, 'Times New Roman', serif;
     --font-serif: 'Libre Caslon Text', Georgia, 'Times New Roman', serif;
@@ -136,8 +136,53 @@ h1, h2, h3, h4, h5, h6,
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--gold);
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 10px;
+}
+
+.ob-section-label::before,
+.ab-section-label::before,
+.ts-section-label::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+}
+
+/* Centred section headers: flank the eyebrow with a dash on both sides */
+.eyebrow-center {
+    justify-content: center;
+}
+
+.eyebrow-center::after {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
+}
+
+/* Gold text link with a trailing arrow — used instead of a button
+   where the reference shows a plain link (e.g. "Learn more") */
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-decoration: none;
+}
+
+.text-link:hover {
+    color: var(--gold-deep);
+    gap: 10px;
 }
 
 .ob-section-intro {
@@ -221,23 +266,23 @@ h1, h2, h3, h4, h5, h6,
     }
 }
 
-/* ---- Contact page premium info panel -----------------------
-   Navy-ink panel used for the contact details column.
+/* ---- Contact page info panel ---------------------------------
+   Light bordered panel for the contact details column.
    ------------------------------------------------------------- */
 .contact-premium-card {
-    background: var(--navy-deep);
-    border-radius: 2px;
-    padding: 48px 40px 44px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 44px 36px;
     position: relative;
     height: 100%;
-    border-top: 1px solid var(--gold);
 }
 
 .contact-card-heading {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--ink);
     margin-bottom: 10px;
     line-height: 1.2;
 }
@@ -245,18 +290,18 @@ h1, h2, h3, h4, h5, h6,
 .contact-card-intro {
     font-family: var(--font-sans);
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.68);
+    color: var(--ink-soft);
     line-height: 1.6;
-    margin-bottom: 36px;
+    margin-bottom: 30px;
 }
 
 .contact-detail-row {
     display: flex;
     align-items: flex-start;
     gap: 16px;
-    padding-bottom: 22px;
-    margin-bottom: 22px;
-    border-bottom: 1px solid var(--line-on-dark-soft);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--line);
 }
 
 .contact-detail-row:last-child {
@@ -266,15 +311,15 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .contact-detail-icon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background: transparent;
-    border: 1px solid var(--line-on-dark);
+    border: 1px solid var(--line);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 15px;
     color: var(--gold);
     flex-shrink: 0;
 }
@@ -293,7 +338,7 @@ h1, h2, h3, h4, h5, h6,
 .contact-detail-value {
     font-family: var(--font-sans);
     font-size: 0.88rem;
-    color: rgba(255, 255, 255, 0.88);
+    color: var(--ink);
     line-height: 1.6;
     margin: 0;
 }
@@ -326,8 +371,21 @@ h1, h2, h3, h4, h5, h6,
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--gold);
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     margin-bottom: 18px;
+}
+
+.ob-cta-eyebrow::before,
+.ob-cta-eyebrow::after {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
 }
 
 .ob-cta-heading {
@@ -513,8 +571,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ---- Enquiry form card ---------------------------------------
-   The right-hand form card on the Contact page.
-   Navy-ink header band + white body with grouped field sections.
+   The right-hand form card on the Contact page. Light bordered
+   panel; eyebrow + heading sit directly on the body, no color band.
    ------------------------------------------------------------- */
 .enquiry-card {
     border-radius: 2px;
@@ -524,10 +582,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .enquiry-card-header {
-    background: var(--navy-deep);
-    padding: 32px 40px 26px;
+    background: var(--surface);
+    padding: 36px 40px 8px;
     position: relative;
-    border-bottom: 1px solid var(--gold);
 }
 
 .enquiry-card-eyebrow {
@@ -537,22 +594,33 @@ h1, h2, h3, h4, h5, h6,
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gold);
-    display: block;
-    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.enquiry-card-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 1px;
+    background: var(--gold);
+    flex-shrink: 0;
 }
 
 .enquiry-card-title {
     font-family: var(--font-display);
     font-size: 1.35rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--ink);
     margin: 0;
     line-height: 1.2;
 }
 
 .enquiry-card-body {
     background: var(--surface);
-    padding: 36px 40px 40px;
+    padding: 12px 40px 40px;
 }
 
 .enquiry-field-group {
@@ -770,11 +838,10 @@ h1, h2, h3, h4, h5, h6,
     border-bottom: none;
 }
 
-.value-list li::after {
-    content: '\203A';
+.value-list li .value-num {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
     color: var(--gold);
-    font-size: 1.2rem;
-    line-height: 1;
 }
 
 /* ============================================================
@@ -786,6 +853,28 @@ h1, h2, h3, h4, h5, h6,
     padding: 64px 48px;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
+}
+
+.quote-panel-text {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.25rem;
+}
+
+.quote-panel-name {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: 24px;
+}
+
+.quote-panel-role {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
 }
 
 @media (max-width: 767px) {

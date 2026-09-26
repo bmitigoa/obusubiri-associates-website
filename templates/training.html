@@ -7,12 +7,7 @@ Training & Capacity Building | Obusubiri & Associates
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/sticky-panels.css' %}?v=3">
-<link rel="stylesheet" href="{% static 'css/training-sections.css' %}?v=2">
-{% endblock %}
-
-{% block js %}
-<script src="{% static 'js/sticky-panels.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/training-sections.css' %}?v=3">
 {% endblock %}
 
 {% block content %}
@@ -21,18 +16,20 @@ Training & Capacity Building | Obusubiri & Associates
 
 <section class="page-hero">
     <div class="container">
+        <span class="ob-section-label eyebrow-center">Capacity Building</span>
         <h1>Training &amp; Capacity Building</h1>
         <p class="page-hero-sub">
-            Empowering Organisations Through Knowledge, Skills Development
-            and Institutional Strengthening.
+            Empowering organisations through knowledge, skills development
+            and institutional strengthening.
         </p>
     </div>
 </section>
 
 <!-- INTRODUCTION -->
 
-<section class="container py-5">
+<section class="ob-section">
 
+<div class="container">
 
 <div class="row align-items-center">
 
@@ -60,9 +57,7 @@ Training & Capacity Building | Obusubiri & Associates
 
         <div class="wy-card">
 
-            <div class="wy-card-header">
-                <h3 class="wy-card-title">Why Our Training?</h3>
-            </div>
+            <h3 class="wy-card-title">Why Our Training?</h3>
 
             <ul class="wy-list">
 
@@ -109,12 +104,13 @@ Training & Capacity Building | Obusubiri & Associates
 
 </div>
 
+</div>
 
 </section>
 
-<!-- TRAINING PROGRAMMES — STICKY PANELS -->
+<!-- TRAINING PROGRAMMES — simple stacked list -->
 
-{% include 'components/sticky_panels.html' %}
+{% include 'components/simple_list.html' %}
 
 <!-- WHO WE TRAIN -->
 
@@ -123,7 +119,7 @@ Training & Capacity Building | Obusubiri & Associates
 <div class="container">
 
     <div class="text-center">
-        <span class="ts-section-label">Our Clients</span>
+        <span class="ts-section-label eyebrow-center">Our Clients</span>
         <h2 class="purple-text">Who We Train</h2>
     </div>
 
@@ -135,7 +131,6 @@ Training & Capacity Building | Obusubiri & Associates
                 <i class="{{ tile.icon }}"></i>
             </div>
             <span class="wt-tile-label">{{ tile.label }}</span>
-            <p class="wt-tile-desc">{{ tile.description }}</p>
         </div>
         {% endfor %}
 
@@ -152,7 +147,7 @@ Training & Capacity Building | Obusubiri & Associates
 <div class="container">
 
     <div class="text-center">
-        <span class="ts-section-label">How We Deliver</span>
+        <span class="ts-section-label eyebrow-center">How We Deliver</span>
         <h2 class="purple-text">Training Delivery Methods</h2>
     </div>
 
@@ -216,7 +211,7 @@ Training & Capacity Building | Obusubiri & Associates
         <span class="ob-cta-eyebrow">Tailored Learning</span>
 
         <h2 class="ob-cta-heading">
-            Need a Customised Training Programme?
+            Need a customised training programme?
         </h2>
 
         <p class="ob-cta-sub">

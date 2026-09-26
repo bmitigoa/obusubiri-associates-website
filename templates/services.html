@@ -6,34 +6,30 @@ Our Services | Obusubiri MM & Associates
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/sticky-panels.css' %}?v=3">
-<link rel="stylesheet" href="{% static 'css/about-cards.css' %}?v=2">
-{% endblock %}
-
-{% block js %}
-<script src="{% static 'js/sticky-panels.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/about-cards.css' %}?v=3">
 {% endblock %}
 
 {% block content %}
 
 <section class="page-hero">
     <div class="container">
+        <span class="ob-section-label eyebrow-center">What We Offer</span>
         <h1>Our Professional Services</h1>
         <p class="page-hero-sub">
-            Audit &bull; Tax &bull; Advisory &bull; Accounting &bull; Capacity Building
+            Audit, tax, advisory, accounting and capacity building.
         </p>
     </div>
 </section>
 
-{# Services — sticky panels component #}
-{% include 'components/sticky_panels.html' %}
+{# Services — simple stacked list #}
+{% include 'components/simple_list.html' %}
 
 <section class="stat-section">
 
     <div class="container">
 
         <div class="text-center mb-5">
-            <span class="ob-section-label">Our Track Record</span>
+            <span class="ob-section-label eyebrow-center">Our Track Record</span>
             <h2 class="ob-section-heading" style="color:#fff;">Why Clients Choose Us</h2>
         </div>
 
@@ -41,9 +37,6 @@ Our Services | Obusubiri MM & Associates
 
             <div class="col-sm-6 col-md-3">
                 <div class="stat-card">
-                    <div class="stat-icon-badge">
-                        <i class="bi bi-clock-history"></i>
-                    </div>
                     <div class="stat-number">15+</div>
                     <div class="stat-label">Years Experience</div>
                 </div>
@@ -51,9 +44,6 @@ Our Services | Obusubiri MM & Associates
 
             <div class="col-sm-6 col-md-3">
                 <div class="stat-card">
-                    <div class="stat-icon-badge">
-                        <i class="bi bi-people-fill"></i>
-                    </div>
                     <div class="stat-number">100+</div>
                     <div class="stat-label">Clients Served</div>
                 </div>
@@ -61,9 +51,6 @@ Our Services | Obusubiri MM & Associates
 
             <div class="col-sm-6 col-md-3">
                 <div class="stat-card">
-                    <div class="stat-icon-badge">
-                        <i class="bi bi-clipboard2-check-fill"></i>
-                    </div>
                     <div class="stat-number">500+</div>
                     <div class="stat-label">Assignments Completed</div>
                 </div>
@@ -71,9 +58,6 @@ Our Services | Obusubiri MM & Associates
 
             <div class="col-sm-6 col-md-3">
                 <div class="stat-card">
-                    <div class="stat-icon-badge">
-                        <i class="bi bi-globe-americas"></i>
-                    </div>
                     <div class="stat-number">5+</div>
                     <div class="stat-label">Countries Served</div>
                 </div>
@@ -90,7 +74,7 @@ Our Services | Obusubiri MM & Associates
     <div class="container">
 
         <div class="text-center mb-2">
-            <span class="ab-section-label">Sectors We Work In</span>
+            <span class="ab-section-label eyebrow-center">Sectors We Work In</span>
             <h2 class="cv-section-heading">Industries We Serve</h2>
         </div>
 
@@ -146,12 +130,12 @@ Our Services | Obusubiri MM & Associates
 
 </section>
 
-<section class="ob-section ob-section--alt">
+<section class="ob-section ob-section--alt" id="insights">
 
     <div class="container">
 
         <div class="text-center mb-5">
-            <span class="ob-section-label">Resources</span>
+            <span class="ob-section-label eyebrow-center">Resources</span>
             <h2 class="ob-section-heading">Client Insights</h2>
             <p class="ob-section-intro">
                 Expert guidance on taxation, compliance and governance.
@@ -211,7 +195,7 @@ Our Services | Obusubiri MM & Associates
         <span class="ob-cta-eyebrow">Let's Talk</span>
 
         <h2 class="ob-cta-heading">
-            Need Professional Audit, Tax or Advisory Support?
+            Need professional audit, tax or advisory support?
         </h2>
 
         <p class="ob-cta-sub">

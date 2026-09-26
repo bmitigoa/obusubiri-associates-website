@@ -60,6 +60,26 @@
             color:var(--gold) !important;
         }
 
+        .nav-cta{
+            display:inline-block;
+            border:1px solid var(--ink);
+            color:var(--ink);
+            font-family:var(--font-sans);
+            font-size:13px;
+            font-weight:600;
+            letter-spacing:0.04em;
+            text-transform:uppercase;
+            text-decoration:none;
+            padding:9px 20px;
+            border-radius:2px;
+            transition:background .2s ease, color .2s ease;
+        }
+
+        .nav-cta:hover{
+            background:var(--ink);
+            color:#fff;
+        }
+
         /* ===== HERO ===== */
 
         .hero{
@@ -91,9 +111,9 @@
             inset:0;
             background:linear-gradient(
                 100deg,
-                rgba(26,35,72,.92) 0%,
-                rgba(26,35,72,.80) 42%,
-                rgba(26,35,72,.42) 100%
+                rgba(16,17,31,.92) 0%,
+                rgba(16,17,31,.80) 42%,
+                rgba(16,17,31,.42) 100%
             );
             z-index:1;
         }
@@ -158,6 +178,22 @@
         .btn-outline-light:hover{
             background:rgba(255,255,255,.12);
             border-color:#fff;
+            color:#fff;
+        }
+
+        /* Secondary button on a LIGHT background (e.g. "View on Map") */
+        .btn-outline-dark{
+            border:1px solid var(--ink);
+            color:var(--ink);
+            border-radius:2px;
+            font-family:var(--font-sans);
+            font-weight:600;
+            background:transparent;
+        }
+
+        .btn-outline-dark:hover{
+            background:var(--ink);
+            border-color:var(--ink);
             color:#fff;
         }
 
@@ -322,14 +358,14 @@
         <div class="collapse navbar-collapse"
              id="navbarNav">
 
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
 
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/about/">About Us</a>
+                    <a class="nav-link" href="/about/">About</a>
                 </li>
 
                 <li class="nav-item">
@@ -341,7 +377,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/contact/">Contact</a>
+                    <a class="nav-link" href="/services/#insights">Insights</a>
+                </li>
+
+                <li class="nav-item ms-lg-3">
+                    <a class="nav-cta" href="/contact/">Contact Us</a>
                 </li>
 
             </ul>
@@ -367,30 +407,12 @@
         </div>
     </div>
 
-    <!-- Three-column body -->
+    <!-- Two-column body -->
     <div class="container footer-body">
         <div class="row g-0 justify-content-center">
 
-            <!-- Services -->
-            <div class="col-lg-4 col-md-4 footer-col">
-                <span class="footer-col-heading">Our Services</span>
-                <ul class="footer-links">
-                    <li>External Audit</li>
-                    <li>Internal Audit</li>
-                    <li>Project Audit</li>
-                    <li>Tax Advisory</li>
-                    <li>Tax Return Filing</li>
-                    <li>Tax Objections &amp; Appeals</li>
-                    <li>Tax Exemptions Applications</li>
-                    <li>Training &amp; Capacity Building</li>
-                </ul>
-            </div>
-
-            <!-- Divider -->
-            <div class="footer-col-divider d-none d-md-block"></div>
-
             <!-- Quick Nav -->
-            <div class="col-lg-3 col-md-3 footer-col">
+            <div class="col-lg-4 col-md-5 footer-col">
                 <span class="footer-col-heading">Quick Links</span>
                 <ul class="footer-links">
                     <li><a href="/">Home</a></li>
@@ -405,8 +427,8 @@
             <div class="footer-col-divider d-none d-md-block"></div>
 
             <!-- Contact -->
-            <div class="col-lg-4 col-md-4 footer-col">
-                <span class="footer-col-heading">Contact Us</span>
+            <div class="col-lg-5 col-md-5 footer-col">
+                <span class="footer-col-heading">Contact</span>
 
                 <div class="footer-contact-row">
                     <div class="footer-contact-icon">

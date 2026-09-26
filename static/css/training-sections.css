@@ -44,21 +44,15 @@
 
 .wy-card {
     border: 1px solid var(--line);
-}
-
-.wy-card-header {
-    background: var(--navy-deep);
-    padding: 30px 32px 26px;
-    text-align: center;
-    border-bottom: 1px solid var(--gold);
+    padding: 32px 32px 8px;
 }
 
 .wy-card-title {
     font-family: var(--font-display);
-    color: #fff;
+    color: var(--ink);
     font-weight: 700;
     font-size: 1.4rem;
-    margin: 0;
+    margin: 0 0 8px;
 }
 
 .wy-list {
@@ -72,7 +66,7 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 18px 28px;
+    padding: 16px 0;
     border-bottom: 1px solid var(--line);
 }
 

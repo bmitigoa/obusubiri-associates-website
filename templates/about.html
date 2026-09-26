@@ -6,12 +6,7 @@ About Us | Obusubiri MM & Associates
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/sticky-panels.css' %}?v=3">
-<link rel="stylesheet" href="{% static 'css/about-cards.css' %}?v=2">
-{% endblock %}
-
-{% block js %}
-<script src="{% static 'js/sticky-panels.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/about-cards.css' %}?v=3">
 {% endblock %}
 
 {% block content %}
@@ -20,59 +15,40 @@ About Us | Obusubiri MM & Associates
 
 <section class="page-hero">
     <div class="container">
+        <span class="ob-section-label eyebrow-center">Since 2008</span>
         <h1>About Obusubiri MM &amp; Associates</h1>
         <p class="page-hero-sub">
-            Trusted Audit, Tax, Advisory &amp; Capacity Building Professionals
+            Trusted audit, tax, advisory and capacity building professionals.
         </p>
     </div>
 </section>
 
 <!-- STATISTICS -->
 
-<section class="stat-section">
+<section class="stat-section stat-section--light">
 
     <div class="container">
 
-        <div class="row g-4 justify-content-center">
+        <div class="stat-row">
 
-            <div class="col-md-3 col-sm-6">
-                <div class="stat-card">
-                    <div class="stat-icon-badge">
-                        <i class="bi bi-clock-history"></i>
-                    </div>
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
+            <div class="stat-item">
+                <div class="stat-number mono-figure">15+</div>
+                <div class="stat-label">Years Experience</div>
             </div>
 
-            <div class="col-md-3 col-sm-6">
-                <div class="stat-card">
-                    <div class="stat-icon-badge">
-                        <i class="bi bi-people-fill"></i>
-                    </div>
-                    <div class="stat-number">100+</div>
-                    <div class="stat-label">Clients Served</div>
-                </div>
+            <div class="stat-item">
+                <div class="stat-number mono-figure">100+</div>
+                <div class="stat-label">Clients Served</div>
             </div>
 
-            <div class="col-md-3 col-sm-6">
-                <div class="stat-card">
-                    <div class="stat-icon-badge">
-                        <i class="bi bi-clipboard2-check-fill"></i>
-                    </div>
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Assignments Completed</div>
-                </div>
+            <div class="stat-item">
+                <div class="stat-number mono-figure">500+</div>
+                <div class="stat-label">Assignments Completed</div>
             </div>
 
-            <div class="col-md-3 col-sm-6">
-                <div class="stat-card">
-                    <div class="stat-icon-badge">
-                        <i class="bi bi-globe-americas"></i>
-                    </div>
-                    <div class="stat-number">5+</div>
-                    <div class="stat-label">Countries Served</div>
-                </div>
+            <div class="stat-item">
+                <div class="stat-number mono-figure">5+</div>
+                <div class="stat-label">Countries Served</div>
             </div>
 
         </div>
@@ -83,14 +59,18 @@ About Us | Obusubiri MM & Associates
 
 <!-- WHO WE ARE -->
 
-<section class="container py-5">
+<section class="ob-section">
+
+    <div class="container">
 
     <div class="row align-items-center">
 
         <div class="col-lg-6">
 
+            <span class="ob-section-label">Who We Are</span>
+
             <h2 class="purple-text mb-4">
-                Who We Are
+                Fifteen years of independent, rigorous practice.
             </h2>
 
             <p>
@@ -105,7 +85,7 @@ About Us | Obusubiri MM & Associates
                 tax exemption applications, audit and assurance services,
                 helping organisations navigate complex regulatory and
                 compliance requirements.
-            </p> 
+            </p>
 
             <p>
                 We work with NGOs, Development Partners,
@@ -119,10 +99,6 @@ About Us | Obusubiri MM & Associates
         <div class="col-lg-6">
 
             <div class="partner-card">
-
-                <div class="partner-icon-badge">
-                    <i class="bi bi-person-badge-fill"></i>
-                </div>
 
                 <span class="partner-eyebrow">Leadership</span>
 
@@ -151,12 +127,12 @@ About Us | Obusubiri MM & Associates
 
     </div>
 
+    </div>
+
 </section>
 
-<!-- MISSION & VISION -->
-
-<!-- AREAS OF EXPERTISE —  sticky panels component -->
-{% include 'components/sticky_panels.html' %}
+<!-- AREAS OF EXPERTISE — simple stacked list -->
+{% include 'components/simple_list.html' %}
 
 <!-- MISSION & VISION -->
 
@@ -165,7 +141,7 @@ About Us | Obusubiri MM & Associates
     <div class="container">
 
         <div class="text-center mb-5">
-            <span class="ab-section-label">Who We Are &amp; Where We're Going</span>
+            <span class="ab-section-label eyebrow-center">Who We Are &amp; Where We're Going</span>
             <h2 class="ob-section-heading">
                 Mission &amp; Vision
             </h2>
@@ -175,9 +151,6 @@ About Us | Obusubiri MM & Associates
 
             <div class="col-md-6">
                 <div class="mv-card">
-                    <div class="mv-icon-badge">
-                        <i class="bi bi-bullseye"></i>
-                    </div>
                     <span class="mv-card-eyebrow">Our Purpose</span>
                     <h3 class="mv-card-title">Mission</h3>
                     <p class="mv-card-text">
@@ -190,9 +163,6 @@ About Us | Obusubiri MM & Associates
 
             <div class="col-md-6">
                 <div class="mv-card">
-                    <div class="mv-icon-badge">
-                        <i class="bi bi-eye"></i>
-                    </div>
                     <span class="mv-card-eyebrow">Where We're Headed</span>
                     <h3 class="mv-card-title">Vision</h3>
                     <p class="mv-card-text">
@@ -215,7 +185,7 @@ About Us | Obusubiri MM & Associates
     <div class="container">
 
         <div class="text-center mb-2">
-            <span class="ab-section-label">What Guides Us</span>
+            <span class="ab-section-label eyebrow-center">What Guides Us</span>
             <h2 class="cv-section-heading">Our Core Values</h2>
         </div>
 
@@ -267,34 +237,6 @@ About Us | Obusubiri MM & Associates
 
 </section>
 
-<!-- SVG filter: fabric-wave effect for flag images.
-     feTurbulence generates a shifting noise field;
-     feDisplacementMap warps each pixel of SourceGraphic through it.
-     The SMIL <animate> cycles baseFrequency so the wave moves forever. -->
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
-  <defs>
-    <filter id="flag-wave-filter"
-            x="-8%" y="-8%" width="116%" height="116%"
-            color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise"
-                    baseFrequency="0.012 0.08"
-                    numOctaves="3"
-                    result="noise">
-        <!-- Animate the noise field to make it flow continuously -->
-        <animate attributeName="baseFrequency"
-                 values="0.012 0.07; 0.018 0.09; 0.012 0.07"
-                 dur="2.2s"
-                 repeatCount="indefinite"/>
-      </feTurbulence>
-      <!-- scale controls how much pixels are displaced (cloth depth) -->
-      <feDisplacementMap in="SourceGraphic" in2="noise"
-                         scale="12"
-                         xChannelSelector="R"
-                         yChannelSelector="G"/>
-    </filter>
-  </defs>
-</svg>
-
 <!-- REGIONAL PRESENCE -->
 
 <section class="rp-section">
@@ -302,61 +244,41 @@ About Us | Obusubiri MM & Associates
     <div class="container">
 
         <div class="text-center mb-5">
-            <span class="ab-section-label">Where We Work</span>
+            <span class="ab-section-label eyebrow-center">Where We Work</span>
             <h2 class="rp-section-heading">Regional Presence</h2>
             <p class="rp-section-sub">
                 Delivering professional services across East and Central Africa.
             </p>
         </div>
 
-        <div class="row justify-content-center g-4">
+        <div class="row justify-content-center g-3">
 
-            <!-- Kenya -->
             <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                 <div class="rp-card">
-                    <div class="rp-flag-wrap">
-                        <img src="https://flagcdn.com/w320/ke.png" alt="Kenya flag">
-                    </div>
                     <div class="rp-country-name">Kenya</div>
                 </div>
             </div>
 
-            <!-- Uganda -->
             <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                 <div class="rp-card">
-                    <div class="rp-flag-wrap">
-                        <img src="https://flagcdn.com/w320/ug.png" alt="Uganda flag">
-                    </div>
                     <div class="rp-country-name">Uganda</div>
                 </div>
             </div>
 
-            <!-- Rwanda -->
             <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                 <div class="rp-card">
-                    <div class="rp-flag-wrap">
-                        <img src="https://flagcdn.com/w320/rw.png" alt="Rwanda flag">
-                    </div>
                     <div class="rp-country-name">Rwanda</div>
                 </div>
             </div>
 
-            <!-- South Sudan -->
             <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                 <div class="rp-card">
-                    <div class="rp-flag-wrap">
-                        <img src="https://flagcdn.com/w320/ss.png" alt="South Sudan flag">
-                    </div>
                     <div class="rp-country-name">South Sudan</div>
                 </div>
             </div>
 
-            <!-- DR Congo -->
             <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                 <div class="rp-card">
-                    <div class="rp-flag-wrap">
-                        <img src="https://flagcdn.com/w320/cd.png" alt="DR Congo flag">
-                    </div>
                     <div class="rp-country-name">DR Congo</div>
                 </div>
             </div>
@@ -375,7 +297,7 @@ About Us | Obusubiri MM & Associates
         <span class="ob-cta-eyebrow">Get In Touch</span>
 
         <h2 class="ob-cta-heading">
-            Looking For Trusted Professional Advisors?
+            Looking for trusted professional advisors?
         </h2>
 
         <p class="ob-cta-sub">

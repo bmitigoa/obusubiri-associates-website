@@ -7,7 +7,7 @@ Home | Obusubiri & Associates
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/about-cards.css' %}?v=2">
+<link rel="stylesheet" href="{% static 'css/about-cards.css' %}?v=3">
 {% endblock %}
 
 {% block content %}
@@ -28,16 +28,15 @@ Home | Obusubiri & Associates
 
     <div class="hero-copy">
 
+        <span class="ob-section-label">EST. 2008 &middot; NAIROBI, KENYA</span>
+
         <h1 class="hero-heading mb-4">
-            Building Trust Through Professional Excellence
+            Building trust through professional excellence.
         </h1>
 
         <p class="lead mb-4">
-
-            Audit • Tax • Advisory • Capacity Building
-            <br>
-            Serving Organisations Across Africa and Beyond.
-
+            Audit, tax, advisory and capacity building for
+            organisations across Africa and beyond.
         </p>
 
         <a href="/contact/"
@@ -62,40 +61,28 @@ Home | Obusubiri & Associates
 
 <!-- STATISTICS -->
 
-<section class="stat-section">
+<section class="stat-section stat-section--light">
 
     <div class="container">
 
         <div class="stat-row">
 
             <div class="stat-item">
-                <div class="stat-icon-badge">
-                    <i class="bi bi-clock-history"></i>
-                </div>
                 <div class="stat-number mono-figure">15+</div>
                 <div class="stat-label">Years Experience</div>
             </div>
 
             <div class="stat-item">
-                <div class="stat-icon-badge">
-                    <i class="bi bi-clipboard2-check-fill"></i>
-                </div>
                 <div class="stat-number mono-figure">500+</div>
                 <div class="stat-label">Assignments Completed</div>
             </div>
 
             <div class="stat-item">
-                <div class="stat-icon-badge">
-                    <i class="bi bi-people-fill"></i>
-                </div>
                 <div class="stat-number mono-figure">100+</div>
                 <div class="stat-label">Clients Served</div>
             </div>
 
             <div class="stat-item">
-                <div class="stat-icon-badge">
-                    <i class="bi bi-globe-americas"></i>
-                </div>
                 <div class="stat-number mono-figure">5+</div>
                 <div class="stat-label">Countries Served</div>
             </div>
@@ -116,30 +103,26 @@ Home | Obusubiri & Associates
 
         <div class="col-lg-6">
 
-            <span class="ob-section-label">Who We Are</span>
+            <span class="ob-section-label">About the Firm</span>
 
             <h2 class="purple-text mb-4">
-                About Obusubiri & Associates
+                Established 2008. Trusted across East and Central Africa.
             </h2>
 
             <p>
-                Established in 2008, Obusubiri & Associates
-                is a professional Audit, Tax, Financial Advisory
-                and Capacity Building firm serving clients across
-                Kenya and the wider African region.
+                Obusubiri MM &amp; Associates is a professional audit, tax,
+                financial advisory and capacity building firm serving clients
+                across Kenya and the wider African region.
             </p>
 
             <p>
-                We support NGOs, Development Partners,
-                Government Institutions, Educational Institutions,
-                Faith-Based Organisations, SACCOs and Private Sector Organisations.
+                We support NGOs, development partners, government
+                institutions, educational institutions, faith-based
+                organisations, SACCOs and private sector organisations.
             </p>
 
-            <a href="/about/"
-               class="btn btn-primary-custom">
-
-                Learn More
-
+            <a href="/about/" class="text-link">
+                Learn more about our practice &rarr;
             </a>
 
         </div>
@@ -153,11 +136,11 @@ Home | Obusubiri & Associates
                 </h3>
 
                 <ul class="value-list">
-                    <li>Integrity</li>
-                    <li>Professionalism</li>
-                    <li>Accountability</li>
-                    <li>Excellence</li>
-                    <li>Client Focus</li>
+                    <li><span>Integrity</span><span class="value-num mono-figure">01</span></li>
+                    <li><span>Professionalism</span><span class="value-num mono-figure">02</span></li>
+                    <li><span>Accountability</span><span class="value-num mono-figure">03</span></li>
+                    <li><span>Excellence</span><span class="value-num mono-figure">04</span></li>
+                    <li><span>Client Focus</span><span class="value-num mono-figure">05</span></li>
                 </ul>
 
             </div>
@@ -171,44 +154,7 @@ Home | Obusubiri & Associates
 </section>
 
 <!-- SERVICES — simple stacked list -->
-
-<section class="ob-section" id="{{ sp_id }}">
-
-    <div class="container">
-
-        <div class="row align-items-end mb-2">
-            <div class="col-lg-7">
-                {% if sp_label %}<span class="ob-section-label">{{ sp_label }}</span>{% endif %}
-                <h2 class="ob-section-heading mb-0">{{ sp_heading }}</h2>
-            </div>
-            {% if sp_intro %}
-            <div class="col-lg-5">
-                <p class="ob-section-intro">{{ sp_intro }}</p>
-            </div>
-            {% endif %}
-        </div>
-
-        <div class="hm-services-list">
-            {% for panel in sp_panels %}
-            <div class="hm-service-item">
-                <span class="hm-service-number mono-figure">{{ panel.number }}</span>
-                <span class="hm-service-icon">
-                    <i class="bi {% cycle 'bi-clipboard2-check' 'bi-cash-coin' 'bi-graph-up-arrow' 'bi-mortarboard' %}"></i>
-                </span>
-                <div class="hm-service-body">
-                    <h3 class="hm-service-title">{{ panel.title }}</h3>
-                    {% if panel.desc %}<p class="hm-service-desc">{{ panel.desc }}</p>{% endif %}
-                </div>
-                {% if panel.cta_url %}
-                <a href="{{ panel.cta_url }}" class="hm-service-link">{{ panel.cta_text|default:"Learn more" }} &rarr;</a>
-                {% endif %}
-            </div>
-            {% endfor %}
-        </div>
-
-    </div>
-
-</section>
+{% include 'components/simple_list.html' %}
 
 <!-- INDUSTRIES -->
 
@@ -218,11 +164,15 @@ Home | Obusubiri & Associates
 
     <div class="text-center mb-5">
 
-        <span class="ob-section-label">Who We Serve</span>
+        <span class="ob-section-label eyebrow-center">Who We Serve</span>
 
         <h2 class="purple-text">
             Industries We Serve
         </h2>
+
+        <p class="ob-section-intro">
+            Including faith-based organisations, educational institutions and SACCOs.
+        </p>
 
     </div>
 
@@ -232,7 +182,7 @@ Home | Obusubiri & Associates
             <div class="card service-card h-100">
                 <div class="card-body text-center">
                     <i class="bi bi-people-fill service-icon"></i>
-                    <h5>NGOs & Development Partners</h5>
+                    <h5>NGOs &amp; Development Partners</h5>
                 </div>
             </div>
         </div>
@@ -267,26 +217,18 @@ Home | Obusubiri & Associates
 
 <div class="quote-panel text-center">
 
-    <span class="ob-section-label">From Leadership</span>
-
-    <h2 class="purple-text">
-        Message From The Managing Partner
-    </h2>
-
-    <h4 class="mt-4">
-        CPA Moses Mitigoa Obusubiri
-    </h4>
-
-    <p class="text-muted">
-        MBA (Finance), B.Ed, CPA(K)
+    <p class="lead quote-panel-text">
+        &ldquo;We are committed to delivering professional, practical
+        and client-focused solutions that strengthen governance,
+        accountability and organisational performance.&rdquo;
     </p>
 
-    <p class="lead">
+    <p class="quote-panel-name mb-0">
+        CPA Moses Mitigoa Obusubiri
+    </p>
 
-        We are committed to delivering professional,
-        practical and client-focused solutions that
-        strengthen governance, accountability and organisational performance.
-
+    <p class="quote-panel-role mb-0">
+        Managing Partner &middot; MBA (Finance), B.Ed, CPA(K)
     </p>
 
 </div>
@@ -300,8 +242,8 @@ Home | Obusubiri & Associates
     <div class="container">
 
         <div class="text-center mb-2">
-            <span class="ab-section-label">Why Clients Choose Us</span>
-            <h2 class="cv-section-heading">Why Choose Us</h2>
+            <span class="ab-section-label eyebrow-center">Why Clients Choose Us</span>
+            <h2 class="cv-section-heading">Why Work With Us?</h2>
         </div>
 
         <div class="cv-grid">
@@ -364,7 +306,7 @@ Home | Obusubiri & Associates
         <span class="ob-cta-eyebrow">Work With Us</span>
 
         <h2 class="ob-cta-heading">
-            Ready To Strengthen Your Organisation?
+            Ready to strengthen your organisation?
         </h2>
 
         <p class="ob-cta-sub">
