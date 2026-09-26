@@ -1,8 +1,79 @@
 /* ============================================================
    SITE-WIDE DESIGN SYSTEM — Obusubiri MM & Associates
-   Global typography scale, section rhythm, word-break
-   normalization. Loaded in base.html before page-level sheets.
+   Minimalist / editorial design tokens, global typography and
+   section rhythm. Loaded in base.html before page-level sheets.
    ============================================================ */
+
+:root {
+    --bg: #F5F6F3;
+    --surface: #FFFFFF;
+    --ink: #12141F;
+    --ink-soft: #5A5F73;
+    --line: rgba(18, 20, 31, 0.12);
+    --line-soft: rgba(18, 20, 31, 0.08);
+    --gold: #B8862E;
+    --gold-deep: #8F6A22;
+    --gold-tint: #EFE4CC;
+    --navy-deep: #0D1120;
+    --gold-rgb: 184, 134, 46;
+    --line-on-dark: rgba(255, 255, 255, 0.16);
+    --line-on-dark-soft: rgba(255, 255, 255, 0.10);
+
+    --font-display: 'Libre Caslon Display', Georgia, 'Times New Roman', serif;
+    --font-serif: 'Libre Caslon Text', Georgia, 'Times New Roman', serif;
+    --font-sans: 'IBM Plex Sans', Arial, Helvetica, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Courier New', Courier, monospace;
+}
+
+/* ---- Base ------------------------------------------------- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+}
+
+a {
+    color: var(--gold);
+}
+
+a:hover {
+    color: var(--gold-deep);
+}
+
+h1, h2, h3, h4, h5, h6,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+    font-family: var(--font-display);
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.lead {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink-soft);
+}
+
+.text-muted {
+    color: var(--ink-soft) !important;
+}
+
+/* Numbers, statistics and phone numbers get a mono, tabular treatment */
+.mono-figure {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Utility hairline surface — flat card replacement */
+.hairline-box {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+}
 
 /* ---- Word-break normalization --------------------------------
    Bootstrap 5 + browser defaults can break long words mid-character
@@ -27,30 +98,35 @@
 
 /* ---- Section headings ----------------------------------------
    One consistent scale for every page-level h2 section heading.
-   ob-section-heading replaces bare .purple-text h2 usages.
+   ob-section-heading / .purple-text both resolve to this scale.
    ------------------------------------------------------------- */
-.ob-section-heading {
+.ob-section-heading,
+.purple-text {
+    font-family: var(--font-display);
     font-size: clamp(1.6rem, 3vw, 2.25rem);
-    font-weight: 800;
-    color: #1A2348;
+    font-weight: 700;
+    color: var(--ink);
     line-height: 1.15;
     margin-bottom: 12px;
 }
 
-.ob-section-label {
-    font-family: 'Courier New', Courier, monospace;
+.ob-section-label,
+.ab-section-label,
+.ts-section-label {
+    font-family: var(--font-mono);
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #D4AF37;
+    color: var(--gold);
     display: block;
     margin-bottom: 10px;
 }
 
 .ob-section-intro {
+    font-family: var(--font-sans);
     font-size: 1rem;
-    color: #555;
+    color: var(--ink-soft);
     line-height: 1.7;
     margin: 0;
 }
@@ -60,59 +136,62 @@
    section boundaries.
    ------------------------------------------------------------- */
 .ob-section {
-    padding: 80px 0;
-    background: #fff;
+    padding: 96px 0;
+    background: var(--surface);
 }
 
 .ob-section--alt {
-    background: #f8f7fc;
+    background: var(--bg);
 }
 
 .ob-section--dark {
-    background: #1A2348;
+    background: var(--navy-deep);
 }
 
 @media (max-width: 767px) {
     .ob-section {
-        padding: 48px 0;
+        padding: 56px 0;
     }
 }
 
 /* ---- Standard inner-page hero --------------------------------
    All inner pages (About, Services, Training, Contact) use this
-   class for a consistent header: same gradient, same padding,
-   same type scale.
+   class for a consistent header: navy-deep, thin gold hairline.
    ------------------------------------------------------------- */
 .page-hero {
-    background: linear-gradient(135deg, #1A2348 0%, #A63EC5 100%);
-    padding: 72px 0 64px;
+    background: var(--navy-deep);
+    padding: 96px 0 80px;
     text-align: center;
     color: #fff;
     position: relative;
 }
 
-/* Thin gold accent bar at the very bottom of every page hero */
+/* Thin gold hairline at the very bottom of every page hero */
 .page-hero::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #D4AF37, #A63EC5, #D4AF37);
+    height: 1px;
+    background: var(--gold);
 }
 
 .page-hero h1 {
+    font-family: var(--font-display);
     font-size: clamp(1.9rem, 4vw, 3rem);
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.15;
     margin-bottom: 16px;
     letter-spacing: -0.01em;
+    color: #fff;
 }
 
 .page-hero .page-hero-sub {
+    font-family: var(--font-serif);
+    font-style: italic;
     font-size: clamp(1rem, 2vw, 1.15rem);
-    opacity: 0.88;
+    color: rgba(255, 255, 255, 0.78);
     max-width: 580px;
     margin: 0 auto;
     line-height: 1.6;
@@ -121,50 +200,33 @@
 
 @media (max-width: 767px) {
     .page-hero {
-        padding: 48px 0 44px;
+        padding: 56px 0 48px;
     }
 }
 
 /* ---- Contact page premium info panel -----------------------
-   Dark navy card used for the contact details column.
+   Navy-ink panel used for the contact details column.
    ------------------------------------------------------------- */
 .contact-premium-card {
-    background: #1A2348;
-    border-radius: 16px;
-    padding: 44px 36px 40px;
+    background: var(--navy-deep);
+    border-radius: 2px;
+    padding: 48px 40px 44px;
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 8px 32px rgba(26, 35, 72, 0.22);
     height: 100%;
-}
-
-.contact-premium-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: #D4AF37;
-}
-
-.contact-premium-card::after {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(166, 62, 197, 0.2) 0%, transparent 70%);
-    pointer-events: none;
+    border-top: 1px solid var(--gold);
 }
 
 .contact-card-heading {
+    font-family: var(--font-display);
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 700;
     color: #fff;
     margin-bottom: 10px;
     line-height: 1.2;
 }
 
 .contact-card-intro {
+    font-family: var(--font-sans);
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.68);
     line-height: 1.6;
@@ -175,38 +237,44 @@
     display: flex;
     align-items: flex-start;
     gap: 16px;
-    margin-bottom: 26px;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--line-on-dark-soft);
 }
 
 .contact-detail-row:last-child {
     margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .contact-detail-icon {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #D4AF37, #f0c85a);
+    background: transparent;
+    border: 1px solid var(--line-on-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
-    color: #1A2348;
+    font-size: 16px;
+    color: var(--gold);
     flex-shrink: 0;
 }
 
 .contact-detail-label {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #D4AF37;
+    color: var(--gold);
     margin-bottom: 4px;
     display: block;
 }
 
 .contact-detail-value {
+    font-family: var(--font-sans);
     font-size: 0.88rem;
     color: rgba(255, 255, 255, 0.88);
     line-height: 1.6;
@@ -214,65 +282,53 @@
 }
 
 /* ---- CTA section (bottom of every page before footer) --------
-   Consistent treatment across Home, About, Services, Training.
+   Navy-deep background, thin gold hairline, consistent across
+   Home, About, Services, Training.
    ------------------------------------------------------------- */
 .ob-cta-section {
-    background: #1A2348;
-    padding: 80px 0;
+    background: var(--navy-deep);
+    padding: 96px 0;
     text-align: center;
     position: relative;
-    overflow: hidden;
 }
 
-/* Centred radial purple glow */
 .ob-cta-section::before {
     content: '';
     position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 640px; height: 640px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(166, 62, 197, 0.18) 0%, transparent 65%);
-    pointer-events: none;
-}
-
-/* Gold gradient bar along the top edge */
-.ob-cta-section::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent 0%, #D4AF37 40%, #D4AF37 60%, transparent 100%);
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gold);
 }
 
 .ob-cta-eyebrow {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #D4AF37;
+    color: var(--gold);
     display: block;
     margin-bottom: 18px;
-    position: relative;
 }
 
 .ob-cta-heading {
+    font-family: var(--font-display);
     font-size: clamp(1.65rem, 3vw, 2.25rem);
-    font-weight: 800;
+    font-weight: 700;
     color: #fff;
     line-height: 1.2;
     margin-bottom: 14px;
-    position: relative;
 }
 
 .ob-cta-sub {
+    font-family: var(--font-sans);
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.72);
     line-height: 1.7;
     max-width: 520px;
     margin: 0 auto 36px;
-    position: relative;
 }
 
 @media (max-width: 767px) {
@@ -282,70 +338,71 @@
 }
 
 /* ---- Footer --------------------------------------------------
-   .site-footer — matches the site's navy (#1A2348) palette.
-   Top accent bar mirrors the page-hero gold bar.
+   .site-footer — dark ink background, thin gold hairline top.
    ------------------------------------------------------------- */
 .site-footer {
-    background: #1A2348;
+    background: var(--ink);
     color: rgba(255, 255, 255, 0.78);
+    font-family: var(--font-sans);
     position: relative;
 }
 
-/* Gold gradient bar at the very top — same as .page-hero::after */
 .site-footer::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #D4AF37, #A63EC5, #D4AF37);
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gold);
 }
 
 /* ---- Brand bar (centred name + one-liner tagline) ----------- */
 .footer-brand-bar {
-    padding: 44px 0 36px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    padding: 48px 0 36px;
+    border-bottom: 1px solid var(--line-on-dark-soft);
 }
 
 .footer-brand-name {
-    font-size: 1.1rem;
-    font-weight: 800;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
     color: #fff;
     letter-spacing: 0.01em;
     margin-bottom: 8px;
 }
 
 .footer-tagline {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.55);
-    letter-spacing: 0.06em;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.08em;
     margin-bottom: 0;
 }
 
 /* ---- Three-column body -------------------------------------- */
 .footer-body {
-    padding: 44px 0 40px;
+    padding: 48px 0 40px;
 }
 
-/* Each column gets consistent internal padding */
 .footer-col {
     padding: 0 32px;
 }
 
-/* Thin vertical separator between columns */
 .footer-col-divider {
     width: 1px;
-    background: rgba(255, 255, 255, 0.10);
+    background: var(--line-on-dark-soft);
     margin: 0;
     flex-shrink: 0;
 }
 
 .footer-col-heading {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #D4AF37;
+    color: var(--gold);
     margin-bottom: 20px;
     display: block;
 }
@@ -360,19 +417,17 @@
 .footer-links li {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
+    gap: 10px;
+    margin-bottom: 12px;
     font-size: 0.875rem;
     color: rgba(255, 255, 255, 0.70);
 }
 
-/* Purple dot instead of arrow — cleaner when not hyperlinked */
 .footer-links li::before {
     content: '';
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #A63EC5;
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
     flex-shrink: 0;
 }
 
@@ -383,7 +438,7 @@
 }
 
 .footer-links a:hover {
-    color: #D4AF37;
+    color: var(--gold);
 }
 
 /* ---- Contact rows ------------------------------------------ */
@@ -398,26 +453,26 @@
 }
 
 .footer-contact-icon {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    background: rgba(212, 175, 55, 0.12);
-    border: 1px solid rgba(212, 175, 55, 0.28);
+    background: transparent;
+    border: 1px solid var(--line-on-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
-    color: #D4AF37;
+    font-size: 13px;
+    color: var(--gold);
     flex-shrink: 0;
     margin-top: 1px;
 }
 
 /* ---- Bottom copyright bar ---------------------------------- */
 .footer-bottom-bar {
-    border-top: 1px solid rgba(255, 255, 255, 0.10);
-    padding: 16px 0;
-    font-size: 0.80rem;
-    color: rgba(255, 255, 255, 0.38);
+    border-top: 1px solid var(--line-on-dark-soft);
+    padding: 18px 0;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.4);
 }
 
 /* ---- Responsive -------------------------------------------- */
@@ -432,7 +487,7 @@
 
     .footer-col {
         padding: 24px 16px 8px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid var(--line-on-dark-soft);
     }
 
     .footer-col:last-child {
@@ -442,52 +497,45 @@
 
 /* ---- Enquiry form card ---------------------------------------
    The right-hand form card on the Contact page.
-   Dark navy header band + white body with grouped field sections.
+   Navy-ink header band + white body with grouped field sections.
    ------------------------------------------------------------- */
 .enquiry-card {
-    border-radius: 16px;
+    border-radius: 2px;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(26, 35, 72, 0.13);
-    border: none;
+    border: 1px solid var(--line);
     height: 100%;
 }
 
 .enquiry-card-header {
-    background: linear-gradient(135deg, #1A2348, #A63EC5);
-    padding: 28px 36px 24px;
+    background: var(--navy-deep);
+    padding: 32px 40px 26px;
     position: relative;
-}
-
-.enquiry-card-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: #D4AF37;
+    border-bottom: 1px solid var(--gold);
 }
 
 .enquiry-card-eyebrow {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #D4AF37;
+    color: var(--gold);
     display: block;
     margin-bottom: 6px;
 }
 
 .enquiry-card-title {
+    font-family: var(--font-display);
     font-size: 1.35rem;
-    font-weight: 800;
+    font-weight: 700;
     color: #fff;
     margin: 0;
     line-height: 1.2;
 }
 
 .enquiry-card-body {
-    background: #fff;
-    padding: 32px 36px 36px;
+    background: var(--surface);
+    padding: 36px 40px 40px;
 }
 
 .enquiry-field-group {
@@ -495,24 +543,24 @@
 }
 
 .enquiry-field-group-label {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
     font-size: 9px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #A63EC5;
+    color: var(--gold);
     display: block;
     margin-bottom: 14px;
     padding-bottom: 8px;
-    border-bottom: 1px solid #ede9f7;
+    border-bottom: 1px solid var(--line);
 }
 
 @media (max-width: 575px) {
     .enquiry-card-header {
-        padding: 22px 24px 20px;
+        padding: 24px 24px 20px;
     }
     .enquiry-card-body {
-        padding: 24px 24px 28px;
+        padding: 28px 24px 32px;
     }
 }
 
@@ -520,54 +568,36 @@
    Used on the "Client Insights" cards on Services page.
    ------------------------------------------------------------- */
 .article-card {
-    background: #fff;
-    border: 1px solid #ede9f7;
-    border-radius: 14px;
-    padding: 32px 28px;
-    box-shadow: 0 4px 18px rgba(26, 35, 72, 0.07);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 36px 30px;
     height: 100%;
     position: relative;
-    overflow: hidden;
-}
-
-.article-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: #D4AF37;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s ease;
-}
-
-.article-card:hover::before {
-    transform: scaleX(1);
+    border-top: 2px solid transparent;
+    transition: border-top-color 0.25s ease;
 }
 
 .article-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(26, 35, 72, 0.12);
+    border-top-color: var(--gold);
 }
 
 .article-card-eyebrow {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: #A63EC5;
-    margin-bottom: 10px;
+    color: var(--gold);
+    margin-bottom: 12px;
     display: block;
 }
 
 .article-card-title {
-    font-size: 1rem;
-    font-weight: 800;
-    color: #1A2348;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
     line-height: 1.35;
     margin-bottom: 12px;
     text-decoration: none;
@@ -575,16 +605,169 @@
 }
 
 .article-card-title:hover {
-    color: #A63EC5;
+    color: var(--gold-deep);
 }
 
 .article-card-text {
+    font-family: var(--font-sans);
     font-size: 0.9rem;
-    color: #555;
+    color: var(--ink-soft);
     line-height: 1.65;
     margin: 0;
     word-break: normal;
     overflow-wrap: normal;
+}
+
+/* ============================================================
+   HOME — services list (replaces the sticky-panels component
+   on the home page with a simple stacked list, no accordion).
+   ============================================================ */
+.hm-services-list {
+    border-top: 1px solid var(--line);
+    margin-top: 48px;
+}
+
+.hm-service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.hm-service-number {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    padding-top: 10px;
+    flex-shrink: 0;
+    width: 28px;
+}
+
+.hm-service-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hm-service-icon i {
+    font-size: 19px;
+    color: var(--gold);
+}
+
+.hm-service-body {
+    flex: 1;
+    min-width: 0;
+    padding-top: 4px;
+}
+
+.hm-service-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.hm-service-desc {
+    font-family: var(--font-sans);
+    font-size: 0.925rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin: 0;
+    max-width: 620px;
+}
+
+.hm-service-link {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-decoration: none;
+    white-space: nowrap;
+    padding-top: 14px;
+    flex-shrink: 0;
+}
+
+.hm-service-link:hover {
+    color: var(--gold-deep);
+}
+
+@media (max-width: 575px) {
+    .hm-service-item {
+        flex-wrap: wrap;
+        gap: 14px;
+        padding: 28px 0;
+    }
+    .hm-service-link {
+        margin-left: 76px;
+    }
+}
+
+/* ============================================================
+   HOME — About preview core values (hairline-divided list,
+   replaces the shadowed card).
+   ============================================================ */
+.value-panel {
+    padding: 8px 0;
+}
+
+.value-panel-heading {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 22px;
+}
+
+.value-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+}
+
+.value-list li {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--ink);
+    padding: 15px 0 15px 22px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+}
+
+.value-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+}
+
+/* ============================================================
+   HOME — Managing Partner pull quote panel (gold-tint background,
+   used sparingly, replaces the shadowed card).
+   ============================================================ */
+.quote-panel {
+    background: var(--gold-tint);
+    padding: 64px 48px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+@media (max-width: 767px) {
+    .quote-panel {
+        padding: 44px 24px;
+    }
 }
 
 /* Contact form spam trap: keeps the honeypot field invisible to real

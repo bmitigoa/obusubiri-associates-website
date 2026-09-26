@@ -1,136 +1,98 @@
 /* ============================================================
-   ABOUT PAGE — Mission/Vision & Core Values upgraded cards
-   Matches sticky-panels / training-sections design language.
+   ABOUT / SHARED SECTION CARDS — Mission/Vision, Core Values,
+   Partner card, Statistics, Regional Presence.
+   Minimalist / editorial: hairline borders instead of shadows.
    ============================================================ */
 
-/* ---------- Shared section label (mono uppercase) ---------- */
-.ab-section-label {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #D4AF37;
-    display: block;
-    margin-bottom: 10px;
-}
-
 /* ============================================================
-   MISSION & VISION  — dark navy premium cards
+   MISSION & VISION  — navy-deep panels, hairline top rule
    ============================================================ */
 
 .mv-section {
-    padding: 80px 0;
-    background: #f8f7fc;
+    padding: 96px 0;
+    background: var(--bg);
 }
 
 .mv-card {
-    background: #1A2348;
-    border-radius: 16px;
-    border: none;
-    padding: 48px 36px 44px;
+    background: var(--navy-deep);
+    border-radius: 2px;
+    padding: 52px 40px 48px;
     text-align: center;
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 8px 32px rgba(26, 35, 72, 0.22);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
     height: 100%;
-}
-
-/* Gold top accent bar */
-.mv-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: #D4AF37;
-}
-
-/* Subtle radial glow in corner */
-.mv-card::after {
-    content: '';
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(166, 62, 197, 0.18) 0%, transparent 70%);
-    pointer-events: none;
-}
-
-.mv-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 56px rgba(26, 35, 72, 0.32);
+    border-top: 1px solid var(--gold);
 }
 
 .mv-icon-badge {
-    width: 76px;
-    height: 76px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #D4AF37, #f0c85a);
+    background: transparent;
+    border: 1px solid var(--line-on-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 24px;
+    margin: 0 auto 26px;
     flex-shrink: 0;
 }
 
 .mv-icon-badge i {
-    font-size: 32px;
-    color: #1A2348;
+    font-size: 26px;
+    color: var(--gold);
 }
 
 .mv-card-eyebrow {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #D4AF37;
-    margin-bottom: 10px;
+    color: var(--gold);
+    margin-bottom: 12px;
     display: block;
 }
 
 .mv-card-title {
+    font-family: var(--font-display);
     font-size: 1.6rem;
-    font-weight: 800;
+    font-weight: 700;
     color: #fff;
     margin-bottom: 18px;
     line-height: 1.2;
 }
 
 .mv-card-text {
+    font-family: var(--font-sans);
     font-size: 0.975rem;
-    color: rgba(255, 255, 255, 0.82);
+    color: rgba(255, 255, 255, 0.78);
     line-height: 1.65;
     margin: 0;
 }
 
 /* ============================================================
-   CORE VALUES  — light cards with icon badge treatment
+   CORE VALUES  — flat hairline cards
    ============================================================ */
 
 .cv-section {
-    padding: 80px 0 96px; /* extra bottom padding prevents hover lift from clipping */
-    background: #fff;
-    overflow: visible;
+    padding: 96px 0;
+    background: var(--surface);
 }
 
 .cv-section-heading {
+    font-family: var(--font-display);
     font-size: clamp(1.6rem, 3vw, 2.25rem);
-    font-weight: 800;
-    color: #1A2348;
+    font-weight: 700;
+    color: var(--ink);
     margin-bottom: 0;
 }
 
 .cv-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 1px;
     margin-top: 48px;
+    background: var(--line);
+    border: 1px solid var(--line);
 }
 
 .cv-card {
@@ -138,67 +100,42 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 40px 24px 36px;
-    border-radius: 14px;
-    background: #fff;
-    border: 1px solid #ede9f7;
-    box-shadow: 0 4px 18px rgba(26, 35, 72, 0.07);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 44px 24px 40px;
+    background: var(--surface);
     position: relative;
-    overflow: hidden;
-}
-
-/* Gold top accent bar — reveals on hover */
-.cv-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: #D4AF37;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s ease;
-}
-
-.cv-card:hover::before {
-    transform: scaleX(1);
-}
-
-.cv-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 16px 40px rgba(26, 35, 72, 0.13);
 }
 
 .cv-icon-badge {
-    width: 72px;
-    height: 72px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #A63EC5, #1A2348);
+    background: transparent;
+    border: 1px solid var(--line);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 22px;
+    margin-bottom: 24px;
     flex-shrink: 0;
 }
 
 .cv-icon-badge i {
-    font-size: 30px;
-    color: #fff;
+    font-size: 24px;
+    color: var(--gold);
 }
 
 .cv-card-title {
-    font-size: 1rem;
-    font-weight: 800;
-    color: #1A2348;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
     margin-bottom: 10px;
     line-height: 1.3;
 }
 
 .cv-card-text {
+    font-family: var(--font-sans);
     font-size: 0.855rem;
-    color: #666;
+    color: var(--ink-soft);
     line-height: 1.6;
     margin: 0;
 }
@@ -215,43 +152,38 @@
 
 @media (max-width: 767px) {
     .mv-section {
-        padding: 48px 0;
+        padding: 56px 0;
     }
 
     .mv-card {
-        padding: 36px 24px 32px;
+        padding: 40px 28px 36px;
         margin-bottom: 8px;
     }
 
     .mv-icon-badge {
-        width: 64px;
-        height: 64px;
+        width: 56px;
+        height: 56px;
     }
 
     .mv-icon-badge i {
-        font-size: 26px;
+        font-size: 22px;
     }
 
     .cv-section {
-        padding: 48px 0;
-    }
-
-    .cv-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        padding: 56px 0;
     }
 
     .cv-card {
-        padding: 30px 16px 26px;
+        padding: 32px 18px 28px;
     }
 
     .cv-icon-badge {
-        width: 58px;
-        height: 58px;
+        width: 52px;
+        height: 52px;
     }
 
     .cv-icon-badge i {
-        font-size: 24px;
+        font-size: 20px;
     }
 }
 
@@ -262,103 +194,76 @@
 }
 
 /* ============================================================
-   MANAGING PARTNER CARD  — dark navy premium card
+   MANAGING PARTNER CARD  — navy-deep panel, hairline top rule
    ============================================================ */
 
 .partner-card {
-    background: #1A2348;
-    border-radius: 16px;
-    border: none;
-    padding: 48px 36px 44px;
+    background: var(--navy-deep);
+    border-radius: 2px;
+    padding: 52px 40px 48px;
     text-align: center;
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 8px 32px rgba(26, 35, 72, 0.22);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-/* Gold top accent bar */
-.partner-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: #D4AF37;
-}
-
-/* Subtle radial glow in corner */
-.partner-card::after {
-    content: '';
-    position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(166, 62, 197, 0.18) 0%, transparent 70%);
-    pointer-events: none;
-}
-
-.partner-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 56px rgba(26, 35, 72, 0.32);
+    border-top: 1px solid var(--gold);
 }
 
 .partner-icon-badge {
-    width: 76px;
-    height: 76px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #D4AF37, #f0c85a);
+    background: transparent;
+    border: 1px solid var(--line-on-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 24px;
+    margin: 0 auto 26px;
     flex-shrink: 0;
 }
 
 .partner-icon-badge i {
-    font-size: 32px;
-    color: #1A2348;
+    font-size: 26px;
+    color: var(--gold);
 }
 
 .partner-eyebrow {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
     font-size: 10px;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #D4AF37;
-    margin-bottom: 10px;
+    color: var(--gold);
+    margin-bottom: 12px;
     display: block;
 }
 
 .partner-card-title {
+    font-family: var(--font-display);
     font-size: 1.6rem;
-    font-weight: 800;
+    font-weight: 700;
     color: #fff;
     margin-bottom: 12px;
     line-height: 1.2;
 }
 
 .partner-card-name {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #D4AF37;
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--gold);
     margin-bottom: 8px;
 }
 
 .partner-card-credentials {
+    font-family: var(--font-serif);
     font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.65);
+    color: rgba(255, 255, 255, 0.6);
     margin-bottom: 18px;
     font-style: italic;
 }
 
 .partner-card-text {
+    font-family: var(--font-sans);
     font-size: 0.975rem;
-    color: rgba(255, 255, 255, 0.82);
+    color: rgba(255, 255, 255, 0.78);
     line-height: 1.65;
     margin: 0;
 }
@@ -373,7 +278,7 @@
 
 @media (max-width: 767px) {
     .partner-card {
-        padding: 36px 24px 32px;
+        padding: 40px 28px 36px;
         margin-top: 24px;
         margin-bottom: 8px;
     }
@@ -383,166 +288,148 @@
     }
 
     .partner-icon-badge {
-        width: 64px;
-        height: 64px;
+        width: 56px;
+        height: 56px;
     }
 
     .partner-icon-badge i {
-        font-size: 26px;
+        font-size: 22px;
     }
 }
 
 /* ============================================================
-   STATISTICS  — dark navy premium cards with icon badges
+   STATISTICS — two layouts sharing the same building blocks:
+   .stat-card  = hairline-bordered tile (About / Services pages)
+   .stat-row / .stat-item = hairline-divided row (Home page)
    ============================================================ */
 
 .stat-section {
-    padding: 72px 0;
-    background: #1A2348;
-}
-
-.stat-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(212, 175, 55, 0.22);
-    border-radius: 16px;
-    padding: 40px 24px 36px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
-    height: 100%;
-}
-
-/* Gold top accent bar */
-.stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: #D4AF37;
-}
-
-/* Subtle corner glow */
-.stat-card::after {
-    content: '';
-    position: absolute;
-    bottom: -50px;
-    right: -50px;
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(166, 62, 197, 0.15) 0%, transparent 70%);
-    pointer-events: none;
-}
-
-.stat-card:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.09);
-    box-shadow: 0 20px 56px rgba(0, 0, 0, 0.4);
+    padding: 80px 0;
+    background: var(--navy-deep);
 }
 
 .stat-icon-badge {
-    width: 64px;
-    height: 64px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #D4AF37, #f0c85a);
+    background: transparent;
+    border: 1px solid var(--line-on-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 20px;
+    margin: 0 auto 18px;
     flex-shrink: 0;
 }
 
 .stat-icon-badge i {
-    font-size: 26px;
-    color: #1A2348;
+    font-size: 20px;
+    color: var(--gold);
 }
 
 .stat-number {
-    font-size: clamp(2.4rem, 4vw, 3rem);
-    font-weight: 900;
-    color: #D4AF37;
+    font-family: var(--font-mono);
+    font-size: clamp(2.1rem, 4vw, 2.6rem);
+    font-weight: 500;
+    color: var(--gold);
     line-height: 1;
     margin-bottom: 10px;
 }
 
 .stat-label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.78);
-    letter-spacing: 0.04em;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.68);
+    letter-spacing: 0.06em;
     text-transform: uppercase;
 }
 
+/* Card variant — About / Services pages */
+.stat-card {
+    background: transparent;
+    border: 1px solid var(--line-on-dark);
+    border-radius: 2px;
+    padding: 40px 24px 36px;
+    text-align: center;
+    height: 100%;
+}
+
+/* Row variant — Home page */
+.stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.stat-item {
+    flex: 1 1 0;
+    min-width: 150px;
+    text-align: center;
+    padding: 8px 28px;
+    border-left: 1px solid var(--line-on-dark);
+}
+
+.stat-item:first-child {
+    border-left: none;
+}
+
+@media (max-width: 767px) {
+    .stat-item {
+        flex: 1 1 50%;
+        padding: 24px 16px 4px;
+        border-left: 1px solid var(--line-on-dark);
+    }
+
+    .stat-item:nth-child(odd) {
+        border-left: none;
+    }
+
+    .stat-item:nth-child(n+3) {
+        border-top: 1px solid var(--line-on-dark);
+    }
+}
+
 /* ============================================================
-   REGIONAL PRESENCE  — light cards with hover accent bar
+   REGIONAL PRESENCE  — hairline tiles
    ============================================================ */
 
 .rp-section {
-    padding: 80px 0;
-    background: #f8f7fc;
+    padding: 96px 0;
+    background: var(--bg);
 }
 
 .rp-section-heading {
+    font-family: var(--font-display);
     font-size: clamp(1.6rem, 3vw, 2.25rem);
-    font-weight: 800;
-    color: #1A2348;
+    font-weight: 700;
+    color: var(--ink);
     margin-bottom: 12px;
 }
 
 .rp-section-sub {
+    font-family: var(--font-sans);
     font-size: 1.05rem;
-    color: #555;
+    color: var(--ink-soft);
     max-width: 480px;
     margin: 0 auto;
 }
 
 .rp-card {
-    background: #fff;
-    border: 1px solid #ede9f7;
-    border-radius: 14px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 2px;
     padding: 32px 16px 26px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 18px rgba(26, 35, 72, 0.07);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
-}
-
-/* Gold top accent bar — reveals on hover */
-.rp-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: #D4AF37;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s ease;
-}
-
-.rp-card:hover::before {
-    transform: scaleX(1);
-}
-
-.rp-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 16px 40px rgba(26, 35, 72, 0.13);
 }
 
 .rp-flag-wrap {
     width: 90px;
     height: 58px;
     margin: 0 auto 16px;
-    border-radius: 4px;
+    border: 1px solid var(--line);
     /* overflow visible so the displacement filter isn't clipped at edges */
     overflow: visible;
-    box-shadow: 0 3px 14px rgba(26, 35, 72, 0.22);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -554,15 +441,15 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 3px;
     /* Apply the SVG fabric-wave filter defined inline in about.html */
     filter: url('#flag-wave-filter');
 }
 
 .rp-country-name {
+    font-family: var(--font-sans);
     font-size: 0.875rem;
-    font-weight: 700;
-    color: #1A2348;
+    font-weight: 600;
+    color: var(--ink);
     letter-spacing: 0.03em;
 }
 
@@ -572,24 +459,15 @@
 
 @media (max-width: 767px) {
     .stat-section {
-        padding: 48px 0;
+        padding: 56px 0;
     }
 
     .stat-card {
         padding: 30px 18px 26px;
     }
 
-    .stat-icon-badge {
-        width: 54px;
-        height: 54px;
-    }
-
-    .stat-icon-badge i {
-        font-size: 22px;
-    }
-
     .rp-section {
-        padding: 48px 0;
+        padding: 56px 0;
     }
 
     .rp-flag-wrap {

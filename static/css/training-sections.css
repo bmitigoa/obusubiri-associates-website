@@ -1,74 +1,62 @@
 /* ============================================================
    TRAINING PAGE — Who We Train & Delivery Methods sections
-   Matches the sticky-panels design language.
+   Minimalist / editorial: hairline borders instead of shadows.
    ============================================================ */
-
-/* ---------- Shared section label (mono uppercase) ---------- */
-.ts-section-label {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #D4AF37;
-    display: block;
-    margin-bottom: 10px;
-}
 
 /* ============================================================
-   INTRO LEFT COLUMN — visual lift to pair with the wy-card
+   INTRO LEFT COLUMN
    ============================================================ */
 
-/* Thin gold rule beneath the heading */
+/* Thin gold hairline beneath the heading */
 .ti-divider {
     width: 48px;
-    height: 3px;
-    background: linear-gradient(90deg, #D4AF37, #A63EC5);
-    border-radius: 2px;
+    height: 2px;
+    background: var(--gold);
     margin-bottom: 20px;
 }
 
-/* Lead paragraph — slightly larger weight */
+/* Lead paragraph — body copy */
 .ti-lead {
+    font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.75;
-    color: #333;
+    color: var(--ink-soft);
     margin-bottom: 20px;
 }
 
-/* Pull-quote with gold left border */
+/* Pull-quote — italic serif on a soft gold tint */
 .ti-pullquote {
     margin: 0;
-    padding: 14px 20px;
-    border-left: 4px solid #D4AF37;
-    background: #faf8ff;
-    border-radius: 0 8px 8px 0;
-    font-size: 0.92rem;
-    font-style: normal;
-    color: #1A2348;
+    padding: 18px 24px;
+    border-left: 2px solid var(--gold);
+    background: var(--gold-tint);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--ink);
     line-height: 1.65;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 /* ============================================================
-   WHY OUR TRAINING?  — branded intro card
+   WHY OUR TRAINING?  — hairline list card
    ============================================================ */
 
 .wy-card {
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: 0 8px 32px rgba(26, 35, 72, 0.13);
+    border: 1px solid var(--line);
 }
 
 .wy-card-header {
-    background: linear-gradient(135deg, #1A2348, #A63EC5);
-    padding: 28px 32px 24px;
+    background: var(--navy-deep);
+    padding: 30px 32px 26px;
     text-align: center;
+    border-bottom: 1px solid var(--gold);
 }
 
 .wy-card-title {
+    font-family: var(--font-display);
     color: #fff;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 1.4rem;
     margin: 0;
 }
@@ -77,62 +65,61 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    background: #fff;
+    background: var(--surface);
 }
 
 .wy-item {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 16px 28px;
-    border-bottom: 1px solid #f0edf8;
-    transition: background 0.2s ease;
+    padding: 18px 28px;
+    border-bottom: 1px solid var(--line);
 }
 
 .wy-item:last-child {
     border-bottom: none;
 }
 
-.wy-item:hover {
-    background: #faf8ff;
-}
-
 .wy-icon {
     flex-shrink: 0;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #A63EC5, #1A2348);
+    background: transparent;
+    border: 1px solid var(--line);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .wy-icon i {
-    font-size: 16px;
-    color: #fff;
+    font-size: 14px;
+    color: var(--gold);
 }
 
 .wy-text {
+    font-family: var(--font-sans);
     font-size: 0.95rem;
-    font-weight: 700;
-    color: #1A2348;
+    font-weight: 600;
+    color: var(--ink);
 }
 
 /* ============================================================
-   WHO WE TRAIN  — icon-badge tile grid
+   WHO WE TRAIN  — hairline tile grid
    ============================================================ */
 
 .wt-section {
-    padding: 80px 0;
-    background: #fff;
+    padding: 96px 0;
+    background: var(--surface);
 }
 
 .wt-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 1px;
     margin-top: 48px;
+    background: var(--line);
+    border: 1px solid var(--line);
 }
 
 .wt-tile {
@@ -140,82 +127,51 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 32px 20px 28px;
-    border-radius: 12px;
-    background: #fff;
-    border: 1px solid #ede9f7;
-    box-shadow: 0 4px 18px rgba(26, 35, 72, 0.07);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Gold top accent bar */
-.wt-tile::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: #D4AF37;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s ease;
-}
-
-.wt-tile:hover::before {
-    transform: scaleX(1);
-}
-
-.wt-tile:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 36px rgba(26, 35, 72, 0.13);
+    padding: 36px 20px 32px;
+    background: var(--surface);
 }
 
 .wt-icon-badge {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #A63EC5, #1A2348);
+    background: transparent;
+    border: 1px solid var(--line);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
     flex-shrink: 0;
 }
 
 .wt-icon-badge i {
-    font-size: 24px;
-    color: #fff;
+    font-size: 22px;
+    color: var(--gold);
 }
 
 .wt-tile-label {
-    font-size: 0.9rem;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
     font-weight: 700;
-    color: #1A2348;
+    color: var(--ink);
     line-height: 1.35;
 }
 
 .wt-tile-desc {
+    font-family: var(--font-sans);
     font-size: 0.8rem;
-    color: #666;
+    color: var(--ink-soft);
     line-height: 1.5;
     margin: 10px 0 0;
 }
 
-/* Bottom row: 3-col on same grid (span trick) */
-.wt-grid .wt-tile--wide {
-    /* handled via grid placement in HTML */
-}
-
 /* ============================================================
-   TRAINING DELIVERY METHODS  — icon cards on dark bg
+   TRAINING DELIVERY METHODS  — hairline cards
    ============================================================ */
 
 .td-section {
-    padding: 80px 0;
-    background: #f8f7fc;
+    padding: 96px 0;
+    background: var(--bg);
 }
 
 .td-grid {
@@ -226,39 +182,25 @@
 }
 
 .td-card {
-    background: #fff;
-    border-radius: 12px;
-    border: none;
+    background: var(--surface);
+    border: 1px solid var(--line);
     padding: 36px 24px 32px;
     text-align: center;
-    box-shadow: 0 4px 18px rgba(26, 35, 72, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    overflow: hidden;
-}
-
-/* Purple left accent bar */
-.td-card::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: linear-gradient(180deg, #A63EC5, #1A2348);
-    border-radius: 12px 0 0 12px;
+    border-top: 2px solid transparent;
+    transition: border-top-color 0.25s ease;
 }
 
 .td-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(26, 35, 72, 0.14);
+    border-top-color: var(--gold);
 }
 
 .td-icon-wrap {
-    width: 68px;
-    height: 68px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #1A2348, #A63EC5);
+    background: transparent;
+    border: 1px solid var(--line);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -266,20 +208,22 @@
 }
 
 .td-icon-wrap i {
-    font-size: 28px;
-    color: #fff;
+    font-size: 24px;
+    color: var(--gold);
 }
 
 .td-card-title {
+    font-family: var(--font-display);
     font-size: 1rem;
-    font-weight: 800;
-    color: #1A2348;
+    font-weight: 700;
+    color: var(--ink);
     margin-bottom: 10px;
 }
 
 .td-card-text {
+    font-family: var(--font-sans);
     font-size: 0.855rem;
-    color: #555;
+    color: var(--ink-soft);
     line-height: 1.55;
     margin: 0;
 }
@@ -301,25 +245,24 @@
 @media (max-width: 575px) {
     .wt-section,
     .td-section {
-        padding: 48px 0;
+        padding: 56px 0;
     }
 
     .wt-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 14px;
     }
 
     .wt-tile {
-        padding: 24px 14px 20px;
+        padding: 26px 14px 22px;
     }
 
     .wt-icon-badge {
-        width: 48px;
-        height: 48px;
+        width: 46px;
+        height: 46px;
     }
 
     .wt-icon-badge i {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .td-grid {

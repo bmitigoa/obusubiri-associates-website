@@ -7,12 +7,7 @@ Home | Obusubiri & Associates
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/sticky-panels.css' %}">
-<link rel="stylesheet" href="{% static 'css/about-cards.css' %}">
-{% endblock %}
-
-{% block js %}
-<script src="{% static 'js/sticky-panels.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/about-cards.css' %}?v=2">
 {% endblock %}
 
 {% block content %}
@@ -69,46 +64,38 @@ Home | Obusubiri & Associates
 
     <div class="container">
 
-        <div class="row g-4 justify-content-center">
+        <div class="stat-row">
 
-            <div class="col-sm-6 col-md-3">
-                <div class="stat-card">
-                    <div class="stat-icon-badge">
-                        <i class="bi bi-clock-history"></i>
-                    </div>
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Years Experience</div>
+            <div class="stat-item">
+                <div class="stat-icon-badge">
+                    <i class="bi bi-clock-history"></i>
                 </div>
+                <div class="stat-number mono-figure">15+</div>
+                <div class="stat-label">Years Experience</div>
             </div>
 
-            <div class="col-sm-6 col-md-3">
-                <div class="stat-card">
-                    <div class="stat-icon-badge">
-                        <i class="bi bi-clipboard2-check-fill"></i>
-                    </div>
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Assignments Completed</div>
+            <div class="stat-item">
+                <div class="stat-icon-badge">
+                    <i class="bi bi-clipboard2-check-fill"></i>
                 </div>
+                <div class="stat-number mono-figure">500+</div>
+                <div class="stat-label">Assignments Completed</div>
             </div>
 
-            <div class="col-sm-6 col-md-3">
-                <div class="stat-card">
-                    <div class="stat-icon-badge">
-                        <i class="bi bi-people-fill"></i>
-                    </div>
-                    <div class="stat-number">100+</div>
-                    <div class="stat-label">Clients Served</div>
+            <div class="stat-item">
+                <div class="stat-icon-badge">
+                    <i class="bi bi-people-fill"></i>
                 </div>
+                <div class="stat-number mono-figure">100+</div>
+                <div class="stat-label">Clients Served</div>
             </div>
 
-            <div class="col-sm-6 col-md-3">
-                <div class="stat-card">
-                    <div class="stat-icon-badge">
-                        <i class="bi bi-globe-americas"></i>
-                    </div>
-                    <div class="stat-number">5+</div>
-                    <div class="stat-label">Countries Served</div>
+            <div class="stat-item">
+                <div class="stat-icon-badge">
+                    <i class="bi bi-globe-americas"></i>
                 </div>
+                <div class="stat-number mono-figure">5+</div>
+                <div class="stat-label">Countries Served</div>
             </div>
 
         </div>
@@ -119,14 +106,15 @@ Home | Obusubiri & Associates
 
 <!-- ABOUT PREVIEW -->
 
-<section class="bg-light py-5">
-
+<section class="ob-section ob-section--alt">
 
 <div class="container">
 
     <div class="row align-items-center">
 
         <div class="col-lg-6">
+
+            <span class="ob-section-label">Who We Are</span>
 
             <h2 class="purple-text mb-4">
                 About Obusubiri & Associates
@@ -156,25 +144,19 @@ Home | Obusubiri & Associates
 
         <div class="col-lg-6">
 
-            <div class="card shadow border-0">
+            <div class="value-panel">
 
-                <div class="card-body p-4">
+                <h3 class="value-panel-heading">
+                    Our Core Values
+                </h3>
 
-                    <h4 class="purple-text mb-4">
-                        Our Core Values
-                    </h4>
-
-                    <p>✓ Integrity</p>
-
-                    <p>✓ Professionalism</p>
-
-                    <p>✓ Accountability</p>
-
-                    <p>✓ Excellence</p>
-
-                    <p>✓ Client Focus</p>
-
-                </div>
+                <ul class="value-list">
+                    <li>Integrity</li>
+                    <li>Professionalism</li>
+                    <li>Accountability</li>
+                    <li>Excellence</li>
+                    <li>Client Focus</li>
+                </ul>
 
             </div>
 
@@ -184,20 +166,53 @@ Home | Obusubiri & Associates
 
 </div>
 
+</section>
+
+<!-- SERVICES — simple stacked list -->
+
+<section class="ob-section" id="{{ sp_id }}">
+
+    <div class="container">
+
+        <div class="text-center mb-2">
+            {% if sp_label %}<span class="ob-section-label">{{ sp_label }}</span>{% endif %}
+            <h2 class="ob-section-heading">{{ sp_heading }}</h2>
+            {% if sp_intro %}
+            <p class="ob-section-intro mx-auto" style="max-width:640px;">{{ sp_intro }}</p>
+            {% endif %}
+        </div>
+
+        <div class="hm-services-list">
+            {% for panel in sp_panels %}
+            <div class="hm-service-item">
+                <span class="hm-service-number mono-figure">{{ panel.number }}</span>
+                <span class="hm-service-icon">
+                    <i class="bi {% cycle 'bi-clipboard2-check' 'bi-cash-coin' 'bi-graph-up-arrow' 'bi-mortarboard' %}"></i>
+                </span>
+                <div class="hm-service-body">
+                    <h3 class="hm-service-title">{{ panel.title }}</h3>
+                    {% if panel.desc %}<p class="hm-service-desc">{{ panel.desc }}</p>{% endif %}
+                </div>
+                {% if panel.cta_url %}
+                <a href="{{ panel.cta_url }}" class="hm-service-link">{{ panel.cta_text|default:"Learn more" }} &rarr;</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
 
 </section>
 
-<!-- SERVICES — sticky panels component -->
-{% include 'components/sticky_panels.html' %}
-
 <!-- INDUSTRIES -->
 
-<section class="bg-light py-5">
-
+<section class="ob-section">
 
 <div class="container">
 
     <div class="text-center mb-5">
+
+        <span class="ob-section-label">Who We Serve</span>
 
         <h2 class="purple-text">
             Industries We Serve
@@ -208,7 +223,7 @@ Home | Obusubiri & Associates
     <div class="row">
 
         <div class="col-md-4 mb-4">
-            <div class="card service-card shadow h-100">
+            <div class="card service-card h-100">
                 <div class="card-body text-center">
                     <i class="bi bi-people-fill service-icon"></i>
                     <h5>NGOs & Development Partners</h5>
@@ -217,7 +232,7 @@ Home | Obusubiri & Associates
         </div>
 
         <div class="col-md-4 mb-4">
-            <div class="card service-card shadow h-100">
+            <div class="card service-card h-100">
                 <div class="card-body text-center">
                     <i class="bi bi-bank service-icon"></i>
                     <h5>Government Institutions</h5>
@@ -226,7 +241,7 @@ Home | Obusubiri & Associates
         </div>
 
         <div class="col-md-4 mb-4">
-            <div class="card service-card shadow h-100">
+            <div class="card service-card h-100">
                 <div class="card-body text-center">
                     <i class="bi bi-building service-icon"></i>
                     <h5>Private Sector Organisations</h5>
@@ -238,42 +253,37 @@ Home | Obusubiri & Associates
 
 </div>
 
-
 </section>
 
 <!-- MANAGING PARTNER -->
 
 <section class="container py-5">
 
+<div class="quote-panel text-center">
 
-<div class="card shadow border-0">
+    <span class="ob-section-label">From Leadership</span>
 
-    <div class="card-body p-5 text-center">
+    <h2 class="purple-text">
+        Message From The Managing Partner
+    </h2>
 
-        <h2 class="purple-text">
-            Message From The Managing Partner
-        </h2>
+    <h4 class="mt-4">
+        CPA Moses Mitigoa Obusubiri
+    </h4>
 
-        <h4 class="mt-4">
-            CPA Moses Mitigoa Obusubiri
-        </h4>
+    <p class="text-muted">
+        MBA (Finance), B.Ed, CPA(K)
+    </p>
 
-        <p class="text-muted">
-            MBA (Finance), B.Ed, CPA(K)
-        </p>
+    <p class="lead">
 
-        <p class="lead">
+        We are committed to delivering professional,
+        practical and client-focused solutions that
+        strengthen governance, accountability and organisational performance.
 
-            We are committed to delivering professional,
-            practical and client-focused solutions that
-            strengthen governance, accountability and organisational performance.
-
-        </p>
-
-    </div>
+    </p>
 
 </div>
-
 
 </section>
 

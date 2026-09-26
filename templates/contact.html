@@ -6,7 +6,7 @@ Contact Us | Obusubiri MM &amp; Associates
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/about-cards.css' %}">
+<link rel="stylesheet" href="{% static 'css/about-cards.css' %}?v=2">
 {% endblock %}
 
 {% block js %}
@@ -109,7 +109,7 @@ Contact Us | Obusubiri MM &amp; Associates
                         </div>
                         <div>
                             <span class="contact-detail-label">Phone</span>
-                            <p class="contact-detail-value">
+                            <p class="contact-detail-value mono-figure">
                                 +254 712 238 764<br>
                                 +254 733 901 589
                             </p>
@@ -180,9 +180,9 @@ Contact Us | Obusubiri MM &amp; Associates
                             </div>
                             {% endif %}
 
-                            <div class="card border-0 bg-light rounded-3 mb-4">
+                            <div class="hairline-box mb-4">
                                 <div class="card-body py-3 px-4">
-                                    <p class="text-muted text-uppercase small fw-semibold mb-2" style="letter-spacing:.08em;">Enquiry Summary</p>
+                                    <p class="text-muted text-uppercase small fw-semibold mb-2" style="letter-spacing:.08em;font-family:var(--font-mono);">Enquiry Summary</p>
                                     <dl class="mb-0 row g-1">
                                         {% if submitted_service %}
                                         <div class="col-12 d-flex gap-2">
@@ -305,7 +305,7 @@ Contact Us | Obusubiri MM &amp; Associates
 
 <!-- WHY WORK WITH US -->
 
-<section class="cv-section cv-section--alt" style="background:#f8f7fc;">
+<section class="cv-section cv-section--alt" style="background:var(--bg);">
 
     <div class="container">
 
@@ -386,7 +386,7 @@ Contact Us | Obusubiri MM &amp; Associates
                     <h3 class="mv-card-title">Our Location</h3>
 
                     <p class="mv-card-text">
-                        <strong style="color:#D4AF37;">Milele Centre, 2nd Floor</strong><br>
+                        <strong style="color:var(--gold);">Milele Centre, 2nd Floor</strong><br>
                         Namanga Road, Kitengela<br>
                         Kajiado County, Kenya<br><br>
                         Located within the Nairobi Metropolitan Area,
