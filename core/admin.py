@@ -3,7 +3,7 @@ import csv
 from django.contrib import admin
 from django.http import HttpResponse
 
-from .models import Inquiry, TeamMember, TrainingAudience
+from .models import Inquiry, Post, TeamMember, TrainingAudience
 
 _FORMULA_PREFIXES = ('=', '+', '-', '@', '\t', '\r')
 
@@ -120,3 +120,13 @@ class TeamMemberAdmin(admin.ModelAdmin):
         if not change and not request.user.is_superuser:
             obj.user = request.user
         super().save_model(request, obj, form, change)
+
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+
+    list_display = ('title', 'category', 'is_published', 'published_at')
+    list_filter = ('is_published', 'category')
+    search_fields = ('title', 'excerpt', 'body')
+    date_hierarchy = 'published_at'
+    prepopulated_fields = {'slug': ('title',)}

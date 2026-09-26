@@ -1031,3 +1031,20 @@ Message:
             'all_service_choices': all_service_choices,
         }
     )
+
+
+# --------
+# NEWS & INSIGHTS (self-service blog)
+# --------
+
+def news_list(request):
+    from .models import Post
+    posts = Post.objects.filter(is_published=True).order_by('-published_at')
+    return render(request, 'news_list.html', {'posts': posts})
+
+
+def news_detail(request, slug):
+    from django.shortcuts import get_object_or_404
+    from .models import Post
+    post = get_object_or_404(Post, slug=slug, is_published=True)
+    return render(request, 'news_detail.html', {'post': post})

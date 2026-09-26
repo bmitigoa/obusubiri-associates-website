@@ -88,4 +88,8 @@ urlpatterns = [
 
     path('training/', views.training, name='training'),
     path('contact/', views.contact, name='contact'),
+
+    # News & Insights (self-service blog)
+    path('news/', views.news_list, name='news_list'),
+    path('news/<slug:slug>/', views.news_detail, name='news_detail'),
 ]

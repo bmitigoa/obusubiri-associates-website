@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ post.title }} | Obusubiri MM &amp; Associates
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+
+<div class="container text-center">
+
+    {% if post.category %}
+    <span class="ob-section-label eyebrow-center">{{ post.category }}</span>
+    {% endif %}
+
+    <h1>
+        {{ post.title }}
+    </h1>
+
+    <p class="page-hero-sub">
+        {{ post.published_at|date:"F j, Y" }}
+    </p>
+
+</div>
+
+</section>
+
+<section class="container py-5">
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-10">
+
+        <a href="{% url 'news_list' %}" class="text-link mb-4 d-inline-block">
+            &larr; Back to News &amp; Insights
+        </a>
+
+        {% if post.featured_image %}
+        <img src="{{ post.featured_image.url }}"
+             alt="{{ post.title }}"
+             class="img-fluid mb-4"
+             style="width:100%;border:1px solid var(--line);">
+        {% endif %}
+
+        {{ post.body|linebreaks }}
+
+        <hr class="my-5">
+
+        <div class="hairline-box p-4" style="background:var(--bg);">
+
+            <h3 class="purple-text">
+                Need Professional Assistance?
+            </h3>
+
+            <p>
+                Our team is available to provide practical guidance,
+                professional representation and compliance support tailored
+                to your organisation's needs.
+            </p>
+
+            <a href="/contact/"
+               class="btn btn-warning btn-lg">
+
+                Request Consultation
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+{% endblock %}

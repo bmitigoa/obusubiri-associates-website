@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.utils import timezone
 
 
 class Inquiry(models.Model):
@@ -180,3 +181,57 @@ class TeamMember(models.Model):
     def initials(self):
         letters = [part[0].upper() for part in self.full_name.split() if part]
         return ''.join(letters[:2]) or '?'
+
+
+class Post(models.Model):
+    """A self-service News & Insights article."""
+
+    title = models.CharField(max_length=220)
+    slug = models.SlugField(
+        max_length=250, unique=True, blank=True,
+        help_text="Leave blank to auto-generate from the title.",
+    )
+    excerpt = models.CharField(
+        max_length=300, blank=True, default='',
+        help_text="A short summary shown on the News list page. Leave "
+                   "blank to auto-generate from the start of the article.",
+    )
+    body = models.TextField(
+        help_text="Write the article in plain paragraphs. Leave a blank "
+                   "line between paragraphs — no HTML or code needed.",
+    )
+    featured_image = models.ImageField(
+        upload_to='news/', blank=True, null=True,
+    )
+    category = models.CharField(
+        max_length=100, blank=True, default='',
+        help_text="Optional, e.g. 'Tax Advisory'. Shown as a small label "
+                   "on the article.",
+    )
+    is_published = models.BooleanField(
+        default=True,
+        help_text="Uncheck to save as a draft — it will not appear on "
+                   "the website until this is checked.",
+    )
+    published_at = models.DateTimeField(default=timezone.now)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-published_at']
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            from django.utils.text import slugify
+            base_slug = slugify(self.title)[:250]
+            slug = base_slug
+            n = 2
+            while Post.objects.filter(slug=slug).exclude(pk=self.pk).exists():
+                slug = f"{base_slug}-{n}"
+                n += 1
+            self.slug = slug
+        if not self.excerpt and self.body:
+            self.excerpt = self.body.strip()[:280]
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title

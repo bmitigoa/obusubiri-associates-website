@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}
+News &amp; Insights | Obusubiri MM &amp; Associates
+{% endblock %}
+
+{% block content %}
+
+<section class="page-hero">
+    <div class="container">
+        <span class="ob-section-label eyebrow-center">Latest Updates</span>
+        <h1>News &amp; Insights</h1>
+        <p class="page-hero-sub">
+            Practical guidance, updates and thinking from Obusubiri MM &amp; Associates.
+        </p>
+    </div>
+</section>
+
+<section class="ob-section">
+
+    <div class="container">
+
+        {% if posts %}
+        <div class="row g-4">
+
+            {% for post in posts %}
+            <div class="col-md-4">
+                <div class="article-card">
+
+                    {% if post.featured_image %}
+                    <img class="article-card-image" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                    {% endif %}
+
+                    {% if post.category %}
+                    <span class="article-card-eyebrow">{{ post.category }}</span>
+                    {% endif %}
+
+                    <a href="{% url 'news_detail' post.slug %}" class="article-card-title">
+                        {{ post.title }}
+                    </a>
+
+                    <p class="article-card-text">
+                        {{ post.excerpt }}
+                    </p>
+
+                    <span class="article-card-date">{{ post.published_at|date:"F j, Y" }}</span>
+
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        {% else %}
+        <div class="text-center py-5">
+            <p class="lead mb-0">
+                New articles are coming soon — check back shortly.
+            </p>
+        </div>
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

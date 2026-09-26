@@ -24,7 +24,7 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 
-    <link rel="stylesheet" href="{% static 'css/site-design.css' %}?v=5">
+    <link rel="stylesheet" href="{% static 'css/site-design.css' %}?v=6">
 
     <style>
 
@@ -378,6 +378,10 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="/services/#insights">Insights</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'news_list' %}">News &amp; Insights</a>
                 </li>
 
                 <li class="nav-item ms-lg-3">
