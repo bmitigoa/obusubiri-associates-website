@@ -27,6 +27,7 @@ def export_as_csv(modeladmin, request, queryset):
         'full_name', 'email', 'phone_number', 'organisation',
         'service_area', 'service', 'programme', 'message', 'created_at',
         'wants_booking', 'preferred_date', 'preferred_time', 'booking_status',
+        'flagged_as_likely_spam',
     ])
 
     for inquiry in queryset:
@@ -44,6 +45,7 @@ def export_as_csv(modeladmin, request, queryset):
             _safe_csv_value(inquiry.preferred_date),
             _safe_csv_value(inquiry.preferred_time),
             _safe_csv_value(inquiry.booking_status),
+            _safe_csv_value(inquiry.flagged_as_likely_spam),
         ])
 
     return response
@@ -68,6 +70,7 @@ class InquiryAdmin(admin.ModelAdmin):
         'preferred_date',
         'preferred_time',
         'booking_status',
+        'flagged_as_likely_spam',
     )
 
     list_display_links = ('full_name',)
@@ -76,7 +79,7 @@ class InquiryAdmin(admin.ModelAdmin):
 
     date_hierarchy = 'created_at'
 
-    list_filter = ('service_area', 'service', 'programme', 'email_sent', 'wants_booking', 'booking_status')
+    list_filter = ('service_area', 'service', 'programme', 'email_sent', 'wants_booking', 'booking_status', 'flagged_as_likely_spam')
 
     search_fields = (
         'full_name',

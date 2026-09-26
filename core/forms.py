@@ -1,3 +1,5 @@
+import time
+
 from django import forms
 from .models import Inquiry
 
@@ -23,6 +25,15 @@ class InquiryForm(forms.ModelForm):
             'class': 'hp-field',
             'aria-hidden': 'true',
         }),
+    )
+
+    # Timing trap: a real visitor takes at least a few seconds to read the
+    # form and type into it. This is a plain hidden field (not styled or
+    # hidden like the honeypot above) set to the render timestamp by the
+    # view; is_probably_spam() flags submissions that arrive too fast.
+    form_rendered_at = forms.CharField(
+        required=False,
+        widget=forms.HiddenInput(),
     )
 
     SERVICE_AREA_CHOICES = [
@@ -70,9 +81,29 @@ class InquiryForm(forms.ModelForm):
 
     def is_probably_spam(self):
         """True if the honeypot field was filled in, which a real visitor
-        cannot do since it is invisible and unreachable by tab. Call this
-        after the form has been validated (is_valid() / clean())."""
-        return bool(self.cleaned_data.get('website'))
+        cannot do since it is invisible and unreachable by tab, OR if the
+        form was submitted too quickly to plausibly be a real person filling
+        it in by hand. Call this after the form has been validated
+        (is_valid() / clean())."""
+        if bool(self.cleaned_data.get('website')):
+            return True
+
+        # Timing check: missing or unparseable timestamps, and submissions
+        # under 4 seconds, are treated as spam. A slow submission (a real
+        # visitor leaving the tab open) is never penalized.
+        rendered_at = self.cleaned_data.get('form_rendered_at')
+        try:
+            elapsed = time.time() - float(rendered_at)
+        except (TypeError, ValueError):
+            return True
+
+        return elapsed < 4
+
+    def contains_link(self):
+        """Soft signal only — used to flag a submission for review, never
+        to discard it. True if the message appears to contain a link."""
+        message = (self.cleaned_data.get('message') or '').lower()
+        return 'http://' in message or 'https://' in message or 'www.' in message
 
     class Meta:
         model = Inquiry

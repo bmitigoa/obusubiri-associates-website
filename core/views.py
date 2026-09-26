@@ -1,8 +1,10 @@
 import json
 import logging
 
+from django.core.cache import cache
 from django.shortcuts import render
 from django.core.mail import send_mail
+from django.utils import timezone
 
 from .forms import InquiryForm
 
@@ -936,6 +938,35 @@ def contact(request):
 
     if request.method == 'POST':
 
+        # Lightweight per-visitor throttling, ahead of any form processing.
+        # Skipped entirely if the real client IP isn't reaching us (e.g. a
+        # reverse proxy not forwarding it) — treating every visitor as the
+        # same IP in that case would throttle everyone, not just abusers.
+        client_ip = (
+            request.META.get('HTTP_X_FORWARDED_FOR', '').split(',')[0].strip()
+            or request.META.get('REMOTE_ADDR', '')
+        )
+        throttled = False
+        if client_ip and client_ip not in ('127.0.0.1', '::1', ''):
+            cache_key = f'inquiry_submits_{client_ip}'
+            count = cache.get(cache_key, 0)
+            if count >= 5:
+                throttled = True
+            else:
+                cache.set(cache_key, count + 1, 600)  # 10 minutes
+
+        if throttled:
+            return render(
+                request,
+                'contact.html',
+                {
+                    'form': InquiryForm(),
+                    'throttled': True,
+                    'service_area_map_json': service_area_map_json,
+                    'all_service_choices': all_service_choices,
+                }
+            )
+
         form = InquiryForm(request.POST)
 
         if form.is_valid():
@@ -961,6 +992,11 @@ def contact(request):
                 )
 
             inquiry = form.save()
+
+            if form.contains_link():
+                inquiry.flagged_as_likely_spam = True
+                inquiry.save(update_fields=['flagged_as_likely_spam'])
+
             programme = form.cleaned_data.get('programme', '')
             service_area = form.cleaned_data.get('service_area', '')
 
@@ -1015,6 +1051,7 @@ Message:
         programme = request.GET.get('programme', '')
         service_area = request.GET.get('service_area', '')
         initial = {}
+        initial['form_rendered_at'] = str(int(timezone.now().timestamp()))
         if programme:
             initial['service'] = 'Training & Capacity Building'
             initial['programme'] = programme

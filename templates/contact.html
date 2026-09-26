@@ -179,6 +179,18 @@ Contact Us | Obusubiri MM &amp; Associates
 
                             {% csrf_token %}
 
+                            {{ form.form_rendered_at }}
+
+                            {# ---- Throttling banner ---- #}
+                            {% if throttled %}
+                            <div class="alert alert-warning mb-4" role="alert">
+                                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                                You've submitted several enquiries recently. If this wasn't you,
+                                please wait a few minutes and try again, or reach us directly at
+                                <strong>info@obusubiriassociates.co.ke</strong> or <strong>+254 712 238 764</strong>.
+                            </div>
+                            {% endif %}
+
                             {# ---- Success / warning banners ---- #}
                             {% if success %}
                             <div class="alert alert-success mb-4">

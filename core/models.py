@@ -101,6 +101,12 @@ class Inquiry(models.Model):
         help_text="False if the notification email failed to send.",
     )
 
+    flagged_as_likely_spam = models.BooleanField(
+        default=False,
+        help_text="Automatically flagged because the message contained a "
+                   "link. Not necessarily spam — please review before acting.",
+    )
+
     created_at = models.DateTimeField(auto_now_add=True)
 
     def clean(self):
