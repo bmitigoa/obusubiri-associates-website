@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.db import models
 
@@ -114,3 +115,32 @@ class TrainingAudience(models.Model):
 
     def __str__(self):
         return self.label
+
+
+class TeamMember(models.Model):
+    """A staff profile shown in the 'Our Team' section of the About page."""
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    full_name = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)
+    bio = models.TextField()
+    photo = models.ImageField(upload_to='team/', blank=True, null=True)
+    order = models.PositiveSmallIntegerField(
+        default=0,
+        help_text="Lower numbers appear first.",
+    )
+    active = models.BooleanField(
+        default=True,
+        help_text="Uncheck to hide this profile from the site without deleting it.",
+    )
+
+    class Meta:
+        ordering = ['order', 'full_name']
+
+    def __str__(self):
+        return self.full_name
+
+    @property
+    def initials(self):
+        letters = [part[0].upper() for part in self.full_name.split() if part]
+        return ''.join(letters[:2]) or '?'

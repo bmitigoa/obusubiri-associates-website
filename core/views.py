@@ -192,6 +192,9 @@ def about(request):
             'cta_url': '/contact/?service_area=Capacity+Building+%26+Training',
         },
     ]
+    from .models import TeamMember
+    team_members = TeamMember.objects.filter(active=True)
+
     return render(request, 'about.html', {
         'sp_id': 'about-expertise',
         'sp_label': 'Expertise',
@@ -204,6 +207,7 @@ def about(request):
         'sp_flip': True,
         'sp_badge_label': 'Expertise',
         'sp_panels': sp_panels,
+        'team_members': team_members,
     })
 
 

@@ -3,7 +3,7 @@ import csv
 from django.contrib import admin
 from django.http import HttpResponse
 
-from .models import Inquiry, TrainingAudience
+from .models import Inquiry, TeamMember, TrainingAudience
 
 _FORMULA_PREFIXES = ('=', '+', '-', '@', '\t', '\r')
 
@@ -80,3 +80,30 @@ class TrainingAudienceAdmin(admin.ModelAdmin):
 
     list_display = ('label', 'icon', 'order')
     ordering = ('order', 'label')
+
+
+@admin.register(TeamMember)
+class TeamMemberAdmin(admin.ModelAdmin):
+
+    list_display = ('full_name', 'title', 'active', 'order')
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        if request.user.is_superuser:
+            return qs
+        return qs.filter(user=request.user)
+
+    def has_add_permission(self, request):
+        if request.user.is_superuser:
+            return True
+        return not TeamMember.objects.filter(user=request.user).exists()
+
+    def get_exclude(self, request, obj=None):
+        if request.user.is_superuser:
+            return super().get_exclude(request, obj)
+        return ('user',)
+
+    def save_model(self, request, obj, form, change):
+        if not change and not request.user.is_superuser:
+            obj.user = request.user
+        super().save_model(request, obj, form, change)

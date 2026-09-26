@@ -6,7 +6,7 @@ About Us | Obusubiri MM & Associates
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/about-cards.css' %}?v=3">
+<link rel="stylesheet" href="{% static 'css/about-cards.css' %}?v=4">
 {% endblock %}
 
 {% block content %}
@@ -130,6 +130,53 @@ About Us | Obusubiri MM & Associates
     </div>
 
 </section>
+
+{% if team_members %}
+<!-- OUR TEAM -->
+
+<section class="ob-section ob-section--alt">
+
+    <div class="container">
+
+        <div class="row align-items-end mb-2">
+            <div class="col-lg-7">
+                <span class="ob-section-label">Our People</span>
+                <h2 class="ob-section-heading mb-0">Meet the team behind the work.</h2>
+            </div>
+            <div class="col-lg-5">
+                <p class="ob-section-intro">
+                    The professionals who lead every engagement, from audit
+                    and tax through to advisory and training.
+                </p>
+            </div>
+        </div>
+
+        <div class="team-grid">
+
+            {% for member in team_members %}
+            <div class="team-card">
+
+                {% if member.photo %}
+                <img class="team-photo" src="{{ member.photo.url }}" alt="{{ member.full_name }}">
+                {% else %}
+                <div class="team-photo team-photo--initials">
+                    <span>{{ member.initials }}</span>
+                </div>
+                {% endif %}
+
+                <h3 class="team-name">{{ member.full_name }}</h3>
+                <span class="team-title">{{ member.title }}</span>
+                <p class="team-bio">{{ member.bio }}</p>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+{% endif %}
 
 <!-- AREAS OF EXPERTISE — simple stacked list -->
 {% include 'components/simple_list.html' %}
